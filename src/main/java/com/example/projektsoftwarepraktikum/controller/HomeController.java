@@ -15,7 +15,7 @@ public class HomeController {
     @GetMapping("/")
     public String showHome(Model model) {
         model.addAttribute("message", "Und hier sehen Sie ein ModelAttribut");
-        return "home";
+        return "home"; //Gibt die Startseite für den User zurück
     }
 
 }
