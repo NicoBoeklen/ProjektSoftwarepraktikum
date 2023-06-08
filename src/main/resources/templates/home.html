@@ -6,7 +6,21 @@
     <title>Home</title>
 </head>
 <body>
-<p th:text="'Dies ist Ihre initiale Startseite'"></p>
+<p th:text="'Herzlich Willkommen auf Ihrer Startseite!'"></p>
+<p th:text="'Hier können Sie demnächst Feedback zu Ihren Verhandlungen erhalten.'"></p>
 <p th:text="${message}"></p>
+<div class="container">
+   <form>
+   <div class="row mb-3">
+       <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
+       <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+           <option selected>Choose your TKI Style</option>
+           <option value="1">Avoiding</option>
+           <option value="2">Compromising</option>
+           <option value="3">Three</option>
+       </select>
+   </div>
+   </form>
+</div>
 </body>
 </html>
