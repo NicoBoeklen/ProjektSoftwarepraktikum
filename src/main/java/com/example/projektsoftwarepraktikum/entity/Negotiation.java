@@ -4,14 +4,16 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "negotiation")
 public class Negotiation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "negotiationID")
     private Integer negotiationId;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "negotiationMessage", joinColumns = @JoinColumn(name = "negotiationID"), inverseJoinColumns = @JoinColumn(name = "negotiationMesssageID"))
+    @OneToMany(mappedBy = "negotiation")
+    //@JoinTable(name = "negotiationMessage", joinColumns = @JoinColumn(name = "negotiationID"), inverseJoinColumns = @JoinColumn(name = "negotiationID"))
     private Set<NegotiationMessage> messages;
 
     public Negotiation() {

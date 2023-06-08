@@ -4,5 +4,5 @@ import com.example.projektsoftwarepraktikum.entity.Negotiation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NegotiationRepository extends JpaRepository<Negotiation, Integer> {
-    Negotiation findByID(Integer ID);
+    Negotiation findByNegotiationId(Integer ID); //findBy must be followed by the actual variable name of the class
 }

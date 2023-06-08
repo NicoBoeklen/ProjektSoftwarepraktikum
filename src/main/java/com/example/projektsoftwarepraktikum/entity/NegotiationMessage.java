@@ -5,12 +5,17 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table (name = "negotiationMessage")
 public class NegotiationMessage {
 
     @Id
     @GeneratedValue
     @Column(name = "negotiationMessageID")
     private Integer negotiationMessageId;
+
+    @ManyToOne
+    @JoinColumn(name = "negotiationID")
+    private Negotiation negotiation;
 
     private Integer senderId;
 
