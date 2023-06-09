@@ -18,7 +18,6 @@ import java.util.Set;
 public class Benutzer {
 
     @Id
-    @GeneratedValue
     @Column(name = "userID")
     private Integer userId;
 

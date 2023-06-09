@@ -27,6 +27,13 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    public boolean existingUser(Integer userId) {
+        if (userRepository.existsById(userId)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public List<Benutzer> findAllUsers() {
         return userRepository.findAll();
     }
