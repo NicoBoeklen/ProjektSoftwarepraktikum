@@ -25,6 +25,7 @@ public class MessageService {
         NegotiationMessage message = new NegotiationMessage();
         message.setNegotiation(neg);
         message.setSenderId(Integer.valueOf(data[1]));
+        //für neue SenderID neuen User anlegen
         /*
         .
         .

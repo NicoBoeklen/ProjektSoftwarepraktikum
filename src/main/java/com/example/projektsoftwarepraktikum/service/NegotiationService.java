@@ -32,7 +32,7 @@ public class NegotiationService {
             Negotiation neg = null;
             while ((line=br.readLine()) !=null) {
                 String[] data = line.split(";");
-                if (data[0] != "NegotiationID") {    //Start with the 2 line in CSV File
+                //if (data[0] != "ï»¿NegotiationID") {    //Start with the 2. line in CSV File
                     if (negotiationRepository.findByNegotiationId(Integer.valueOf(data[0]))==null) {
                         //New Negotiation if negotiationID does not exist
                         neg = new Negotiation();
@@ -42,7 +42,7 @@ public class NegotiationService {
                     //Save Messages
                     MessageService messageService = new MessageService();
                     messageService.saveNegotiationMessageData(data, neg);
-                }
+                //}
             }
         } catch (IOException e) {
             e.printStackTrace();

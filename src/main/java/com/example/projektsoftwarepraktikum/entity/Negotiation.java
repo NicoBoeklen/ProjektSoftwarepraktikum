@@ -8,7 +8,6 @@ import java.util.Set;
 public class Negotiation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "negotiationID")
     private Integer negotiationId;
 
