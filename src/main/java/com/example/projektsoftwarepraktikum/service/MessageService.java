@@ -56,18 +56,18 @@ public class MessageService {
     private void newUser(Integer userID) {
         //Überprüfen ob bereits User existiert
         if (!userService.existingUser(userID)) {
+            Benutzer newUser = new Benutzer();
+            newUser.setUserId(userID);
+            newUser.setUsername("user" + userID.toString());
+            newUser.setPassword(passwordEncoder.encode("1234"));
             Rolle userRole = new Rolle("ROLE_USER");
             roleService.saveRole(userRole);
 
             Set<Rolle> userRoles = new HashSet<>();
             userRoles.add(userRole);
-
-            Benutzer newUser = new Benutzer();
-            newUser.setUserId(userID);
-            newUser.setUsername("user" + userID.toString());
-            newUser.setPassword(passwordEncoder.encode("1234"));
             newUser.setRoles(userRoles);
+            newUser.setUserId(userID);
             userService.saveUser(newUser);
-        }
+       }
     }
 }

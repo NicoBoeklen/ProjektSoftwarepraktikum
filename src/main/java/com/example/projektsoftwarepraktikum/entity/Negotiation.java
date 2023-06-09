@@ -13,7 +13,6 @@ public class Negotiation {
     private Integer negotiationId;
 
     @OneToMany(mappedBy = "negotiation")
-    //@JoinTable(name = "negotiationMessage", joinColumns = @JoinColumn(name = "negotiationID"), inverseJoinColumns = @JoinColumn(name = "negotiationMessageID"))
     private Set<NegotiationMessage> messages = new HashSet<>();
 
     public Negotiation() {
