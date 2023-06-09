@@ -6,12 +6,18 @@
     <title>Home</title>
 </head>
 <body>
+<div class="container-fluid p-2 bg-dark text-white">
 <p th:text="'Herzlich Willkommen auf Ihrer Startseite!'"></p>
 <p th:text="'Hier können Sie demnächst Feedback zu Ihren Verhandlungen erhalten.'"></p>
 <p th:text="${message}"></p>
-<div class="container">
+</div>
+<div class="conatiner pt-5"></div>
+<div class="container-fluid pt-500 bg-grey">
+
    <form>
-   <div class="row mb-3">
+
+   <div class="column mb-3">
+
        <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
        <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
            <option selected>Choose your TKI Style</option>
@@ -19,6 +25,16 @@
            <option value="2">Compromising</option>
            <option value="3">Three</option>
        </select>
+
+       <label for="Aspiration" class="col-sm-2 col-form-label">Aspiration Level</label>
+       <input id ="Aspiration" type="range" class="form-range">
+
+       <label for="Reservation" class="col-sm-2 col-form-label">Aspiration Level</label>
+       <input id ="Reservation" type="range" class="form-range">
+
+
+
+
    </div>
    </form>
 </div>
