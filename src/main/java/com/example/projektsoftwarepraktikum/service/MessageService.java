@@ -35,7 +35,7 @@ public class MessageService {
 
          */
         neg.addMessage(message);
-        saveNegotiationMessage(message);
+        //messageRepository.save(message);
     }
 
 }
