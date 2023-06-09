@@ -28,6 +28,9 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private NegotiationService negotiationService;
+
     /**
      * Diese Methode wird zum Aufsetzen von Testdaten für die Datenbank verwendet werden. Die Methode wird immer dann
      * ausgeführt, wenn der Spring Kontext initialisiert wurde, d.h. wenn Sie Ihren Server (neu-)starten.
@@ -35,7 +38,10 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         logger.info("Initialisiere Datenbank mit Testdaten...");
+        //save all data from CSV File
+        negotiationService.saveNegotiationData();
 
+        //Später im NegotiationService bei jeder neuen SenderID passenden User erstellen
         // Initialisieren Sie Beispielobjekte und speichern Sie diese über Ihre Services
         Rolle userRole = new Rolle("ROLE_USER");
         Rolle adminRole = new Rolle("ROLE_ADMIN");
