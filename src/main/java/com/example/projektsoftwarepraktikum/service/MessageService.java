@@ -20,4 +20,20 @@ public class MessageService {
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
     }
+
+    public void saveNegotiationMessageData(final String[] data, Negotiation neg) {
+        NegotiationMessage message = new NegotiationMessage();
+        message.setNegotiation(neg);
+        message.setSenderId(Integer.valueOf(data[1]));
+        /*
+        .
+        .
+        .
+        Für alle weiteren Spalten der Excel (Attribute von message)
+
+         */
+        neg.addMessage(message);
+        messageRepository.save(message);
+    }
+
 }

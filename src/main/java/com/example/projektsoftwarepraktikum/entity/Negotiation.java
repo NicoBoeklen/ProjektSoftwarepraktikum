@@ -20,6 +20,9 @@ public class Negotiation {
         // empty constructor for Hibernate
     }
 
+    public void addMessage(NegotiationMessage message) {
+        this.messages.add(message);
+    }
     ///////////////////////////////////////////////
     // Getter & Setter
     ///////////////////////////////////////////////

@@ -29,22 +29,21 @@ public class NegotiationService {
 
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/main/ressources/Testdaten_TKI.csv"));
+            Negotiation neg = null;
             while ((line=br.readLine()) !=null) {
                 String[] data = line.split(";");
-                if (data[0] != "NegotiationID"){    //Start with the 2 line in CSV File
+                if (data[0] != "NegotiationID") {    //Start with the 2 line in CSV File
                     if (negotiationRepository.findByNegotiationId(Integer.valueOf(data[0]))==null) {
                         //New Negotiation if negotiationID does not exist
-                        Negotiation neg = new Negotiation();
+                        neg = new Negotiation();
                         neg.setNegotiationId(Integer.valueOf(data[0]));
                         negotiationRepository.save(neg);
                     }
                     //Save Messages
-
-
-
+                    MessageService messageService = new MessageService();
+                    messageService.saveNegotiationMessageData(data, neg);
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
