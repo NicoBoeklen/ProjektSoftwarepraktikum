@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -44,16 +45,16 @@ public class MessageService {
         newUser(Integer.valueOf(data[1]));
 
         if (data[2] != "") {
-            message.setSenderBestCase(Integer.valueOf(data[2]));
+            message.setSenderBestCase(Double.valueOf(data[2]));
         }
         if (data[3] != "") {
-            message.setSenderWorstCase(Integer.valueOf(data[3]));
+            message.setSenderWorstCase(Double.valueOf(data[3]));
         }
         if (data[4] != "") {
-            message.setReceiversBestCase(Integer.valueOf(data[4]));
+            message.setReceiversBestCase(Double.valueOf(data[4]));
         }
         if (data[5] != "") {
-            message.setReceiversWorstCase(Integer.valueOf(data[5]));
+            message.setReceiversWorstCase(Double.valueOf(data[5]));
         }
         if (data[6] != "") {
             message.setSentDate(data[6]);
@@ -65,16 +66,16 @@ public class MessageService {
             message.setNegoOutcome(data[8]);
         }
         if (data[9] != "") {
-            message.setJointUtilityBest(Integer.valueOf(data[9]));
+            message.setJointUtilityBest(Double.valueOf(data[9]));
         }
         if (data[10] != "") {
-            message.setJointUtilityWorst(Integer.valueOf(data[10]));
+            message.setJointUtilityWorst(Double.valueOf(data[10]));
         }
         if (data[11] != "") {
-            message.setContractImbalanceBest(Integer.valueOf(data[11]));
+            message.setContractImbalanceBest(Double.valueOf(data[11]));
         }
         if (data[12] != "") {
-            message.setContractImbalanceWorst(Integer.valueOf(data[12]));
+            message.setContractImbalanceWorst(Double.valueOf(data[12]));
         }
         if (data[13] != "") {
             message.setMessageCount(Integer.valueOf(data[13]));
@@ -86,7 +87,7 @@ public class MessageService {
             message.setValue5(data[15]);
         }
         if (data[16] != "") {
-            message.setUtility_Issue5(Integer.valueOf(data[16]));
+            message.setUtility_Issue5(Double.valueOf(data[16]));
         }
         if (data[17] != "") {
             message.setIssue4(data[17]);
@@ -95,7 +96,7 @@ public class MessageService {
             message.setValue4(data[18]);
         }
         if (data[19] != "") {
-            message.setUtility_Issue4(Integer.valueOf(data[19]));
+            message.setUtility_Issue4(Double.valueOf(data[19]));
         }
         if (data[20] != "") {
             message.setIssue2(data[20]);
@@ -104,7 +105,7 @@ public class MessageService {
             message.setValue2(data[21]);
         }
         if (data[22] != "") {
-            message.setUtility_Issue2(Integer.valueOf(data[22]));
+            message.setUtility_Issue2(Double.valueOf(data[22]));
         }
         if (data[23] != "") {
             message.setIssue3(data[23]);
@@ -113,9 +114,9 @@ public class MessageService {
             message.setValue3(data[24]);
         }
         if (data[25] != "") {
-            message.setUtility_Issue3(Integer.valueOf(data[25]));
+            message.setUtility_Issue3(Double.valueOf(data[25]));
         }
-        if (data[7] != "INIT") {
+        if (!Objects.equals(data[7], "INIT")) {
             if (data[26] != "") {
                 message.setIssue1(data[26]);
             }
@@ -123,7 +124,7 @@ public class MessageService {
                 message.setValue1(data[27]);
             }
             if (data[28] != "") {
-                message.setUtility_Issue1(Integer.valueOf(data[28]));
+                message.setUtility_Issue1(Double.valueOf(data[28]));
             }
             if (data[29] != "") {
                 message.setQ1(Integer.valueOf(data[29]));
@@ -168,19 +169,19 @@ public class MessageService {
                 message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[42]));
             }
             if (data[43] != "") {
-                message.setTKI_Competing_Quantile_Rel(Integer.valueOf(data[43]));
+                message.setTKI_Competing_Quantile_Rel(Double.valueOf(data[43]));
             }
             if (data[44] != "") {
-                message.setTKI_Compromising_Quantile_Rel(Integer.valueOf(data[44]));
+                message.setTKI_Compromising_Quantile_Rel(Double.valueOf(data[44]));
             }
             if (data[45] != "") {
-                message.setTKI_Collaborating_Quantile_Rel(Integer.valueOf(data[45]));
+                message.setTKI_Collaborating_Quantile_Rel(Double.valueOf(data[45]));
             }
             if (data[46] != "") {
-                message.setTKI_Avoiding_Quantile_Rel(Integer.valueOf(data[46]));
+                message.setTKI_Avoiding_Quantile_Rel(Double.valueOf(data[46]));
             }
             if (data[47] != "") {
-                message.setTKI_Accommodating_Quantile_Rel(Integer.valueOf(data[47]));
+                message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[47]));
             }
         }
         neg.addMessage(message);

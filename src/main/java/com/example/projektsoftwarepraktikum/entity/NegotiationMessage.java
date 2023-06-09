@@ -19,13 +19,13 @@ public class NegotiationMessage {
 
     private Integer senderId;
 
-    private Integer senderBestCase;
+    private Double senderBestCase;
 
-    private Integer senderWorstCase;
+    private Double senderWorstCase;
 
-    private Integer receiversBestCase;
+    private Double receiversBestCase;
 
-    private Integer receiversWorstCase;
+    private Double receiversWorstCase;
 
     private String sentDate;
 
@@ -33,13 +33,13 @@ public class NegotiationMessage {
 
     private String negoOutcome;
 
-    private Integer jointUtilityBest;
+    private Double jointUtilityBest;
 
-    private Integer jointUtilityWorst;
+    private Double jointUtilityWorst;
 
-    private Integer contractImbalanceBest;
+    private Double contractImbalanceBest;
 
-    private Integer contractImbalanceWorst;
+    private Double contractImbalanceWorst;
 
     private Integer messageCount;
 
@@ -47,31 +47,31 @@ public class NegotiationMessage {
 
     private String Value5;
 
-    private Integer Utility_Issue5;
+    private Double Utility_Issue5;
 
     private String Issue4;
 
     private String Value4;
 
-    private Integer Utility_Issue4;
+    private Double Utility_Issue4;
 
     private String Issue2;
 
     private String Value2;
 
-    private Integer Utility_Issue2;
+    private Double Utility_Issue2;
 
     private String Issue3;
 
     private String Value3;
 
-    private Integer Utility_Issue3;
+    private Double Utility_Issue3;
 
     private String Issue1;
 
     private String Value1;
 
-    private Integer Utility_Issue1;
+    private Double Utility_Issue1;
 
     private Integer Q1;
 
@@ -101,15 +101,15 @@ public class NegotiationMessage {
 
     private Integer TKI_Accommodating_Quantile_Abs;
 
-    private Integer TKI_Competing_Quantile_Rel;
+    private Double TKI_Competing_Quantile_Rel;
 
-    private Integer TKI_Compromising_Quantile_Rel;
+    private Double TKI_Compromising_Quantile_Rel;
 
-    private Integer TKI_Collaborating_Quantile_Rel;
+    private Double TKI_Collaborating_Quantile_Rel;
 
-    private Integer TKI_Avoiding_Quantile_Rel;
+    private Double TKI_Avoiding_Quantile_Rel;
 
-    private Integer TKI_Accommodating_Quantile_Rel;
+    private Double TKI_Accommodating_Quantile_Rel;
 
     public NegotiationMessage() {
         // empty constructor for Hibernate
@@ -139,35 +139,35 @@ public class NegotiationMessage {
         this.senderId = senderId;
     }
 
-    public Integer getSenderBestCase() {
+    public Double getSenderBestCase() {
         return senderBestCase;
     }
 
-    public void setSenderBestCase(Integer senderBestCase) {
+    public void setSenderBestCase(Double senderBestCase) {
         this.senderBestCase = senderBestCase;
     }
 
-    public Integer getSenderWorstCase() {
+    public Double getSenderWorstCase() {
         return senderWorstCase;
     }
 
-    public void setSenderWorstCase(Integer senderWorstCase) {
+    public void setSenderWorstCase(Double senderWorstCase) {
         this.senderWorstCase = senderWorstCase;
     }
 
-    public Integer getReceiversBestCase() {
+    public Double getReceiversBestCase() {
         return receiversBestCase;
     }
 
-    public void setReceiversBestCase(Integer receiversBestCase) {
+    public void setReceiversBestCase(Double receiversBestCase) {
         this.receiversBestCase = receiversBestCase;
     }
 
-    public Integer getReceiversWorstCase() {
+    public Double getReceiversWorstCase() {
         return receiversWorstCase;
     }
 
-    public void setReceiversWorstCase(Integer receiversWorstCase) {
+    public void setReceiversWorstCase(Double receiversWorstCase) {
         this.receiversWorstCase = receiversWorstCase;
     }
 
@@ -195,35 +195,35 @@ public class NegotiationMessage {
         this.negoOutcome = negoOutcome;
     }
 
-    public Integer getJointUtilityBest() {
+    public Double getJointUtilityBest() {
         return jointUtilityBest;
     }
 
-    public void setJointUtilityBest(Integer jointUtilityBest) {
+    public void setJointUtilityBest(Double jointUtilityBest) {
         this.jointUtilityBest = jointUtilityBest;
     }
 
-    public Integer getJointUtilityWorst() {
+    public Double getJointUtilityWorst() {
         return jointUtilityWorst;
     }
 
-    public void setJointUtilityWorst(Integer jointUtilityWorst) {
+    public void setJointUtilityWorst(Double jointUtilityWorst) {
         this.jointUtilityWorst = jointUtilityWorst;
     }
 
-    public Integer getContractImbalanceBest() {
+    public Double getContractImbalanceBest() {
         return contractImbalanceBest;
     }
 
-    public void setContractImbalanceBest(Integer contractImbalanceBest) {
+    public void setContractImbalanceBest(Double contractImbalanceBest) {
         this.contractImbalanceBest = contractImbalanceBest;
     }
 
-    public Integer getContractImbalanceWorst() {
+    public Double getContractImbalanceWorst() {
         return contractImbalanceWorst;
     }
 
-    public void setContractImbalanceWorst(Integer contractImbalanceWorst) {
+    public void setContractImbalanceWorst(Double contractImbalanceWorst) {
         this.contractImbalanceWorst = contractImbalanceWorst;
     }
 
@@ -251,11 +251,11 @@ public class NegotiationMessage {
         Value5 = value5;
     }
 
-    public Integer getUtility_Issue5() {
+    public Double getUtility_Issue5() {
         return Utility_Issue5;
     }
 
-    public void setUtility_Issue5(Integer utility_Issue5) {
+    public void setUtility_Issue5(Double utility_Issue5) {
         Utility_Issue5 = utility_Issue5;
     }
 
@@ -275,11 +275,11 @@ public class NegotiationMessage {
         Value4 = value4;
     }
 
-    public Integer getUtility_Issue4() {
+    public Double getUtility_Issue4() {
         return Utility_Issue4;
     }
 
-    public void setUtility_Issue4(Integer utility_Issue4) {
+    public void setUtility_Issue4(Double utility_Issue4) {
         Utility_Issue4 = utility_Issue4;
     }
 
@@ -299,11 +299,11 @@ public class NegotiationMessage {
         Value2 = value2;
     }
 
-    public Integer getUtility_Issue2() {
+    public Double getUtility_Issue2() {
         return Utility_Issue2;
     }
 
-    public void setUtility_Issue2(Integer utility_Issue2) {
+    public void setUtility_Issue2(Double utility_Issue2) {
         Utility_Issue2 = utility_Issue2;
     }
 
@@ -323,11 +323,11 @@ public class NegotiationMessage {
         Value3 = value3;
     }
 
-    public Integer getUtility_Issue3() {
+    public Double getUtility_Issue3() {
         return Utility_Issue3;
     }
 
-    public void setUtility_Issue3(Integer utility_Issue3) {
+    public void setUtility_Issue3(Double utility_Issue3) {
         Utility_Issue3 = utility_Issue3;
     }
 
@@ -347,11 +347,11 @@ public class NegotiationMessage {
         Value1 = value1;
     }
 
-    public Integer getUtility_Issue1() {
+    public Double getUtility_Issue1() {
         return Utility_Issue1;
     }
 
-    public void setUtility_Issue1(Integer utility_Issue1) {
+    public void setUtility_Issue1(Double utility_Issue1) {
         Utility_Issue1 = utility_Issue1;
     }
 
@@ -467,43 +467,43 @@ public class NegotiationMessage {
         this.TKI_Accommodating_Quantile_Abs = TKI_Accommodating_Quantile_Abs;
     }
 
-    public Integer getTKI_Competing_Quantile_Rel() {
+    public Double getTKI_Competing_Quantile_Rel() {
         return TKI_Competing_Quantile_Rel;
     }
 
-    public void setTKI_Competing_Quantile_Rel(Integer TKI_Competing_Quantile_Rel) {
+    public void setTKI_Competing_Quantile_Rel(Double TKI_Competing_Quantile_Rel) {
         this.TKI_Competing_Quantile_Rel = TKI_Competing_Quantile_Rel;
     }
 
-    public Integer getTKI_Compromising_Quantile_Rel() {
+    public Double getTKI_Compromising_Quantile_Rel() {
         return TKI_Compromising_Quantile_Rel;
     }
 
-    public void setTKI_Compromising_Quantile_Rel(Integer TKI_Compromising_Quantile_Rel) {
+    public void setTKI_Compromising_Quantile_Rel(Double TKI_Compromising_Quantile_Rel) {
         this.TKI_Compromising_Quantile_Rel = TKI_Compromising_Quantile_Rel;
     }
 
-    public Integer getTKI_Collaborating_Quantile_Rel() {
+    public Double getTKI_Collaborating_Quantile_Rel() {
         return TKI_Collaborating_Quantile_Rel;
     }
 
-    public void setTKI_Collaborating_Quantile_Rel(Integer TKI_Collaborating_Quantile_Rel) {
+    public void setTKI_Collaborating_Quantile_Rel(Double TKI_Collaborating_Quantile_Rel) {
         this.TKI_Collaborating_Quantile_Rel = TKI_Collaborating_Quantile_Rel;
     }
 
-    public Integer getTKI_Avoiding_Quantile_Rel() {
+    public Double getTKI_Avoiding_Quantile_Rel() {
         return TKI_Avoiding_Quantile_Rel;
     }
 
-    public void setTKI_Avoiding_Quantile_Rel(Integer TKI_Avoiding_Quantile_Rel) {
+    public void setTKI_Avoiding_Quantile_Rel(Double TKI_Avoiding_Quantile_Rel) {
         this.TKI_Avoiding_Quantile_Rel = TKI_Avoiding_Quantile_Rel;
     }
 
-    public Integer getTKI_Accommodating_Quantile_Rel() {
+    public Double getTKI_Accommodating_Quantile_Rel() {
         return TKI_Accommodating_Quantile_Rel;
     }
 
-    public void setTKI_Accommodating_Quantile_Rel(Integer TKI_Accommodating_Quantile_Rel) {
+    public void setTKI_Accommodating_Quantile_Rel(Double TKI_Accommodating_Quantile_Rel) {
         this.TKI_Accommodating_Quantile_Rel = TKI_Accommodating_Quantile_Rel;
     }
 }
