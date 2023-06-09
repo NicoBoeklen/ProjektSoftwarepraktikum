@@ -1,6 +1,7 @@
 package com.example.projektsoftwarepraktikum.entity;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +14,7 @@ public class Negotiation {
 
     @OneToMany(mappedBy = "negotiation")
     //@JoinTable(name = "negotiationMessage", joinColumns = @JoinColumn(name = "negotiationID"), inverseJoinColumns = @JoinColumn(name = "negotiationMessageID"))
-    private Set<NegotiationMessage> messages;
+    private Set<NegotiationMessage> messages = new HashSet<>();
 
     public Negotiation() {
         // empty constructor for Hibernate

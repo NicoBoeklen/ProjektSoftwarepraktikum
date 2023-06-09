@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class MessageService {
+
     @Autowired
     private MessageRepository messageRepository;
 
@@ -34,7 +35,7 @@ public class MessageService {
 
          */
         neg.addMessage(message);
-        messageRepository.save(message);
+        saveNegotiationMessage(message);
     }
 
 }
