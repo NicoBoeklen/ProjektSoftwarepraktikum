@@ -43,25 +43,28 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
 
         //Später im NegotiationService bei jeder neuen SenderID passenden User erstellen
         // Initialisieren Sie Beispielobjekte und speichern Sie diese über Ihre Services
-        Rolle userRole = new Rolle("ROLE_USER");
+        //Rolle userRole = new Rolle("ROLE_USER");
         Rolle adminRole = new Rolle("ROLE_ADMIN");
-        roleService.saveRole(userRole);
+        //roleService.saveRole(userRole);
         roleService.saveRole(adminRole);
 
         Set<Rolle> userRoles = new HashSet<>();
-        userRoles.add(userRole);
+        //userRoles.add(userRole);
 
         Set<Rolle> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
 
-        Benutzer normalUser = new Benutzer();
-        normalUser.setUsername("user");
+        //Später alle User bei Datenbank einlesen erstellt
+        /*Benutzer normalUser = new Benutzer();
+        normalUser.setUsername("user35");
+        normalUser.setUserId(35);
         normalUser.setPassword(passwordEncoder.encode("1234"));
         normalUser.setRoles(userRoles);
         userService.saveUser(normalUser);
-
+        */
         Benutzer admin = new Benutzer();
         admin.setUsername("admin");
+        admin.setUserId(0);
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRoles(adminRoles);
         userService.saveUser(admin);
