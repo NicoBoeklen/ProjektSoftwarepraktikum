@@ -28,7 +28,7 @@ public class NegotiationService {
     public void saveNegotiationData() {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/main/ressources/Testdaten_TKI.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Testdaten_TKI.csv"));
             Negotiation neg = null;
             while ((line=br.readLine()) !=null) {
                 String[] data = line.split(";");
