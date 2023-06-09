@@ -43,7 +43,7 @@ public class MessageService {
         message.setSenderId(Integer.valueOf(data[1]));
         //für neue SenderID neuen User anlegen
         newUser(Integer.valueOf(data[1]));
-
+        /*
         if (data[2] != "") {
             message.setSenderBestCase(Double.valueOf(data[2]));
         }
@@ -183,7 +183,7 @@ public class MessageService {
             if (data[47] != "") {
                 message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[47]));
             }
-        }
+        }*/
         neg.addMessage(message);
         return message;
     }
