@@ -22,7 +22,7 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
-    public void saveNegotiationMessageData(final String[] data, Negotiation neg) {
+    public NegotiationMessage saveNegotiationMessageData(final String[] data, Negotiation neg) {
         NegotiationMessage message = new NegotiationMessage();
         message.setNegotiation(neg);
         message.setSenderId(Integer.valueOf(data[1]));
@@ -35,7 +35,7 @@ public class MessageService {
 
          */
         neg.addMessage(message);
-        //messageRepository.save(message);
+        return message;
     }
 
 }

@@ -15,6 +15,9 @@ public class NegotiationService {
     @Autowired
     private NegotiationRepository negotiationRepository;
 
+    @Autowired
+    private MessageService messageService;
+
     String line = "";
 
     public Negotiation saveNegotiation(Negotiation negotiation) {
@@ -48,8 +51,7 @@ public class NegotiationService {
                     }
                 }
                 //Save Messages
-                MessageService messageService = new MessageService();
-                messageService.saveNegotiationMessageData(data, neg);
+                messageService.saveNegotiationMessage(messageService.saveNegotiationMessageData(data, neg));
             }
         } catch (IOException e) {
             e.printStackTrace();
