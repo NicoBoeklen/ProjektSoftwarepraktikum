@@ -42,52 +42,145 @@ public class MessageService {
         message.setSenderId(Integer.valueOf(data[1]));
         //für neue SenderID neuen User anlegen
         newUser(Integer.valueOf(data[1]));
-        message.setSenderBestCase(Integer.valueOf(data[2]));
-        message.setSenderWorstCase(Integer.valueOf(data[3]));
-        message.setReceiversBestCase(Integer.valueOf(data[4]));
-        message.setReceiversWorstCase(Integer.valueOf(data[5]));
-        message.setSentDate(data[6]);
-        message.setMessageType(data[7]);
-        message.setNegoOutcome(data[8]);
-        message.setJointUtilityBest(Integer.valueOf(data[9]));
-        message.setJointUtilityWorst(Integer.valueOf(data[10]));
-        message.setContractImbalanceBest(Integer.valueOf(data[11]));
-        message.setContractImbalanceWorst(Integer.valueOf(data[12]));
-        message.setMessageCount(Integer.valueOf(data[13]));
-        message.setIssue5(data[14]);
-        message.setValue5(data[15]);
-        message.setUtility_Issue5(Integer.valueOf(data[16]));
-        message.setIssue4(data[17]);
-        message.setValue4(data[18]);
-        message.setUtility_Issue4(Integer.valueOf(data[19]));
-        message.setIssue2(data[20]);
-        message.setValue2(data[21]);
-        message.setUtility_Issue2(Integer.valueOf(data[22]));
-        message.setIssue3(data[23]);
-        message.setValue3(data[24]);
-        message.setUtility_Issue3(Integer.valueOf(data[25]));
-        message.setIssue1(data[26]);
-        message.setValue1(data[27]);
-        message.setUtility_Issue1(Integer.valueOf(data[28]));
-        message.setQ1(Integer.valueOf(data[29]));
-        message.setQ2(Integer.valueOf(data[30]));
-        message.setQ3(Integer.valueOf(data[31]));
-        message.setQ4(Integer.valueOf(data[32]));
-        message.setQ5(Integer.valueOf(data[33]));
-        message.setTKI_Competing(Integer.valueOf(data[34]));
-        message.setTKI_Compromising(Integer.valueOf(data[35]));
-        message.setTKI_Collaborating(Integer.valueOf(data[36]));
-        message.setTKI_Avoiding(Integer.valueOf(data[37]));
-        message.setTKI_Accommodating(Integer.valueOf(data[38]));
-        message.setTKI_Competing_Quantile_Abs(Integer.valueOf(data[39]));
-        message.setTKI_Compromising_Quantile_Abs(Integer.valueOf(data[40]));
-        message.setTKI_Avoiding_Quantile_Abs(Integer.valueOf(data[41]));
-        message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[42]));
-        message.setTKI_Competing_Quantile_Rel(Integer.valueOf(data[43]));
-        message.setTKI_Compromising_Quantile_Rel(Integer.valueOf(data[44]));
-        message.setTKI_Collaborating_Quantile_Rel(Integer.valueOf(data[45]));
-        message.setTKI_Avoiding_Quantile_Rel(Integer.valueOf(data[46]));
-        message.setTKI_Accommodating_Quantile_Rel(Integer.valueOf(data[47]));
+
+        if (data[2] != "") {
+            message.setSenderBestCase(Integer.valueOf(data[2]));
+        }
+        if (data[3] != "") {
+            message.setSenderWorstCase(Integer.valueOf(data[3]));
+        }
+        if (data[4] != "") {
+            message.setReceiversBestCase(Integer.valueOf(data[4]));
+        }
+        if (data[5] != "") {
+            message.setReceiversWorstCase(Integer.valueOf(data[5]));
+        }
+        if (data[6] != "") {
+            message.setSentDate(data[6]);
+        }
+        if (data[7] != "") {
+            message.setMessageType(data[7]);
+        }
+        if (data[8] != "") {
+            message.setNegoOutcome(data[8]);
+        }
+        if (data[9] != "") {
+            message.setJointUtilityBest(Integer.valueOf(data[9]));
+        }
+        if (data[10] != "") {
+            message.setJointUtilityWorst(Integer.valueOf(data[10]));
+        }
+        if (data[11] != "") {
+            message.setContractImbalanceBest(Integer.valueOf(data[11]));
+        }
+        if (data[12] != "") {
+            message.setContractImbalanceWorst(Integer.valueOf(data[12]));
+        }
+        if (data[13] != "") {
+            message.setMessageCount(Integer.valueOf(data[13]));
+        }
+        if (data[14] != "") {
+            message.setIssue5(data[14]);
+        }
+        if (data[15] != "") {
+            message.setValue5(data[15]);
+        }
+        if (data[16] != "") {
+            message.setUtility_Issue5(Integer.valueOf(data[16]));
+        }
+        if (data[17] != "") {
+            message.setIssue4(data[17]);
+        }
+        if (data[18] != "") {
+            message.setValue4(data[18]);
+        }
+        if (data[19] != "") {
+            message.setUtility_Issue4(Integer.valueOf(data[19]));
+        }
+        if (data[20] != "") {
+            message.setIssue2(data[20]);
+        }
+        if (data[21] != "") {
+            message.setValue2(data[21]);
+        }
+        if (data[22] != "") {
+            message.setUtility_Issue2(Integer.valueOf(data[22]));
+        }
+        if (data[23] != "") {
+            message.setIssue3(data[23]);
+        }
+        if (data[24] != "") {
+            message.setValue3(data[24]);
+        }
+        if (data[25] != "") {
+            message.setUtility_Issue3(Integer.valueOf(data[25]));
+        }
+        if (data[26] != "") {
+            message.setIssue1(data[26]);
+        }
+        if (data[27] != "") {
+            message.setValue1(data[27]);
+        }
+        if (data[28] != "") {
+            message.setUtility_Issue1(Integer.valueOf(data[28]));
+        }
+        if (data[29] != "") {
+            message.setQ1(Integer.valueOf(data[29]));
+        }
+        if (data[30] != "") {
+            message.setQ2(Integer.valueOf(data[30]));
+        }
+        if (data[31] != "") {
+            message.setQ3(Integer.valueOf(data[31]));
+        }
+        if (data[32] != "") {
+            message.setQ4(Integer.valueOf(data[32]));
+        }
+        if (data[33] != "") {
+            message.setQ5(Integer.valueOf(data[33]));
+        }
+        if (data[34] != "") {
+            message.setTKI_Competing(Integer.valueOf(data[34]));
+        }
+        if (data[35] != "") {
+            message.setTKI_Compromising(Integer.valueOf(data[35]));
+        }
+        if (data[36] != "") {
+            message.setTKI_Collaborating(Integer.valueOf(data[36]));
+        }
+        if (data[37] != "") {
+            message.setTKI_Avoiding(Integer.valueOf(data[37]));
+        }
+        if (data[38] != "") {
+            message.setTKI_Accommodating(Integer.valueOf(data[38]));
+        }
+        if (data[39] != "") {
+            message.setTKI_Competing_Quantile_Abs(Integer.valueOf(data[39]));
+        }
+        if (data[40] != "") {
+            message.setTKI_Compromising_Quantile_Abs(Integer.valueOf(data[40]));
+        }
+        if (data[41] != "") {
+            message.setTKI_Avoiding_Quantile_Abs(Integer.valueOf(data[41]));
+        }
+        if (data[42] != "") {
+            message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[42]));
+        }
+        if (data[43] != "") {
+            message.setTKI_Competing_Quantile_Rel(Integer.valueOf(data[43]));
+        }
+        if (data[44] != "") {
+            message.setTKI_Compromising_Quantile_Rel(Integer.valueOf(data[44]));
+        }
+        if (data[45] != "") {
+            message.setTKI_Collaborating_Quantile_Rel(Integer.valueOf(data[45]));
+        }
+        if (data[46] != "") {
+            message.setTKI_Avoiding_Quantile_Rel(Integer.valueOf(data[46]));
+        }
+        if (data[47] != "") {
+            message.setTKI_Accommodating_Quantile_Rel(Integer.valueOf(data[47]));
+        }
 
         neg.addMessage(message);
         return message;
@@ -108,6 +201,6 @@ public class MessageService {
             newUser.setRoles(userRoles);
             newUser.setUserId(userID);
             userService.saveUser(newUser);
-       }
+        }
     }
 }
