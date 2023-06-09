@@ -118,6 +118,15 @@ public class NegotiationMessage {
     ///////////////////////////////////////////////
     // Getter & Setter
     ///////////////////////////////////////////////
+
+    public Negotiation getNegotiation() {
+        return negotiation;
+    }
+
+    public void setNegotiation(Negotiation negotiation) {
+        this.negotiation = negotiation;
+    }
+
     public Integer getNegotiationMessageId() {
         return negotiationMessageId;
     }
