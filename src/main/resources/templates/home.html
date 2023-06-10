@@ -10,33 +10,35 @@
 <p th:text="'Herzlich Willkommen auf Ihrer Startseite!'"></p>
 <p th:text="'Hier können Sie demnächst Feedback zu Ihren Verhandlungen erhalten.'"></p>
 <p th:text="${message}"></p>
-</div>
-<div class="conatiner pt-5"></div>
-<div class="container-fluid pt-500 bg-grey">
-
-   <form>
-
-   <div class="column mb-3">
-
-       <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
-       <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-           <option selected>Choose your TKI Style</option>
-           <option value="1">Avoiding</option>
-           <option value="2">Compromising</option>
-           <option value="3">Three</option>
-       </select>
-
-       <label for="Aspiration" class="col-sm-2 col-form-label">Aspiration Level</label>
-       <input id ="Aspiration" type="range" class="form-range">
-
-       <label for="Reservation" class="col-sm-2 col-form-label">Aspiration Level</label>
-       <input id ="Reservation" type="range" class="form-range">
 
 
+        <h1>Verhandlungsziel</h1>
+        <form>
+            <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
+            <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Choose your TKI Style</option>
+                <option value="1">Avoiding</option>
+                <option value="2">Compromising</option>
+                <option value="3">Three</option>
+            </select>
 
+            <div class="form-group">
+                <label for="aspirationLevel">Aspiration Level:</label>
+                <input id="aspirationLevel" name="aspirationLevel" type="text" class="form-control" placeholder="Aspiration Level eingeben" required />
+            </div>
 
-   </div>
-   </form>
+            <div class="form-group">
+                <label for="reservationLevel">Reservation Level:</label>
+                <input type="text" id="reservationLevel" name="reservationLevel" class="form-control" placeholder="Reservation Level eingeben" required />
+            </div>
+
+            <div class="form-group">
+                <label for="importantIssue">Wichtigstes Issue:</label>
+                <input type="text" id="importantIssue" name="importantIssue" class="form-control" placeholder="Wichtigstes Issue eingeben" required />
+            </div>
+
+            <button type="submit" class="btn-primary">Verhandlung starten</button>
+        </form>
 </div>
 </body>
 </html>
