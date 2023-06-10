@@ -29,13 +29,20 @@ public class NegotiationService {
     }
 
     public void saveNegotiationData() {
-    int counter = 0;
+
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Testdaten_TKI.csv"));
             Negotiation neg = null;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(";");
-                if (counter >= 1) {    //Skip first row
+                if (data[0].length() > 3) {    //In der ersten Zeile der ersten Spalte i>? mit drin (WARUM??)
+                    if (negotiationRepository.findByNegotiationId(Integer.valueOf(data[0].substring(3))) == null) {
+                        //New Negotiation if negotiationID does not exist
+                        neg = new Negotiation();
+                        neg.setNegotiationId(Integer.valueOf(data[0].substring(3)));
+                        negotiationRepository.save(neg);
+                    }
+                } else {
                     if (negotiationRepository.findByNegotiationId(Integer.valueOf(data[0])) == null) {
                         //New Negotiation if negotiationID does not exist
                         neg = new Negotiation();
@@ -45,7 +52,6 @@ public class NegotiationService {
                 }
                 //Save Messages
                 messageService.saveNegotiationMessage(messageService.saveNegotiationMessageData(data, neg));
-                counter++;
             }
         } catch (IOException e) {
             e.printStackTrace();
