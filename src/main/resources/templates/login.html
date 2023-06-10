@@ -21,6 +21,9 @@
                 <div th:if="${param.logout}" class="alert alert-success">
                     <span th:text="'Logout erfolgreich.'"></span>
                 </div>
+                <div th:if="${param.invalidUsername}" class="alert alert-danger">
+                    <span th:text="'Username ungültig.'"></span>
+                </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
                         <label>Username</label>
