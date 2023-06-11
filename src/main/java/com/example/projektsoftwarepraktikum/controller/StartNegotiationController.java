@@ -16,13 +16,7 @@ public class StartNegotiationController {
         public String Feedback(){
             return "redirect:/feedback";
         }
-
-   @DeleteMapping ("/login?logout") //Workaround, maybe fixing this later, since you can't have two GetMappings in one Controller
-    public String logout() {
-        return "login";
-    }
-
-    }
+}
 
 
 
