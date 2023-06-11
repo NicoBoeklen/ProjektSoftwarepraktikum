@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 public class HomeController {
     @Autowired
@@ -24,7 +27,13 @@ public class HomeController {
     @GetMapping("/")
     public String showHome(Model model) {
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
-        model.addAttribute("userNegotiations", messageService.findAllNegotiationsMessages().stream().filter(m -> m.getSenderId()== userService.getCurrentUser().getUserId()).mapToInt(n->n.getNegotiation().getNegotiationId()).distinct().count()).toString();
+        List<Integer> negotiationIds = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())
+                .map(n -> n.getNegotiation().getNegotiationId())
+                .distinct()
+                .collect(Collectors.toList());
+        model.addAttribute("userNegotiations", negotiationIds);
         return "home"; //Gibt die Startseite für den User zurück
     }
 
