@@ -15,7 +15,7 @@
 
         }
         function logout() {
-            window.location.href = "login?logout";
+            window.location.href = "login";
         }
     </script>
 </head>
@@ -29,7 +29,10 @@
     </select>
     <br>
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
-    <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
+    <br>
+    <br>
+        <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
 
 </div>
 </body>

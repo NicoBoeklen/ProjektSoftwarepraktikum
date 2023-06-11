@@ -10,7 +10,7 @@
     <title>Title</title>
     <script>
         function logout() {
-            window.location.href = "login?logout";
+            window.location.href = "login";
         }
     </script>
 </head>
@@ -31,7 +31,8 @@
             });
 
         </script>
-    <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
 </div>
 </body>
 </html>
