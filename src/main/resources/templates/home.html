@@ -6,7 +6,13 @@
     <title>Home</title>
     <script>
         function startNegotiation() {
-            window.location.href = "Negotiation";
+            var selectedOption = document.getElementById("input1").value;
+            if (selectedOption) {
+                window.location.href = "Negotiation";
+            } else {
+                alert ("Zum Fortführen bitte eine der Verhandlungen auswählen!");
+            }
+
         }
         function logout() {
             window.location.href = "login?logout";
