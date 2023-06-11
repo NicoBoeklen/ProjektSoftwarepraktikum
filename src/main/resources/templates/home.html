@@ -18,8 +18,7 @@
         <option disabled selected value>Choose your Negotiation</option>
         <option th:each="negotiationID : ${userNegotiations}" th:text="'Verhandlung ' + ${negotiationID}">
     </select>
-
-    <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlung starten</button>
+    <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
 </div>
 </body>
 </html>
