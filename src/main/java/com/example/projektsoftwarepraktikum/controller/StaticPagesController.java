@@ -14,6 +14,7 @@ public class StaticPagesController implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/login?logout").setViewName("login");
         // Hier können Sie weitere Requests definieren, die keine ModelAttribute erfordern bspw für das Impressum:
         // registry.addViewController("/imprint").setViewName("imprint");
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,7 +10,9 @@
     </script>
 </head>
 <body>
+<div class="container-fluid bg-dark text-white p-3">
+    <p th:text="'Hier sehen Sie Feedback zu ihrer ausgewählten Verhandlung"></p>
 <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
-
+</div>
 </body>
 </html>
