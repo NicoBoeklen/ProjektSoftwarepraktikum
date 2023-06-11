@@ -37,4 +37,9 @@ public class HomeController {
         return "home"; //Gibt die Startseite für den User zurück
     }
 
+    @GetMapping("/login?logout")
+    public String logout() {
+        return "login";
+    }
+
 }

@@ -8,6 +8,9 @@
         function startNegotiation() {
             window.location.href = "Negotiation";
         }
+        function logout() {
+            window.location.href = "login?logout";
+        }
     </script>
 </head>
 <body>
@@ -22,6 +25,8 @@
     </select>
     <br>
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
+    <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
+
 </div>
 </body>
 </html>
