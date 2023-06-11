@@ -23,8 +23,6 @@
 <div class="container-fluid bg-dark text-white p-3">
     <p th:text="'Herzlich Willkommen auf Ihrer Startseite'+', '+${currentUser}+'!'"></p>
     <p th:text="'Hier sehen Sie ihre aktuellen Verhandlungen:'"></p>
-</div>
-<div class="container-fluid bg-dark text-white p-3">
     <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
         <option disabled selected value>Choose your Negotiation</option>
         <option th:each="negotiationID : ${userNegotiations}" th:text="'Verhandlung ' + ${negotiationID}">

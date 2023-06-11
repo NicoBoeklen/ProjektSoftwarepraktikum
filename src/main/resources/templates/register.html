@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
+    <title>Nutzer-Registrierung</title>
+
+    <script>
+        function registerUser() {
+
+        }
+        function login() {
+            window.location.href = "login";
+        }
+    </script>
+
+</head>
+<body>
+<div class="container-fluid bg-dark text-white p-5">
+    <h1>Neuregistrierung</h1>
+    <br>
+<div class="row form-group">
+    <div class="row form-group">
+        <div class="col-12 col-md-10">
+            <label>Benutzername</label>
+            <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control"/><br/>
+        </div>
+    </div>
+
+<div class="row form-group">
+    <div class="col-12 col-md-10">
+        <label>Passwort</label>
+        <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control"/><br/>
+    </div>
+</div>
+    <br>
+    <button type="button" onclick="registerUser() + login()" class="btn btn-primary">Registrieren</button>
+</div>
+</body>
+</html>
