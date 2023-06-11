@@ -7,6 +7,12 @@
           crossorigin="anonymous"/>
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
     <title>Sopra Demo Project</title>
+
+    <script>
+    function register() {
+    window.location.href = "register";
+    }
+    </script>
 </head>
 <body class="p-3 mb-2 bg-primary text-black">
 <div class="container">
@@ -16,7 +22,8 @@
                 <h3 class="card-title" th:text="'Willkommen auf der Startseite!'"></h3>
                 <h4 class="card-title" th:text="'Login zum Feedbacksystem'"></h4>
                 <div th:if="${param.error}" class="alert alert-danger">
-                    <span th:text="'Login fehlgeschlagen.'"></span>
+                    <span th:text="'Login fehlgeschlagen. Falls sie sich noch nicht registriert haben, können sie sich hier'"></span>
+                    <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success">
                     <span th:text="'Logout erfolgreich.'"></span>
