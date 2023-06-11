@@ -12,9 +12,8 @@
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
-    <p th:text="'Herzlich Willkommen auf Ihrer Startseite!'"></p>
+    <p th:text="'Herzlich Willkommen auf Ihrer Startseite'+', '+${currentUser}+'!'"></p>
     <p th:text="'Hier sehen Sie ihre aktuellen Verhandlungen:'"></p>
-    <p th:text="${message}"></p>
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlung starten</button>
 </div>
 </body>
