@@ -28,7 +28,7 @@
                     <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success">
-                    <span th:text="'Logout erfolgreich.'"></span>
+                    <span th:text="'Das Ausloggen war erfolgreich!'"></span>
                 </div>
                 <div th:if="${param.invalidUsername}" class="alert alert-danger">
                     <span th:text="'Username ungültig.'"></span>
