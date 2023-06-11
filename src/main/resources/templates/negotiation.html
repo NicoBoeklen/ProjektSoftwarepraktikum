@@ -11,13 +11,10 @@
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
-    <p th:text="'Start einer neuen Verhandlung'"></p>
+    <h1>Verhandlungsziele</h1>
     <p th:text="'Bitte füllen Sie folgende Parameter aus'"></p>
-    <p th:text="${message}"></p>
 
-
-        <h1>Verhandlungsziel</h1>
-        <form action="/feedback" method="post">
+    <form action="/feedback" method="post">
             <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
             <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
                 <option disabled selected value>Choose your TKI Style</option>
