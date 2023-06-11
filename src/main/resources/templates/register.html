@@ -12,29 +12,30 @@
         function login() {
             window.location.href = "login";
         }
+N
     </script>
 
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-5">
-    <h1>Neuregistrierung</h1>
+    <h1>Nutzer-Registrierung</h1>
     <br>
 <div class="row form-group">
     <div class="row form-group">
         <div class="col-12 col-md-10">
             <label>Benutzername</label>
-            <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control"/><br/>
+            <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control" required/><br/>
         </div>
     </div>
 
 <div class="row form-group">
     <div class="col-12 col-md-10">
         <label>Passwort</label>
-        <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control"/><br/>
+        <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control" required/><br/>
     </div>
 </div>
     <br>
-    <button type="button" onclick="registerUser() + login()" class="btn btn-primary">Registrieren</button>
+    <button type="button" onclick="registerUser() + login() + startNegotiation()" class="btn btn-primary">Registrieren</button>
 </div>
 </body>
 </html>
