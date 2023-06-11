@@ -6,9 +6,8 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous"/>
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
-    <title>Feedback</title>
-
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Title</title>
     <script>
         function logout() {
             window.location.href = "login";
@@ -16,11 +15,24 @@
     </script>
 </head>
 <body>
-<div class="container-fluid bg-dark text-white p-3">
-    <p th:text="'Hier sehen Sie Feedback zu ihrer ausgewählten Verhandlung'"></p>
+<div class="container-fluid">
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <script th:inline="javascript">
+            const utilityValues = [[${utilityIssues1}]];
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                    datasets: [{
+                        pointRadius: 20,
+                        borderColor: "rgba(255,190,190,0.5)",
+                        data: utilityValues
+                    }]
+                }
+            });
+
+        </script>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
-
 </div>
 </body>
 </html>
