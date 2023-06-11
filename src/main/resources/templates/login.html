@@ -20,9 +20,9 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title" th:text="'Willkommen auf der Startseite!'"></h3>
-                <h4 class="card-title" th:text="'Login zum Feedbacksystem'"></h4>
+                <h4 class="card-title" th:text="'Anmeldung zum Feedback-System'"></h4>
                 <div th:if="${param.error}" class="alert alert-danger">
-                    <span th:text="'Login fehlgeschlagen. Falls sie sich noch nicht registriert haben, können sie sich hier'"></span>
+                    <span th:text="'Anmeldung fehlgeschlagen. Falls sie sich noch nicht registriert haben, können sie sich hier'"></span>
                     <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success">
@@ -33,19 +33,20 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label>Username</label>
-                        <input type="text" id="username" name="username"  th:placeholder="'Username'" class="form-control"/><br/>
+                        <label>Benutzername</label>
+                        <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control"/><br/>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label>Password</label>
-                        <input type="password"  th:placeholder="'Password'" id="password" name="password" class="form-control"/><br/>
+                        <label>Passwort</label>
+                        <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control"/><br/>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button name="Submit" value="Login" type="Submit" th:text="'Login'" class="btn btn-primary"></button>
+                <button name="Submit" value="Login" type="Submit" th:text="'Anmelden'" class="btn btn-primary"></button>
+                <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
             </div>
         </div>
     </form>
