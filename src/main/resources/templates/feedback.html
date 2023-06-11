@@ -2,6 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+    <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
     <title>Title</title>
     <script>
         function logout() {
@@ -11,8 +15,8 @@
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
-    <p th:text="'Hier sehen Sie Feedback zu ihrer ausgewählten Verhandlung"></p>
-<button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
+    <p th:text="'Hier sehen Sie Feedback zu ihrer ausgewählten Verhandlung'"></p>
+    <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
 </div>
 </body>
 </html>

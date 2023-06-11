@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
     <title>Negotiation</title>
-    <script>function logout() {
+    <script>
+        function logout() {
             window.location.href = "login?logout";
             }
+
+        function validateInput() {
+            let aspirationLevel = parseInt(document.getElementById("aspirationLevel").value);
+            let reservationLevel = parseInt(document.getElementById("reservationLevel").value);
+
+            // Check if aspirationLevel or reservationLevel is negative
+            if (aspirationLevel < 0 || reservationLevel < 0) {
+                alert("Aspiration oder Reservation Level dürfen nicht negativ sein!");
+                return false;
+            }
+            return true;
+        }
     </script>
 </head>
 <body>
@@ -14,7 +27,7 @@
     <h1>Verhandlungsziele</h1>
     <p th:text="'Bitte füllen Sie folgende Parameter aus'"></p>
 
-    <form action="/feedback" method="post">
+    <form action="/feedback" method="post" onsubmit="return validateInput()">
             <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
             <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
                 <option disabled selected value>Choose your TKI Style</option>
