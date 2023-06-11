@@ -18,13 +18,13 @@
 <div class="container-fluid">
         <canvas id="myChart" style="width:100%"></canvas>
         <script th:inline="javascript">
-            const utilityValues = [[${utilityIssues1}]];
+            const utilityValues = /*[[${UtilityList}]]*/ [];
             document.write("Utility Values " + utilityValues);
             new Chart("myChart", {
                 type: "line",
                 data: {
                     datasets: [{
-                        labels: utilityValues,
+
                         borderColor: "rgba(0,0,255,0.1)",
                         data: utilityValues
                     }]
