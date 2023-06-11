@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
-    <title>Home</title>
+    <title>Negotiation</title>
+    <script>function logout() {
+            window.location.href = "login?logout";
+            }
+    </script>
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
@@ -38,6 +42,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Feedback anfordern</button>
+            <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
         </form>
 </div>
 </body>
