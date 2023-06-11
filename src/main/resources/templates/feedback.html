@@ -9,14 +9,16 @@
     <title>Title</title>
     <script>
         function logout() {
-            window.location.href = "login?logout";
+            window.location.href = "login";
         }
     </script>
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
     <p th:text="'Hier sehen Sie Feedback zu ihrer ausgewählten Verhandlung'"></p>
-    <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
+
 </div>
 </body>
 </html>
