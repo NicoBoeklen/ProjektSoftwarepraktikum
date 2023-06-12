@@ -57,7 +57,7 @@ public class MessageService {
             message.setReceiversWorstCase(Double.valueOf(data[5].replace(",",".")));
         }
         if (data[6] != "") {
-            message.setSentDate(data[6]);
+            //message.setSentDate(data[6]);
         }
         if (data[7] != "") {
             message.setMessageType(data[7]);

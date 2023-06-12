@@ -2,6 +2,8 @@ package com.example.projektsoftwarepraktikum.entity;
 
 import jakarta.persistence.*;
 
+
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -27,7 +29,7 @@ public class NegotiationMessage {
 
     private Double receiversWorstCase;
 
-    private String sentDate;
+    private Date sentDate;
 
     private String messageType;
 
@@ -171,11 +173,11 @@ public class NegotiationMessage {
         this.receiversWorstCase = receiversWorstCase;
     }
 
-    public String getSentDate() {
+    public Date getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(String sentDate) {
+    public void setSentDate(Date sentDate) {
         this.sentDate = sentDate;
     }
 
