@@ -28,7 +28,6 @@ public class NegotiationMessage {
 
     private Double receiversWorstCase;
 
-    //Year, Month, Day
     private LocalDateTime sentDate;
 
     private String messageType;
