@@ -21,15 +21,19 @@ public class FeedbackController {
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
-        Double[] utilityIssues = messageService.findAllNegotiationsMessages()
+        Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
-                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getUtility_Issue1())
+                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getJointUtilityBest())
                 .filter(utility_issue1 -> utility_issue1 != null).toArray(Double[]::new);
-
-        for(Double utilityIssue:utilityIssues){
+        Double[] worstUtility = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getJointUtilityWorst())
+                .filter(utility_issue1 -> utility_issue1 != null).toArray(Double[]::new);
+        for(Double utilityIssue:bestUtility){
             System.out.println(utilityIssue);
         }
-        model.addAttribute("UtilityList",utilityIssues);
+        model.addAttribute("bestUtility",bestUtility);
+        model.addAttribute("worstUtility",worstUtility);
         return "feedback"; //Gibt die Startseite für den User zurück
     }
 }

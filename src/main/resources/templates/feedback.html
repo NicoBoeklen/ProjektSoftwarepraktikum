@@ -18,18 +18,24 @@
 <div class="container">
         <canvas id="UtilityChart" ></canvas>
         <script th:inline="javascript">
-            const utilityValues = /*[[${UtilityList}]]*/ [];
-            document.write("Utility Values " + utilityValues);
+            const bestUtility = /*[[${bestUtility}]]*/ [];
+            const worstUtility = /*[[${worstUtility}]]*/ [];
+            document.write("Utility Values " + bestUtility);
 
             new Chart("UtilityChart", {
                 type: "line",
 
                 data: {
                     datasets: [{
-                        label: 'Utility',
-                        borderColor: "rgba(0,0,255,0.1)",
-                        data: utilityValues
-                    }]
+                        label: 'BestUtility',
+                        borderColor: "rgba(255,0,0)",
+                        data: bestUtility
+                    },
+                        {
+                            label: 'WorstUtility',
+                            borderColor: "rgba(0,0,255)",
+                            data: worstUtility
+                        }]
                 },
                 options: {
                     scales: {
