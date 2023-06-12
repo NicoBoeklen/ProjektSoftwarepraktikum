@@ -3,8 +3,7 @@ package com.example.projektsoftwarepraktikum.entity;
 import jakarta.persistence.*;
 
 
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Entity
 @Table (name = "negotiationMessage")
@@ -29,7 +28,8 @@ public class NegotiationMessage {
 
     private Double receiversWorstCase;
 
-    private Date sentDate;
+    //Year, Month, Day
+    private LocalDateTime sentDate;
 
     private String messageType;
 
@@ -173,11 +173,11 @@ public class NegotiationMessage {
         this.receiversWorstCase = receiversWorstCase;
     }
 
-    public Date getSentDate() {
+    public LocalDateTime getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
+    public void setSentDate(LocalDateTime sentDate) {
         this.sentDate = sentDate;
     }
 
