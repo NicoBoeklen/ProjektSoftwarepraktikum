@@ -10,6 +10,7 @@ public class StartNegotiationController {
     @GetMapping("/Negotiation")
     public String Negotiation() {
         return "negotiation";
+
     }
 
     @PostMapping("/feedback")
