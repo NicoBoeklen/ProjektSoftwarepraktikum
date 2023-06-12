@@ -15,27 +15,30 @@
     </script>
 </head>
 <body>
-<div class="container-fluid">
-        <canvas id="myChart" style="width:100%"></canvas>
+<div class="container">
+        <canvas id="myChart" ></canvas>
         <script th:inline="javascript">
             const utilityValues = /*[[${UtilityList}]]*/ [];
             document.write("Utility Values " + utilityValues);
+
             new Chart("myChart", {
                 type: "line",
+
                 data: {
                     datasets: [{
-
+                        label: 'Utility',
                         borderColor: "rgba(0,0,255,0.1)",
                         data: utilityValues
                     }]
                 },
                 options: {
-                    scales:{
-                        y:[{
-                            suggestedMin:0,
-                            suggestedMax:1,
-                            stepSize: 0.1
-                        }]
+                    scales: {
+                        y:{
+                            display:true,
+                            min:0,
+                            max:1,
+
+                        }
                     }
                 }
             });
