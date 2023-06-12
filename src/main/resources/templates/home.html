@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--<th:block th:insert="~{fragments/htmlHead :: head}"></th:block>-->
@@ -24,24 +24,30 @@
         }
     </script>
 </head>
-<body>
+<body >
 
-<nav class="navbar navbar-inverse">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite</a>
+        <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Negotiation">Negotiation</a>
+                </li>
+
+            </ul>
         </div>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Verhandlung</a></li>
-                <li><a href="#">Feedback</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-
-            </ul>
-
+        <ul class="nav navbar-nav navbar-right">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Logout" class="btn btn-primary"/></form>
+        </ul>
     </div>
 </nav>
 
@@ -64,8 +70,7 @@
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
     <br>
     <br>
-        <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
+
 
 </div>
 </body>
