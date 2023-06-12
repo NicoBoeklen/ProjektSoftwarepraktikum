@@ -35,12 +35,6 @@ public class FeedbackController {
         }*/
         int[] countArray = new int[worstUtility.length];
 
-        /*for (int i = 0; i < worstUtility.length; i++) {
-            countArray[i] = (i+ 1);
-        }
-        for(Integer count:countArray){
-            System.out.println(count);
-        }*/
         model.addAttribute("countArray",countArray);
         model.addAttribute("bestUtility",bestUtility);
         model.addAttribute("worstUtility",worstUtility);
