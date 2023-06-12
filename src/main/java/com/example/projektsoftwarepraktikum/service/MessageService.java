@@ -226,7 +226,11 @@ public class MessageService {
 
     private int hourAMPM(String time, String format) {
         if (!Objects.equals(format, "PM")) {
-            return (Integer.valueOf(time)+12);
+            int hour = (Integer.valueOf(time)+12);
+            if (hour == 24) {
+                hour = 0;
+            }
+            return hour;
         } else {
             return Integer.valueOf(time);
         }
