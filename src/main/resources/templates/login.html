@@ -8,6 +8,8 @@
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
     <title>Sopra Demo Project</title>
 
+    <link rel="stylesheet" type="text/css" href="login.css" />
+
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
 
     <script>
@@ -16,13 +18,25 @@
     }
     </script>
 </head>
-<body class="p-3 mb-2 bg-primary text-black">
-<div class="container">
+<body class="p-3 mb-2 bg-secondary text-black disabled ">
+<div class="container" style="background-color:DodgerBlue;">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <div class="logo-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
+                </div>
+            </a>
+            <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite </a>
+
+        </div>
+    </nav>
     <form th:action="@{/login}" method="POST" class="form-horizontal">
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title" th:text="'Willkommen auf der Startseite!'"></h3>
                 <h4 class="card-title" th:text="'Anmeldung zum Feedback-System'"></h4>
+                <br>
                 <div th:if="${param.error}" class="alert alert-danger">
                     <span th:text="'Anmeldung fehlgeschlagen. Falls sie sich noch nicht registriert haben, können sie sich hier'"></span>
                     <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
@@ -36,7 +50,7 @@
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
                         <label>Benutzername</label>
-                        <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control"/><br/>
+                        <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control" /><br/>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -48,7 +62,9 @@
             </div>
             <div class="card-footer">
                 <button name="Submit" value="Login" type="Submit" th:text="'Anmelden'" class="btn btn-primary"></button>
-                <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
+
+                    <button type="button" onclick="register()" class="btn btn-primary" style="float:right">Registrieren</button>
+
             </div>
         </div>
     </form>
