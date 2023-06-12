@@ -29,9 +29,19 @@ public class FeedbackController {
                 .stream()
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getJointUtilityWorst())
                 .filter(utility_issue1 -> utility_issue1 != null).toArray(Double[]::new);
-        for(Double utilityIssue:bestUtility){
+
+       /* for(Double utilityIssue:bestUtility){
             System.out.println(utilityIssue);
+        }*/
+        int[] countArray = new int[worstUtility.length];
+
+        for (int i = 0; i < worstUtility.length; i++) {
+            countArray[i] = (i+ 1);
         }
+        for(Integer count:countArray){
+            System.out.println(count);
+        }
+        model.addAttribute("countArray",countArray);
         model.addAttribute("bestUtility",bestUtility);
         model.addAttribute("worstUtility",worstUtility);
         return "feedback"; //Gibt die Startseite für den User zurück

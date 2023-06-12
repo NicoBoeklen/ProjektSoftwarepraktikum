@@ -20,12 +20,14 @@
         <script th:inline="javascript">
             const bestUtility = /*[[${bestUtility}]]*/ [];
             const worstUtility = /*[[${worstUtility}]]*/ [];
-            document.write("Utility Values " + bestUtility);
+            const xValues = /*[[${countArray}]]*/ [];
+            document.write("Utility Values: " + bestUtility);
 
             new Chart("UtilityChart", {
                 type: "line",
 
                 data: {
+                    labels: xValues,
                     datasets: [{
                         label: 'BestUtility',
                         borderColor: "rgba(255,0,0)",
