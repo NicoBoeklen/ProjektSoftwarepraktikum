@@ -66,8 +66,12 @@
 
 
             <button type="submit" class="btn btn-primary">Feedback anfordern</button>
-            <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
-        </form>
+
+
+    </form>
+    <br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
 </div>
 
 </body>
