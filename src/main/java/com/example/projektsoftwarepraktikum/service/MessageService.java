@@ -61,7 +61,7 @@ public class MessageService {
             String[] datum = data[6].split(",");
             int month = monthToInt(datum[0].substring(0,3));
             int day = Integer.valueOf(datum[0].substring(4, datum[0].length()));
-            int year = Integer.valueOf(datum[1].substring(2, 5))+1900;
+            int year = Integer.valueOf(datum[1].substring(2, 5))+2000;
             //je nachdem ob Stunde 1-Stellig (16) oder 2-Stellig (17)
             int hour, minute, second;
             if (datum[1].length() == 17) {
@@ -224,9 +224,9 @@ public class MessageService {
         }
     }
 
-    private int hourAMPM(String time, String AMPM) {
-        if (AMPM == "PM") {
-            return Integer.valueOf(time)+12;
+    private int hourAMPM(String time, String format) {
+        if (!Objects.equals(format, "PM")) {
+            return (Integer.valueOf(time)+12);
         } else {
             return Integer.valueOf(time);
         }
