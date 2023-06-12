@@ -16,12 +16,12 @@
 </head>
 <body>
 <div class="container">
-        <canvas id="myChart" ></canvas>
+        <canvas id="UtilityChart" ></canvas>
         <script th:inline="javascript">
             const utilityValues = /*[[${UtilityList}]]*/ [];
             document.write("Utility Values " + utilityValues);
 
-            new Chart("myChart", {
+            new Chart("UtilityChart", {
                 type: "line",
 
                 data: {
