@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,24 @@ public class MessageService {
             message.setReceiversWorstCase(Double.valueOf(data[5].replace(",",".")));
         }
         if (data[6] != "") {
-            //message.setSentDate(data[6]);
+            String[] datum = data[6].split(",");
+            int month = monthToInt(datum[0].substring(0,3));
+            int day = Integer.valueOf(datum[0].substring(4, datum[0].length()));
+            int year = Integer.valueOf(datum[1].substring(2, 5));
+            //je nachdem ob Stunde 1-Stellig (16) oder 2-Stellig (17)
+            int hour, minute, second;
+            if (datum[1].length() == 17) {
+                 hour = hourAMPM(datum[1].substring(6, 8), datum[1].substring(15, 17));
+                 minute = Integer.valueOf(datum[1].substring(9, 11));
+                 second = Integer.valueOf(datum[1].substring(12, 14));
+            } else {
+                 hour = hourAMPM(datum[1].substring(6, 7), datum[1].substring(14, 16));
+                 minute = Integer.valueOf(datum[1].substring(8, 10));
+                 second = Integer.valueOf(datum[1].substring(11, 13));
+            }
+
+            LocalDateTime date = LocalDateTime.of(year, month, day, hour, minute, second);
+            message.setSentDate(date);
         }
         if (data[7] != "") {
             message.setMessageType(data[7]);
@@ -204,5 +222,43 @@ public class MessageService {
             newUser.setUserId(userID);
             userService.saveUser(newUser);
         }
+    }
+
+    private int hourAMPM(String time, String AMPM) {
+        if (AMPM == "PM") {
+            return Integer.valueOf(time)+12;
+        } else {
+            return Integer.valueOf(time);
+        }
+    }
+
+    private int monthToInt(String month) {
+        switch(month) {
+            case "Dec":
+                return 12;
+            case "Nov":
+                return 11;
+            case "Oct":
+                return 10;
+            case "Sep":
+                return 9;
+            case "Aug":
+                return 8;
+            case "Jul":
+                return 7;
+            case "Jun":
+                return 6;
+            case "May":
+                return 5;
+            case "Apr":
+                return 4;
+            case "Mar":
+                return 3;
+            case "Feb":
+                return 2;
+            case "Jan":
+                return 1;
+        }
+        return 0;
     }
 }
