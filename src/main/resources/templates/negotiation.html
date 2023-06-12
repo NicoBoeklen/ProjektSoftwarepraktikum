@@ -2,6 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="de">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
     <title>Negotiation</title>
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
@@ -11,12 +14,11 @@
             }
 
         function validateInput() {
-            let aspirationLevel = parseInt(document.getElementById("aspirationLevel").value);
-            let reservationLevel = parseInt(document.getElementById("reservationLevel").value);
+            let time = parseInt(document.getElementById("time").value);
 
-            // Check if aspirationLevel or reservationLevel is negative
-            if (aspirationLevel < 0 || reservationLevel < 0) {
-                alert("Aspiration oder Reservation Level dürfen nicht negativ sein!");
+            // Check if time is negative
+            if (time < 0) {
+                alert("Chosen time can not be negativ!");
                 return false;
             }
             return true;
@@ -25,49 +27,55 @@
 </head>
 <body>
 <div class="container-fluid bg-dark text-white p-3">
-    <h1>Verhandlungsziele</h1>
-    <p th:text="'Bitte füllen Sie folgende Parameter aus'"></p>
+    <h1>Verhandlungsziele</h1><br>
+    <h4 th:text="'Bitte füllen Sie folgende Parameter aus'"></h4>
+    <br>
 
     <form action="/feedback" method="post" onsubmit="return validateInput()">
-            <label for="input1" class="col-sm-2 col-form-label">TKI Style</label>
-            <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
-                <option disabled selected value>Choose your TKI Style</option>
-                <option value="1">Avoiding</option>
-                <option value="2">Compromising</option>
-                <option value="3">Competing</option>
-                <option value="4">Collaborating</option>
-                <option value="5">Accomodating</option>
-            </select>
-
+        <label for="input1">TKI Style</label>
+        <br>
+        <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
+            <option disabled selected value>Choose your intended TKI Style</option>
+            <option value="1">Avoiding</option>
+            <option value="2">Compromising</option>
+            <option value="3">Competing</option>
+            <option value="4">Collaborating</option>
+            <option value="5">Accomodating</option>
+        </select>
+        <br>
+        <label for="input2">Most important Issue</label>
+        <br>
+        <select id="input2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required>
+            <option disabled selected value>Choose your most important issue</option>
+            <option value="1">Issue a</option>
+            <option value="2">Issue b</option>
+            <option value="3">Issue c</option>
+            <option value="4">Issue d</option>
+            <option value="5">Issue e</option>
+        </select>
+        <br>
+        <br>
             <div class="form-group">
-                <label for="aspirationLevel">Aspiration Level:</label>
-                <input id="aspirationLevel" name="aspirationLevel" type="text" class="form-control" placeholder="Aspiration Level eingeben" required />
-
-                <label for="reservationLevel">Reservation Level:</label>
-                <input type="text" id="reservationLevel" name="reservationLevel" class="form-control" placeholder="Reservation Level eingeben" required />
+                <label for="time">How fast do you need a conclusion?</label>
+                <input type="number" id="time" name="timeRange" class="issue-range" placeholder="Number of days" required>
             </div>
+        <br>
             <div class="slider-group">
-                <label for="issue1">Issue1:</label>
-                <input type="range" id="issue1" name="issueRange" class="issue-range">
-
-                <label for="issue2">Issue2:</label>
-                <input type="range" id="issue2" name="issueRange" class="issue-range">
-
-                <label for="issue3">Issue3:</label>
-                <input type="range" id="issue3" name="issueRange" class="issue-range">
-
-                <label for="issue4">Issue4:</label>
-                <input type="range" id="issue4" name="issueRange" class="issue-range">
-
-                <label for="issue5">Issue5:</label>
-                <input type="range" id="issue5" name="issueRange" class="issue-range">
-
+                <label for="aspirationLevel">Aspiration Level:</label>
+                <input oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range" id="aspirationLevel" name="aspirationLevel" class="issue-range" required />
+                <output id="valueAspirationLevel">50</output>
+                <br>
+                <label for="reservationLevel">Reservation Level:</label>
+                <input oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range" id="reservationLevel" name="reservationLevel" class="issue-range" required />
+                <output id="valueReservationLevel">50</output>
             </div>
-
-
+            <br>
             <button type="submit" class="btn btn-primary">Feedback anfordern</button>
-            <button type="button" onclick="logout()" class="btn btn-primary">Ausloggen</button>
-        </form>
+
+    </form>
+    <br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
 </div>
 
 </body>
