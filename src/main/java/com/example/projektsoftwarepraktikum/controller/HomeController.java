@@ -1,5 +1,6 @@
 package com.example.projektsoftwarepraktikum.controller;
 
+import com.example.projektsoftwarepraktikum.repository.MessageRepository;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.NegotiationService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -23,6 +24,7 @@ public class HomeController {
 
     /**
      * Zeigt die Startseite Ihrer Anwendung.
+     *
      * @param model enthält alle ModelAttribute.
      * @return home-Seite.
      */
@@ -37,6 +39,15 @@ public class HomeController {
                 .distinct()
                 .collect(Collectors.toList());
         model.addAttribute("userNegotiations", negotiationIds);
+
+        List<Integer> partnerIDs = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> negotiationIds.contains(m.getNegotiation().getNegotiationId()))
+                .map(n -> n.getSenderId())
+                .filter(m -> m != userService.getCurrentUser().getUserId())
+                .distinct()
+                .collect(Collectors.toList());
+        model.addAttribute("userPartner", partnerIDs);
         return "home"; //Gibt die Startseite für den User zurück
     }
 }

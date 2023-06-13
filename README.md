@@ -13,16 +13,15 @@
 - einheitliches Layout finden -> auch für Überschriften und Texte
 - Check auf Fehlerbehandlungen
 - Alles auf Englisch (einheitlich)
+- footer (Luca)
 
 ### home.html:
-- Schrift ein wenig vergrößern bei der Willkommensmessage
 - alles ein wenig "entzerren"
 - mehr Text/Erläuterungen(?)
 - Informationen zu den Verhandlungen, die der User auswählen kann (Nico)
 
 ### negotiation.html:
 - Pfad auf "/negotiation" ändern
-- Button zum Ausloggen entfernen, da Logout über Navbar integriert ist
 - mehr die rechte Seite der Seite noch einbinden, z.b.TKI-Style und Most-Important-Issue nebeneinander
 - oder Aspiration und Reservation Level definieren rechts (evtl. Bild)
 
