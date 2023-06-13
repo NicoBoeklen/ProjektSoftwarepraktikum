@@ -21,10 +21,11 @@
             if (selectedOption) {
                 // AJAX-Anfrage senden
                 $.ajax({
-                    url: "negotiation",
+                    url: "/negotiation",
                     type: "GET",
                     data: { selectedOption: selectedOption }
                 });
+                window.location.href="/negotiation"
             } else {
                 alert("Zum Fortführen bitte eine der Verhandlungen auswählen!");
 
