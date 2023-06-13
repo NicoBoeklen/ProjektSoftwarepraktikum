@@ -36,7 +36,7 @@
         }
     </script>
 </head>
-<body >
+<body>
 <nav class="navbar navbar-expand-lg navbar-primary bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -69,14 +69,17 @@
     </div>
 </nav>
 
-<div class="container-fluid bg-dark text-white p-3">
+<div class="container-fluid bg-dark text-white p-3" align="center">
 
-    <h3 th:text="'Herzlich Willkommen auf Ihrer Startseite'+', '+${currentUser}+'!'"></h3>
-    <h4 th:text="'Hier sehen Sie ihre aktuellen Verhandlungen:'"></h4>
-
-    <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required onchange="getNegotiation(this)">
-        <option disabled selected value>Choose your Negotiation</option>
-        <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Verhandlung ' + ${negotiationID}">
+    <p th:text="'Herzlich Willkommen auf Ihrer Startseite'+', '+${currentUser}+'!'" style="font-size:28px" ></p>
+    <br>
+    <p th:text="'Hier sehen Sie Ihre aktuellen Verhandlungen:'" style="font-size:19px" ></p>
+    <br>
+    <br>
+    <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required onchange="getNegotiation(this)" align="center">
+        <option disabled selected value> Wählen Sie Ihre Verhandlung</option>
+        <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Verhandlung ' + ${negotiationID}" align="center"
+                style="background: #dfe7ff;color:#1E90FF;">
     </select>
 
     <div class="row">
@@ -98,11 +101,15 @@
     </div>
 
     <br>
+    <br>
+    <br>
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
     <br>
     <br>
 
 
 </div>
+<img class= "imageOne" src="https://www.technik-einkauf.de/files/upload/post/tue/2017/07/225270/verhandlung_adobestock_300250583_naka.jpg"
+     align=”middle height="545" width="1200">
 </body>
 </html>
