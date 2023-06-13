@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -21,7 +22,8 @@ public class FeedbackController {
     UserService userService;
 
     @GetMapping("/feedback")
-    public String startFeedback( Model model) {
+    public String startFeedback(@RequestParam("selectedOption") String selectedOption, Model model) {
+        System.out.println("Ausgewählte Option: " + selectedOption);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getSenderBestCase())
