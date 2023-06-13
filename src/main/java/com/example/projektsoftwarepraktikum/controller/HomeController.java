@@ -38,17 +38,17 @@ public class HomeController {
                 .collect(Collectors.toList());
         model.addAttribute("userNegotiations", negotiationIds);
 
-        List<Integer> partnerIDs = messageService.findAllNegotiationsMessages()
+        List<String> partnerIDs = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> negotiationIds.contains(m.getNegotiation().getNegotiationId()))
                 .map(n -> n.getSenderId())
                 .filter(m -> m != userService.getCurrentUser().getUserId())
+                .map(m->userService.getUserById(m).getUsername())
                 .distinct()
                 .collect(Collectors.toList());
         model.addAttribute("userPartner", partnerIDs);
 
         List<String> begin = new LinkedList<>();
-        List<String> end = new LinkedList<>();
         Comparator<LocalDateTime> minComparator = new Comparator<LocalDateTime>() {
 
             @Override
@@ -67,6 +67,7 @@ public class HomeController {
         }
         model.addAttribute("beginDate", begin);
 
+        List<String> end = new LinkedList<>();
         for(Integer negotiation: negotiationIds) {
             Optional<LocalDateTime> ending = messageService.findAllNegotiationsMessages()
                     .stream()
