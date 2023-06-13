@@ -9,6 +9,9 @@
     <title>Sopra Demo Project</title>
 
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script>
     function register() {
@@ -47,13 +50,13 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label>Benutzername</label>
+                        <label><i class="fa-solid fa-user"></i> <strong> Benutzername</strong></label>
                         <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control" /><br/>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label>Passwort</label>
+                        <label><i class="fa-solid fa-key"></i><strong> Passwort</strong></label>
                         <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control"/><br/>
                     </div>
                 </div>
