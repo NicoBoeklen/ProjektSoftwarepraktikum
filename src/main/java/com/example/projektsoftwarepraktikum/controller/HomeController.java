@@ -48,6 +48,7 @@ public class HomeController {
         model.addAttribute("userPartner", partnerIDs);
 
         List<String> begin = new LinkedList<>();
+        List<String> end = new LinkedList<>();
         Comparator<LocalDateTime> minComparator = new Comparator<LocalDateTime>() {
 
             @Override
@@ -65,6 +66,16 @@ public class HomeController {
             begin.add(beginning.get().format(formatter));
         }
         model.addAttribute("beginDate", begin);
+
+        for(Integer negotiation: negotiationIds) {
+            Optional<LocalDateTime> ending = messageService.findAllNegotiationsMessages()
+                    .stream()
+                    .filter(m -> m.getNegotiation().getNegotiationId()==negotiation)
+                    .map(n -> n.getSentDate())
+                    .max(minComparator);
+            end.add(ending.get().format(formatter));
+        }
+        model.addAttribute("endDate", end);
         return "home"; //Gibt die Startseite für den User zurück
     }
 }

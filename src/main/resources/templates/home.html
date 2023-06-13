@@ -95,6 +95,11 @@
                 <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${beginning}" th:text="'Start date: ' + ${beginning}"></li>
             </ul>
         </div>
+        <div class="col-3">
+            <ul class="list-group row" th:each="end : ${endDate}">
+                <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${end}" th:text="'End date: ' + ${End}"></li>
+            </ul>
+        </div>
     </div>
 
     <br>

@@ -73,7 +73,6 @@ public class MessageService {
                  minute = Integer.valueOf(datum[1].substring(8, 10));
                  second = Integer.valueOf(datum[1].substring(11, 13));
             }
-
             LocalDateTime date = LocalDateTime.of(year, month, day, hour, minute, second);
             message.setSentDate(date);
         }
@@ -225,8 +224,9 @@ public class MessageService {
     }
 
     private int hourAMPM(String time, String format) {
-        if (!Objects.equals(format, "PM")) {
-            int hour = (Integer.valueOf(time)+12);
+        if (Objects.equals(format, "PM")) {
+            int hour = Integer.valueOf(time);
+            hour+=12;
             if (hour == 24) {
                 hour = 0;
             }
