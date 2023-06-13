@@ -18,7 +18,7 @@
 - Schrift ein wenig vergrößern bei der Willkommensmessage
 - alles ein wenig "entzerren"
 - mehr Text/Erläuterungen(?)
-- Informationen zu den Verhandlungen, die der User auswählen kann
+- Informationen zu den Verhandlungen, die der User auswählen kann (Nico)
 
 ### negotiation.html:
 - Pfad auf "/negotiation" ändern
