@@ -9,6 +9,7 @@
     <!--<th:block th:insert="~{fragments/htmlHead :: head}"></th:block>-->
     <title>Negotiation</title>
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
+    <link rel="stylesheet" type="text/css" href="logo.css" />
     <script>
         function logout() {
             window.location.href = "login?logout";
@@ -28,8 +29,13 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-primary bg-light">
     <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <div class="logo-image">
+                <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
+            </div>
+        </a>
         <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +53,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Logout" class="btn btn-primary"/></form>
+                <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
         </ul>
     </div>
 </nav>
@@ -98,9 +104,6 @@
             <button type="submit" class="btn btn-primary">Feedback anfordern</button>
 
     </form>
-    <br>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Ausloggen" class="btn btn-primary"/></form>
 </div>
 
 </body>

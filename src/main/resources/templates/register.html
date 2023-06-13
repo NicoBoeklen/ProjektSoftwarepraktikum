@@ -22,8 +22,13 @@ N
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-primary bg-light">
     <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <div class="logo-image">
+                <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" height="48" width="50" class="img-fluid">
+            </div>
+        </a>
         <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +55,7 @@ N
 </div>
 
 <div class="row form-group">
-    <div class="col-12 col-md-10">
+    <div class="col-12 col-md-2">
         <label>Passwort</label>
         <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control" required/><br/>
     </div>
