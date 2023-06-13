@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class StartNegotiationController {
-    @GetMapping("/Negotiation")
+
+    @GetMapping("/negotiation")
     public String Negotiation() {
         return "negotiation";
 

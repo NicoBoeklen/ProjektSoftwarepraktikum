@@ -23,6 +23,7 @@ public class FeedbackController {
 
     @GetMapping("/feedback")
     public String startFeedback(@RequestParam("selectedOption") String selectedOption, Model model) {
+        //soll selectedOption nicht ein Integer sein
         System.out.println("Ausgewählte Option: " + selectedOption);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
