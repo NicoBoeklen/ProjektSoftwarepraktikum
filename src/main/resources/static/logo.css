@@ -5,3 +5,10 @@
     overflow: hidden;
     margin-top: -6px;
 }
+
+ .imageOne{
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+     display: block;
+     margin: auto;
+ }
