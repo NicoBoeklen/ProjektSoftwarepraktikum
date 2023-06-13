@@ -18,10 +18,9 @@
 ### home.html:
 - alles ein wenig "entzerren"
 - mehr Text/Erläuterungen(?)
-- Informationen zu den Verhandlungen, die der User auswählen kann (Nico)
+- man kann bisher zu negotiations ohne Verhandlung ausgewählt zu haben
 
 ### negotiation.html:
-- Pfad auf "/negotiation" ändern
 - mehr die rechte Seite der Seite noch einbinden, z.b.TKI-Style und Most-Important-Issue nebeneinander
 - oder Aspiration und Reservation Level definieren rechts (evtl. Bild)
 
