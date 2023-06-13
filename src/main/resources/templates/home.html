@@ -19,10 +19,16 @@
         function startNegotiation() {
             var selectedOption = getNegotiation();
             if (selectedOption) {
-                window.location.href = "Negotiation";
+                // AJAX-Anfrage senden
+                $.ajax({
+                    url: "/feedback",
+                    type: "GET",
+                    data: { selectedOption: selectedOption }
+                });
             } else {
-                alert ("Zum Fortführen bitte eine der Verhandlungen auswählen!");
-            }
+                alert("Zum Fortführen bitte eine der Verhandlungen auswählen!");
+
+        }
 
         }
         function logout() {
