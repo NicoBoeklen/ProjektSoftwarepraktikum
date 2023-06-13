@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <script>
         function startNegotiation() {
-            var selectedOption = document.getElementById("input1").value;
+            var selectedOption = getNegotiation();
             if (selectedOption) {
                 window.location.href = "Negotiation";
             } else {
@@ -65,17 +65,11 @@
 
     <p th:text="'Herzlich Willkommen auf Ihrer Startseite'+', '+${currentUser}+'!'"></p>
     <p th:text="'Hier sehen Sie ihre aktuellen Verhandlungen:'"></p>
-    <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required onchange="saveNegotiationId(this)">
+    <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required onchange="getNegotiation(this)">
         <option disabled selected value>Choose your Negotiation</option>
         <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Verhandlung ' + ${negotiationID}">
     </select>
-    <script>
-        function saveNegotiationId(){
-            const selectElement = document.getElementById("input1");
-            const selectedValue = selectElement.value;
-            console.log(selectedValue);
-        }
-    </script>
+
     <br>
     <button type="button" onclick="startNegotiation()" class="btn btn-primary">Verhandlungsfeedback anzeigen</button>
     <br>
