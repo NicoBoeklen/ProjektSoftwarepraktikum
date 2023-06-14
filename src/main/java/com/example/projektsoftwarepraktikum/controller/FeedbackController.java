@@ -56,12 +56,13 @@ public class FeedbackController {
         return "feedback";
     }
 /* Eigentlich sauberer Versuch über Post
-   Jedoch nicht funktioniert
-    @PostMapping("/feedback/submit")
+   Jedoch nicht funktioniert*/
+
+   /*
     public void startFeedback1(@RequestParam("selectedOption") String selectedOption, Model model){
         System.out.println(selectedOption);
 
     }
-    */
+*/
 
 }
