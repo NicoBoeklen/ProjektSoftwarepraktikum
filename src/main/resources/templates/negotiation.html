@@ -19,8 +19,8 @@
             let time = parseInt(document.getElementById("time").value);
 
             // Check if time is negative
-            if (time < 0) {
-                alert("Chosen time can not be negativ!");
+            if (time <= 0) {
+                alert("Chosen time can not be negativ or null!");
                 return false;
             }
             return true;
@@ -58,7 +58,7 @@
         </ul>
     </div>
 </nav>
-<div class="container-fluid bg-dark text-white p-3">
+<div class="container-fluid bg-dark text-white p-5">
     <h1>Verhandlungsziele</h1><br>
     <h4 th:text="'Bitte füllen Sie folgende Parameter aus'"></h4>
     <br>

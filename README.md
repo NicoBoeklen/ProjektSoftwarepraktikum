@@ -18,11 +18,9 @@
 ### home.html:
 - alles ein wenig "entzerren"
 - mehr Text/Erläuterungen(?)
-- man kann bisher zu negotiations ohne Verhandlung ausgewählt zu haben
 
 ### negotiation.html:
 - mehr die rechte Seite der Seite noch einbinden, z.b.TKI-Style und Most-Important-Issue nebeneinander
-- oder Aspiration und Reservation Level definieren rechts (evtl. Bild)
 
 ### feedback.html:
 - Serverfunktionen implementieren -> Berechnungen auf Basis der Eingabedaten; bisher stets die gleiche Grafik
