@@ -6,7 +6,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous"/>
     <th:block th:insert="~{fragments/htmlHead :: head}"></th:block>
-    <title>Sopra Demo Project</title>
+    <title>Login</title>
 
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -28,46 +28,47 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" height="48" width="50" class="img-fluid">
                 </div>
             </a>
-            <a class="navbar-brand" href="#">SOPRA Verhandlungswebsite </a>
+            <a class="navbar-brand" href="#">SOPRA Negotiation Website</a>
 
         </div>
     </nav>
     <form th:action="@{/login}" method="POST" class="form-horizontal">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title" th:text="'Willkommen auf der Startseite!'"></h3>
-                <h4 class="card-title" th:text="'Anmeldung zum Feedback-System'"></h4>
+                <h3 class="card-title" th:text="'Welcome to the homepage!'"></h3>
+                <h4 class="card-title" th:text="'Login for the feedback system'"></h4>
                 <br>
                 <div th:if="${param.error}" class="alert alert-danger">
-                    <span th:text="'Anmeldung fehlgeschlagen. Falls sie sich noch nicht registriert haben, können sie sich hier'"></span>
+                    <span th:text="'Login failed. If you have not registered yet, you can register here'"></span>
                     <button type="button" onclick="register()" class="btn btn-primary">Registrieren</button>
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success">
-                    <span th:text="'Das Ausloggen war erfolgreich!'"></span>
+                    <span th:text="'Logout successfull!'"></span>
                 </div>
                 <div th:if="${param.invalidUsername}" class="alert alert-danger">
-                    <span th:text="'Username ungültig.'"></span>
+                    <span th:text="'Username invalid.'"></span>
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label><i class="fa-solid fa-user"></i> <strong> Benutzername</strong></label>
-                        <input type="text" id="username" name="username"  th:placeholder="'Benutzername'" class="form-control" /><br/>
+                        <label><i class="fa-solid fa-user"></i> <strong> Username</strong></label>
+                        <input type="text" id="username" name="username"  th:placeholder="'Username'" class="form-control" /><br/>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-12 col-md-6">
-                        <label><i class="fa-solid fa-key"></i><strong> Passwort</strong></label>
-                        <input type="password"  th:placeholder="'Passwort'" id="password" name="password" class="form-control"/><br/>
+                        <label><i class="fa-solid fa-key"></i><strong> Password</strong></label>
+                        <input type="password"  th:placeholder="'Password'" id="password" name="password" class="form-control"/><br/>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button name="Submit" value="Login" type="Submit" th:text="'Anmelden'" class="btn btn-primary"></button>
+                <button name="Submit" value="Login" type="Submit" th:text="'Login'" class="btn btn-primary"></button>
 
-                    <button type="button" onclick="register()" class="btn btn-primary" style="float:right">Registrieren</button>
+                    <button type="button" onclick="register()" class="btn btn-primary" style="float:right">Register</button>
 
             </div>
         </div>
 </div>
+
 </body>
 </html>
