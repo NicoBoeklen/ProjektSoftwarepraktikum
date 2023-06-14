@@ -12,18 +12,3 @@
      display: block;
      margin: auto;
  }
-
-.col-3{
-border: 1em double white;
-border-radius: 1em;
-font-size:18px;
-
-}
-
-.row{
-border: 1em double white;
-border-radius: 0,5em;
-}
-
-.row{
-border: medium solid white;
