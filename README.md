@@ -12,8 +12,8 @@
 ### Allgemein:
 - einheitliches Layout finden -> auch für Überschriften und Texte (Tony)
 - Check auf Fehlerbehandlungen
-- Alles auf Englisch (einheitlich) (Luca)
-- footer (Luca)
+- Alles auf Englisch (einheitlich) (Luca) DONE
+- footer (Luca) --> Grundlayout fertig. About us seite erstellen. 
 
 ### home.html:
 - alles ein wenig "entzerren"
