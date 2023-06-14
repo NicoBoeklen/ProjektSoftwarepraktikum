@@ -10,9 +10,9 @@
 ## TO-DO's:
 
 ### Allgemein:
-- einheitliches Layout finden -> auch für Überschriften und Texte
+- einheitliches Layout finden -> auch für Überschriften und Texte (Tony)
 - Check auf Fehlerbehandlungen
-- Alles auf Englisch (einheitlich)
+- Alles auf Englisch (einheitlich) (Luca)
 - footer (Luca)
 
 ### home.html:
@@ -20,9 +20,9 @@
 - mehr Text/Erläuterungen(?)
 
 ### negotiation.html:
-- mehr die rechte Seite der Seite noch einbinden, z.b.TKI-Style und Most-Important-Issue nebeneinander
 
-### feedback.html:
+
+### feedback.html (Remi, Florian?):
 - Serverfunktionen implementieren -> Berechnungen auf Basis der Eingabedaten; bisher stets die gleiche Grafik
 - navbar einbinden mit Logout-Button
 - bisheriger Ausloggen-Button entfernen
