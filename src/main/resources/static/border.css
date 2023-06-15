@@ -11,10 +11,11 @@
  }
 
  .custom-select{
- background-color: DodgerBlue;
- border-color: DodgerBlue;
+ background-color: #dfe7ff;
+ border-color: #dfe7ff;
  color: white;
  width: 205px;
+ font-color: black;
  }
 
 .row{
