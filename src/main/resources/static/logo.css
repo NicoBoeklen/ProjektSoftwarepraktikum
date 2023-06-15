@@ -6,30 +6,5 @@
     margin-top: -6px;
 }
 
- .imageOne{
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-     display: block;
-     margin: auto;
- }
-
- .containerOne{
- margin: -48px;
- margin-bottom: -20px;
- }
-
- .custom-select{
- background-color: DodgerBlue;
- border-color: DodgerBlue;
- color: white;
- width: 205px;
- }
-
- .container {
-
-margin-top: 110px;
-
-
- }
 
 
