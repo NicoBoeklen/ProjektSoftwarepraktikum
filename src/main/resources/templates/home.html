@@ -113,7 +113,7 @@
         <br>
         <select id="input1" class="custom-select" aria-label=".form-select-lg example" required onchange="getNegotiation(this)" align="center"
                 style="width:215px">
-            <option disabled selected value>Select your negotiation</option>
+            <option disabled selected value align="center">Select your negotiation</option>
             <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Negotiation ' + ${negotiationID}" align="center"
                     style="background: #dfe7ff;color:#1E90FF;">
         </select>
