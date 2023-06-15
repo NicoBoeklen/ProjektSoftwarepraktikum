@@ -1,177 +1,186 @@
-    <!DOCTYPE html>
-    <html  xmlns:th="http://www.thymeleaf.org" lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!--<th:block th:insert="~{fragments/htmlHead :: head}"></th:block>-->
-        <title>Home</title>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--<th:block th:insert="~{fragments/htmlHead :: head}"></th:block>-->
+    <title>Home</title>
 
-        <link rel="stylesheet" type="text/css" href="logo.css" />
-        <link rel="stylesheet" type="text/css" href="border.css" />
-        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
+    <link rel="stylesheet" type="text/css" href="logo.css"/>
+    <link rel="stylesheet" type="text/css" href="border.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
 
-        <script>
-            function getNegotiation(){
-                const selectElement = document.getElementById("input1");
-                return selectElement.value;}
-            function startNegotiation() {
-                var selectedOption = getNegotiation();
-                if (selectedOption) {
-                    // AJAX-Anfrage senden
-                    $.ajax({
-                        url: "/feedback", // URL des Server-Endpunkts
-                        method: "GET", // HTTP-Methode
-                        data: {selectedOption: selectedOption}, // Daten, die an den Server gesendet werden
-                    });
-                    window.location.href="/negotiation"
-                } else {
-                    alert("To continue please select one of the negotiations!");
-                }
+    <script>
+        function getNegotiation() {
+            const selectElement = document.getElementById("input1");
+            return selectElement.value;
+        }
+
+        function startNegotiation() {
+            var selectedOption = getNegotiation();
+            if (selectedOption) {
+                // AJAX-Anfrage senden
+                $.ajax({
+                    url: "/feedback", // URL des Server-Endpunkts
+                    method: "GET", // HTTP-Methode
+                    data: {selectedOption: selectedOption}, // Daten, die an den Server gesendet werden
+                });
+                window.location.href = "/negotiation"
+            } else {
+                alert("To continue please select one of the negotiations!");
             }
-            function logout() {
-                window.location.href = "login";
-            }
-        </script>
-    </head>
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <div class="logo-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
-                </div>
-            </a>
-            <a class="navbar-brand text-primary" href="#">SOPRA Negotiation Website</a>
+        }
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" onclick="startNegotiation()" >Negotiation</a>
-                    </li>
-
-                </ul>
-                <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
-                    <i class="fa fa-user icon"></i>
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Logout" class="btn btn-primary"/></form>
-                </ul>
+        function logout() {
+            window.location.href = "login";
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <div class="logo-image">
+                <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
             </div>
+        </a>
+        <a class="navbar-brand text-primary" href="#">SOPRA Negotiation Website</a>
 
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" onclick="startNegotiation()">Negotiation</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
+                <i class="fa fa-user icon"></i>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout" class="btn btn-primary"/></form>
+            </ul>
         </div>
-    </nav>
-
-    <div class="container-fluid bg-dark text-white p-3" align="center">
-
-        <p th:text="'Welcome to your personal home page'+', '+${currentUser}+'!'" style="font-size:28px" ></p>
-        <br>
-        <p th:text="'Here you can see your current negotiations:'" style="font-size:19px" ></p>
-        <br>
-        <br>
-
-        <div class="row">
-            <div class="col-3">
-                <ul class="list-group row" th:each="negotiationID : ${userNegotiations}">
-                    <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${negotiationID}" th:text="'Negotiation: ' + ${negotiationID}"></li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <ul class="list-group row" th:each="partnerID : ${userPartner}">
-                    <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${partnerID}" th:text="'Negotiation partner: ' + ${partnerID}"></li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <ul class="list-group row" th:each="beginning : ${beginDate}">
-                    <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${beginning}" th:text="'Start date: ' + ${beginning}"></li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <ul class="list-group row" th:each="end : ${endDate}">
-                    <li class="list-group-item bg-dark text-white p-5 border border-secondary" th:value="${end}" th:text="'End date: ' + ${end}"></li>
-                </ul>
-            </div>
-        </div>
-        <br>
-        <br>
-        <select id="input1" class="custom-select" aria-label=".form-select-lg example" required onchange="getNegotiation(this)" align="center"
-                style="width:215px">
-            <option disabled selected value align="center">Select your negotiation</option>
-            <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Negotiation ' + ${negotiationID}" align="center"
-                    style="background: #dfe7ff;color:#1E90FF;">
-        </select>
-
-        <br>
-        <br>
-        <br>
-
-        <button type="submit" onclick="startNegotiation()" class="btn btn-primary">Show negotiation feedback</button>
-
-        <br>
-        <br>
-
 
     </div>
-    <img class= "imageOne" img src="https://www.technik-einkauf.de/files/upload/post/tue/2017/07/225270/verhandlung_adobestock_300250583_naka.jpg"
-         align=”middle height="545" width="1200">
-    <footer class="text-center text-white" style="background-color: #343a40">
+</nav>
 
-        <div class="containerOne">
+<div class="container-fluid bg-dark text-white p-3" align="center">
 
-            <section class="mt-5">
+    <p th:text="'Welcome to your personal home page'+', '+${currentUser}+'!'" style="font-size:28px"></p>
+    <br>
+    <p th:text="'Here you can see your current negotiations:'" style="font-size:19px"></p>
+    <br>
+    <br>
 
-                <div class="text-center d-flex justify-content-center pt-5">
-
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="/aboutus" class="text-white">About us</a>
-                        </h6>
-                    </div>
-                </div>
-
-            </section>
-
-
-            <hr class="my-5" />
-
-
-            <section class="mb-5">
-                <div class="d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <p>
-                            This site is designed to provide users with feedback on their negotiations in order to get better in further negotiations!
-                        </p>
-                    </div>
-                </div>
-            </section>
-
+    <div class="row">
+        <div class="col-3">
+            <ul class="list-group row" th:each="negotiationID : ${userNegotiations}">
+                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${negotiationID}"
+                    th:text="'Negotiation: ' + ${negotiationID}"></li>
+            </ul>
         </div>
-        <div
-                class="text-center p-3"
-                style="background-color: rgba(0, 0, 0, 0.2)"
+        <div class="col-3">
+            <ul class="list-group row" th:each="partnerID : ${userPartner}">
+                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${partnerID}"
+                    th:text="'Negotiation partner: ' + ${partnerID}"></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <ul class="list-group row" th:each="beginning : ${beginDate}">
+                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${beginning}"
+                    th:text="'Start date: ' + ${beginning}"></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <ul class="list-group row" th:each="end : ${endDate}">
+                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${end}"
+                    th:text="'End date: ' + ${end}"></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
+            onchange="getNegotiation(this)" align="center"
+            style="width:215px">
+        <option disabled selected value align="center">Select your negotiation</option>
+        <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}"
+                th:text="'Negotiation ' + ${negotiationID}" align="center"
+                style="background: #dfe7ff;color:#1E90FF;">
+    </select>
+
+    <br>
+    <br>
+    <br>
+
+    <button type="submit" onclick="startNegotiation()" class="btn btn-primary">Show negotiation feedback</button>
+
+    <br>
+    <br>
+
+
+</div>
+
+<footer class="text-center text-white" style="background-color: #343a40">
+
+    <div class="containerOne">
+
+        <section class="mt-5">
+
+            <div class="text-center d-flex justify-content-center pt-5">
+
+                <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <a href="/aboutus" class="text-white">About us</a>
+                    </h6>
+                </div>
+            </div>
+
+        </section>
+
+
+        <hr class="my-5"/>
+
+
+        <section class="mb-5">
+            <div class="d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <p>
+                        This site is designed to provide users with feedback on their negotiations in order to get
+                        better in further negotiations!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <div
+            class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+    >
+        © 2020 Copyright:
+        <a class="text-white" href="http://localhost:8080"
+        >SOPRANegotiation.com</a
         >
-            © 2020 Copyright:
-            <a class="text-white" href="http://localhost:8080"
-            >SOPRANegotiation.com</a
-            >
-        </div>
-    </footer>
-    </body>
-    </html>
+    </div>
+</footer>
+</body>
+</html>
