@@ -36,6 +36,9 @@
             function logout() {
                 window.location.href = "login";
             }
+            function aboutus(){
+                window.location.href = "aboutus";
+            }
         </script>
     </head>
     <body>
@@ -111,7 +114,7 @@
         <br>
         <br>
         <select id="input1" class="custom-select" aria-label=".form-select-lg example" required onchange="getNegotiation(this)" align="center"
-                style="width=215">
+                style="width:215px">
             <option disabled selected value>Select your negotiation</option>
             <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}" th:text="'Negotiation ' + ${negotiationID}" align="center"
                     style="background: #dfe7ff;color:#1E90FF;">
@@ -140,7 +143,7 @@
 
                     <div class="col-md-2">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">About us</a>
+                            <a href="aboutus.html" class="text-white">About us</a>
                         </h6>
                     </div>
                 </div>
