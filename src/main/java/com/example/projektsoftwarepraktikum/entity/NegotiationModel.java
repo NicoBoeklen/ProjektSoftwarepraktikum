@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 public class NegotiationModel {
 
     @Id
+    private Integer id;
+
     private Integer selectedNegotiationID;
 
     public Integer getSelectedNegotiationID() {
@@ -18,4 +20,11 @@ public class NegotiationModel {
         this.selectedNegotiationID = selectedNegotiationID;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

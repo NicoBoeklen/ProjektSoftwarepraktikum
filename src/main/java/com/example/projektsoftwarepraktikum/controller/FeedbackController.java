@@ -37,7 +37,8 @@ public class FeedbackController {
         //     laufendeVerhandlung=selectedOption;
         //}
         //System.out.println(laufendeVerhandlung);
-        //Integer selectedOption = modelService.findAllNegotiationModels().
+        Integer selectedOption = modelService.findNegotiationModelById(1).getSelectedNegotiationID();
+        model.addAttribute("selectedOption", selectedOption);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())

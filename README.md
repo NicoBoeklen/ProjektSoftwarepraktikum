@@ -12,15 +12,11 @@
 ### Allgemein:
 - einheitliches Layout finden -> auch für Überschriften und Texte (Tony)
 - Check auf Fehlerbehandlungen
-- Alles auf Englisch (einheitlich) (Luca) DONE
-- footer (Luca) --> Grundlayout fertig. About us seite erstellen. 
 - html head wieder einbinden
 - über fragments header und footer auslagern (übersichtlicher) -> aufpassen da der in negotiation unterschiedlich (ruft js methode start negotiation auf)
 - evtl. Js methoden auslagern
 - nicht genutzte Imports weg
 
-### aboutus.html
--mehr dazuschreiben (namen etc.)
 
 ### home.html:
 - alles ein wenig "entzerren"
@@ -34,7 +30,6 @@
  
 ### negotiation.html:
 - weißer balken muss weg (dafür direkt footer)
-- footer anpassen auf 2023
 - footer kleiner
 
 ### feedback.html (Remi, Florian?):

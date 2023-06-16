@@ -21,5 +21,7 @@ public class ModelService {
         return modelRepository.findAll();
     }
 
-    public NegotiationModel findById(Integer id) { return modelRepository.findBySelectedNegotiationID(id);}
+    public NegotiationModel findNegotiationModelById(Integer id) {return modelRepository.getReferenceById(id);}
+
+    public NegotiationModel findByNegotiationId(Integer id) { return modelRepository.findBySelectedNegotiationID(id);}
 }

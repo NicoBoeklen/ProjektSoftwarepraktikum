@@ -55,6 +55,7 @@
     </div>
 </nav>
 <div class="container">
+    <p th:text="'Selected Option: ' + ${selectedOption}"></p>
         <canvas id="UtilityChart" ></canvas>
         <script th:inline="javascript">
             const bestUtility = /*[[${bestUtility}]]*/ [];

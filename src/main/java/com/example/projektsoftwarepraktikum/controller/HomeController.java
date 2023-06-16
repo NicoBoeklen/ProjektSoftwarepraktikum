@@ -36,7 +36,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
-        model.addAttribute("negModel", new NegotiationModel());
+        NegotiationModel negModel = new NegotiationModel();
+        model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
         List<Integer> negotiationIds = messageService.findAllNegotiationsMessages()
                 .stream()
@@ -92,8 +93,8 @@ public class HomeController {
     public String saveData(@ModelAttribute("negModel") NegotiationModel negModel) {
         // Hier können Sie auf die Werte des Modellobjekts zugreifen und damit arbeiten
         Integer selectedID = negModel.getSelectedNegotiationID();
-        System.out.println(selectedID.toString());
         // Führen Sie die Speicherlogik durch oder führen Sie andere Aktionen aus
+        negModel.setId(1);
         modelService.saveNegotiationModel(negModel);
         return "redirect:/negotiation"; // Weiterleitung auf eine Erfolgsseite
     }
