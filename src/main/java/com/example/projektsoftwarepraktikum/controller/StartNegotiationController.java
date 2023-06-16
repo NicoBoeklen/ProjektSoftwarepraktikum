@@ -26,7 +26,7 @@ public class StartNegotiationController {
     public String Feedback(@ModelAttribute("negModel") NegotiationModel negModel) {
         Integer selectedID = negModel.getSelectedNegotiationID();
         negModel.setSelectedNegotiationID(selectedID);
-        negModel.setId(1);
+        negModel.setId(2);
         modelService.saveNegotiationModel(negModel);
         return "redirect:/feedback";
     }

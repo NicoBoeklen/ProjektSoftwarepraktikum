@@ -93,6 +93,7 @@ public class HomeController {
     public String saveData(@ModelAttribute("negModel") NegotiationModel negModel) {
         Integer selectedID = negModel.getSelectedNegotiationID();
         negModel.setId(1);
+        negModel.setSelectedNegotiationID(selectedID);
         modelService.saveNegotiationModel(negModel);
         return "redirect:/negotiation"; // Weiterleitung auf eine Erfolgsseite
     }
