@@ -23,6 +23,8 @@
 
 ### home.html:
 - alles ein wenig "entzerren"
+- bisher immer Verhandlung vorausgewählt
+- Button oben ist weg
 - mehr Text/Erläuterungen(?)
 - rechts weißer balken weg
 - weißer balken muss weg (dafür direkt footer)
