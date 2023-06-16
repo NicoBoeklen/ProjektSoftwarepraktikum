@@ -67,10 +67,6 @@
                 <li class="nav-item">
                     <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                   <!-- <a class="nav-link text-primary" th:if="${negModel.selectedNegotiationID} != null" href="/negotiation">Negotiation</a> -->
-                   <a class="nav-link text-primary">Negotiation</a>
-                </li>
 
             </ul>
             <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
@@ -123,7 +119,7 @@
         <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
                 align="center"
                 style="width:215px" th:field="*{selectedNegotiationID}">
-            <option selected disabled value="" align="center">Select your negotiation</option>
+            <option selected hidden value=""  align="center">Select your negotiation</option>
             <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}"
                     th:text="'Negotiation ' + ${negotiationID}" align="center"
                     style="background: #dfe7ff;color:#1E90FF;" ></option>
