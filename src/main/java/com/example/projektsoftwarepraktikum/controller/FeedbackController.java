@@ -29,7 +29,9 @@ public class FeedbackController {
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
         Integer selectedOption = modelService.findNegotiationModelById(1).getSelectedNegotiationID();
-        model.addAttribute("selectedOption", selectedOption);
+        Integer selectedAspiration = modelService.findNegotiationModelById(1).getSelectedAspirationLevel();
+        model.addAttribute("selectedOption", selectedAspiration);
+        model.addAttribute("selectedAspirationLevel", selectedOption);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)

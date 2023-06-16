@@ -75,12 +75,12 @@
     <br>
     <div class="row">
         <div class="col-5">
-            <form action="/feedback" method="post" onsubmit="return validateInput()">
+            <form th:object="${negModel}" th:action="@{/feedback}" method="post" onsubmit="return validateInput()">
                 <label for="input1">TKI-Style</label>
                 <br>
                 <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                        required>
-                    <option disabled selected value>Choose your intended TKI-Style</option>
+                        required th:field="*{selectedTKIStyle}">
+                    <option selected hidden value="">Choose your intended TKI-Style</option>
                     <option value="1">Avoiding</option>
                     <option value="2">Compromising</option>
                     <option value="3">Competing</option>
@@ -91,8 +91,8 @@
                 <label for="input2">Most important Issue</label>
                 <br>
                 <select id="input2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                        required>
-                    <option disabled selected value>Choose your most important issue</option>
+                        required th:field="*{selectedIssue}">
+                    <option selected hidden value="">Choose your most important issue</option>
                     <option value="1">Issue a</option>
                     <option value="2">Issue b</option>
                     <option value="3">Issue c</option>
@@ -104,17 +104,17 @@
                 <div class="form-group">
                     <label for="time">How fast do you need a conclusion?</label>
                     <input type="number" id="time" name="timeRange" class="issue-range" placeholder="Number of days"
-                           required>
+                           required th:field="*{selectedNumberOfDays}">
                 </div>
                 <br>
                 <div class="slider-group">
                     <label for="aspirationLevel">Aspiration Level (in %)</label>
-                    <input oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
+                    <input th:field="*{selectedAspirationLevel}" oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
                            id="aspirationLevel" name="aspirationLevel" class="issue-range" required/>
                     <output id="valueAspirationLevel">50</output>
                     <br>
                     <label for="reservationLevel">Reservation Level (in %)</label>
-                    <input oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
+                    <input th:field="*{selectedReservationLevel}" oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
                            id="reservationLevel" name="reservationLevel" class="issue-range" required/>
                     <output id="valueReservationLevel">50</output>
                 </div>
