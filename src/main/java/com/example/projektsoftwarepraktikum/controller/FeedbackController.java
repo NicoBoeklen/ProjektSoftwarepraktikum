@@ -28,29 +28,21 @@ public class FeedbackController {
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
-        //System.out.println(selectedOption);
-        //Integer laufendeVerhandlung=null;
-        //bei jedem Mal das auf /feedback zugegriffen wird WErt zurück
-        //in AJAX request WErt und bei redirect null
-       // if(selectedOption!=null){
-            //muss nach laufende Verhandlung gefiltert werden im Stream
-        //     laufendeVerhandlung=selectedOption;
-        //}
-        //System.out.println(laufendeVerhandlung);
         Integer selectedOption = modelService.findNegotiationModelById(1).getSelectedNegotiationID();
         model.addAttribute("selectedOption", selectedOption);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())
                 .map(n -> n.getSenderBestCase())
                 .filter(utility_issue1 -> utility_issue1 != null) .toArray(Double[]::new);
         Double[] worstUtility = messageService.findAllNegotiationsMessages()
                 .stream()
-                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId()).map(n -> n.getSenderWorstCase())
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())
+                .map(n -> n.getSenderWorstCase())
                 .filter(utility_issue1 -> utility_issue1 != null).toArray(Double[]::new);
-       /* for(Double utilityIssue:bestUtility){
-            System.out.println(utilityIssue);
-        }*/
+
         int[] countArray = new int[worstUtility.length];
         for (int i = 0; i < worstUtility.length; i++) {
             countArray[i] = (i + 1);
@@ -60,14 +52,5 @@ public class FeedbackController {
         model.addAttribute("worstUtility", worstUtility);
         return "feedback";
     }
-/* Eigentlich sauberer Versuch über Post
-   Jedoch nicht funktioniert*/
-
-   /*
-    public void startFeedback1(@RequestParam("selectedOption") String selectedOption, Model model){
-        System.out.println(selectedOption);
-
-    }
-*/
 
 }
