@@ -22,16 +22,16 @@ public class FeedbackController {
     UserService userService;
 
     @GetMapping("/feedback")
-    public String startFeedback(@RequestParam(required = false) Integer selectedOption,Model model) {
-        System.out.println(selectedOption);
-        Integer laufendeVerhandlung=null;
+    public String startFeedback(Model model) {
+        //System.out.println(selectedOption);
+        //Integer laufendeVerhandlung=null;
         //bei jedem Mal das auf /feedback zugegriffen wird WErt zurück
         //in AJAX request WErt und bei redirect null
-        if(selectedOption!=null){
+       // if(selectedOption!=null){
             //muss nach laufende Verhandlung gefiltert werden im Stream
-             laufendeVerhandlung=selectedOption;
-        }
-        System.out.println(laufendeVerhandlung);
+        //     laufendeVerhandlung=selectedOption;
+        //}
+        //System.out.println(laufendeVerhandlung);
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())
