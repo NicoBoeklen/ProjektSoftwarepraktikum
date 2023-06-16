@@ -34,7 +34,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title" th:text="'Welcome to the homepage!'"></h3>
-                <h4 class="card-title" th:text="'Login for the feedback system'"></h4>
+                <h4 class="card-title" th:text="'Please login to enter the feedback system'"></h4>
                 <br>
                 <div th:if="${param.error}" class="alert alert-danger">
                     <span th:text="'Login failed. If you have not registered yet, you can register here →'"></span>
@@ -66,6 +66,7 @@
 
             </div>
         </div>
+    </form>
 </div>
 
 </body>
