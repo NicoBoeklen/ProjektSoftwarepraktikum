@@ -26,11 +26,11 @@
             var selectedOption = getNegotiation();
             if (selectedOption) {
                 // AJAX-Anfrage senden
-                $.ajax({
-                    url: "/feedback", // URL des Server-Endpunkts
-                    method: "GET", // HTTP-Methode
-                    data: {selectedOption: selectedOption}, // Daten, die an den Server gesendet werden
-                });
+                //    $.ajax({
+                //       url: "/feedback", // URL des Server-Endpunkts
+                //       method: "GET", // HTTP-Methode
+                //        data: {selectedOption: selectedOption}, // Daten, die an den Server gesendet werden
+                //    });
                 window.location.href = "/negotiation"
             } else {
                 alert("To continue please select one of the negotiations!");
@@ -68,7 +68,7 @@
                     <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" onclick="startNegotiation()">Negotiation</a>
+                    <a class="nav-link text-primary" th:if="${negModel.selectedNegotiationID} != null"><a href="/negotiation">Negotiation</a>
                 </li>
 
             </ul>
@@ -118,21 +118,21 @@
     </div>
     <br>
     <br>
-    <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
-            onchange="getNegotiation(this)" align="center"
-            style="width:215px">
-        <option disabled selected value align="center">Select your negotiation</option>
-        <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}"
-                th:text="'Negotiation ' + ${negotiationID}" align="center"
-                style="background: #dfe7ff;color:#1E90FF;">
-    </select>
+    <form th:object="${negModel}" th:action="@{/}" method="post">
+        <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
+                align="center"
+                style="width:215px" th:field="*{selectedNegotiationID}">
+            <option selected hidden disabled value="" align="center">Select your negotiation</option>
+            <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}"
+                    th:text="'Negotiation ' + ${negotiationID}" align="center"
+                    style="background: #dfe7ff;color:#1E90FF;" ></option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Show negotiation feedback</button>
 
-    <br>
-    <br>
-    <br>
-
-    <button type="submit" onclick="startNegotiation()" class="btn btn-primary">Show negotiation feedback</button>
-
+    </form>
     <br>
     <br>
 

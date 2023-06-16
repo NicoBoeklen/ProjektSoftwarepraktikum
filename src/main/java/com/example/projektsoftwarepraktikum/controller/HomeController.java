@@ -1,11 +1,14 @@
 package com.example.projektsoftwarepraktikum.controller;
 
+import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +32,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
+        model.addAttribute("negModel", new NegotiationModel());
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
         List<Integer> negotiationIds = messageService.findAllNegotiationsMessages()
                 .stream()
@@ -78,5 +82,15 @@ public class HomeController {
         }
         model.addAttribute("endDate", end);
         return "home"; //Gibt die Startseite für den User zurück
+    }
+
+    @PostMapping("/")
+    public String saveData(@ModelAttribute("negModel") NegotiationModel negModel) {
+        // Hier können Sie auf die Werte des Modellobjekts zugreifen und damit arbeiten
+        Integer selectedID = negModel.getSelectedNegotiationID();
+        System.out.println(selectedID.toString());
+        // Führen Sie die Speicherlogik durch oder führen Sie andere Aktionen aus
+
+        return "redirect:/negotiation"; // Weiterleitung auf eine Erfolgsseite
     }
 }
