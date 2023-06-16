@@ -6,6 +6,7 @@ import com.example.projektsoftwarepraktikum.service.UserService;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.catalina.User;
+import com.example.projektsoftwarepraktikum.service.ModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,12 @@ import java.util.stream.Collectors;
 public class FeedbackController {
     @Autowired
     MessageService messageService;
+
     @Autowired
     UserService userService;
+
+    @Autowired
+    ModelService modelService;
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
@@ -32,6 +37,7 @@ public class FeedbackController {
         //     laufendeVerhandlung=selectedOption;
         //}
         //System.out.println(laufendeVerhandlung);
+        //Integer selectedOption = modelService.findAllNegotiationModels().
         Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())

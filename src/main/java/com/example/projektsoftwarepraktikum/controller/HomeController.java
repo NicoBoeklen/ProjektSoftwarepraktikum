@@ -2,6 +2,7 @@ package com.example.projektsoftwarepraktikum.controller;
 
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
 import com.example.projektsoftwarepraktikum.service.MessageService;
+import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class HomeController {
 
     @Autowired
     private MessageService messageService;
+
+    @Autowired
+    private ModelService modelService;
 
     /**
      * Zeigt die Startseite Ihrer Anwendung.
@@ -90,7 +94,7 @@ public class HomeController {
         Integer selectedID = negModel.getSelectedNegotiationID();
         System.out.println(selectedID.toString());
         // Führen Sie die Speicherlogik durch oder führen Sie andere Aktionen aus
-
+        modelService.saveNegotiationModel(negModel);
         return "redirect:/negotiation"; // Weiterleitung auf eine Erfolgsseite
     }
 }

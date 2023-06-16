@@ -17,6 +17,7 @@
 - html head wieder einbinden
 - über fragments header und footer auslagern (übersichtlicher) -> aufpassen da der in negotiation unterschiedlich (ruft js methode start negotiation auf)
 - evtl. Js methoden auslagern
+- nicht genutzte Imports weg
 
 ### aboutus.html
 -mehr dazuschreiben (namen etc.)
