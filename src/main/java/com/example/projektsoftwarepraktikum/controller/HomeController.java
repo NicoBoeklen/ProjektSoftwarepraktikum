@@ -91,9 +91,7 @@ public class HomeController {
 
     @PostMapping("/")
     public String saveData(@ModelAttribute("negModel") NegotiationModel negModel) {
-        // Hier können Sie auf die Werte des Modellobjekts zugreifen und damit arbeiten
         Integer selectedID = negModel.getSelectedNegotiationID();
-        // Führen Sie die Speicherlogik durch oder führen Sie andere Aktionen aus
         negModel.setId(1);
         modelService.saveNegotiationModel(negModel);
         return "redirect:/negotiation"; // Weiterleitung auf eine Erfolgsseite
