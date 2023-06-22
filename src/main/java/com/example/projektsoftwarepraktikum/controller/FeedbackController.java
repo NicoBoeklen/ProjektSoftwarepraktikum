@@ -1,19 +1,12 @@
 package com.example.projektsoftwarepraktikum.controller;
 
-import com.example.projektsoftwarepraktikum.entity.NegotiationMessage;
 import com.example.projektsoftwarepraktikum.service.MessageService;
-import com.example.projektsoftwarepraktikum.service.UserService;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import org.apache.catalina.User;
 import com.example.projektsoftwarepraktikum.service.ModelService;
+import com.example.projektsoftwarepraktikum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class FeedbackController {

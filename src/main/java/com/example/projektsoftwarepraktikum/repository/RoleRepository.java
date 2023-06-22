@@ -1,6 +1,6 @@
 package com.example.projektsoftwarepraktikum.repository;
 
-import com.example.projektsoftwarepraktikum.entity.Benutzer;
+
 import com.example.projektsoftwarepraktikum.entity.Rolle;
 import org.springframework.data.jpa.repository.JpaRepository;
 
