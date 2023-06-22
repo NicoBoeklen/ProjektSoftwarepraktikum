@@ -1,8 +1,7 @@
 package com.example.projektsoftwarepraktikum.service;
 
-import com.example.projektsoftwarepraktikum.entity.Benutzer;
+
 import com.example.projektsoftwarepraktikum.entity.Rolle;
-import com.example.projektsoftwarepraktikum.repository.BenutzerRepository;
 import com.example.projektsoftwarepraktikum.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
