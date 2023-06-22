@@ -6,6 +6,14 @@
 - st176033/ShaleryWad: Florian Schad
 - AemsuCode: Remi Chaieb
 - Nico Böklen
+## LOGIN 
+
+### USER:
+- Benutzername:user+userID (z.B. user35)
+- Passwort:1234
+### Admin:
+- Benutzername: admin
+- Passwort: admin
 
 ## TO-DO's:
 
