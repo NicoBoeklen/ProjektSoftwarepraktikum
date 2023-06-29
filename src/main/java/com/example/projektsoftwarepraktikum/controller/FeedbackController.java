@@ -21,10 +21,10 @@ public class FeedbackController {
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
-        //In 1 ID gespeichert und in 2 die Werte der Zieleingabe
-        Integer selectedOption = modelService.findNegotiationModelById(1).getSelectedNegotiationID();
-        Integer selectedAspiration = modelService.findNegotiationModelById(2).getSelectedAspirationLevel();
-        Integer selectedReservation = modelService.findNegotiationModelById(2).getSelectedReservationLevel();
+        //Über userId seine Zieleingabe zur Verhandlung abrufen (jeder User nur ein negotiation Model)
+        Integer selectedOption = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedNegotiationID();
+        Integer selectedAspiration = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedAspirationLevel();
+        Integer selectedReservation = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedReservationLevel();
         model.addAttribute("selectedOption", selectedOption);
         model.addAttribute("selectedAspirationLevel", selectedAspiration);
         model.addAttribute("selectedReservationLevel", selectedReservation);

@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ModelRepository extends JpaRepository<NegotiationModel, Integer> {
     NegotiationModel findBySelectedNegotiationID(Integer selectedNegotiationID);
+    NegotiationModel findByuserid(Integer userid);
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class NegotiationModel {
 
     @Id
-    private Integer id;
+    private Integer userid;
 
     private Integer selectedNegotiationID;
 
@@ -30,12 +30,12 @@ public class NegotiationModel {
         this.selectedNegotiationID = selectedNegotiationID;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer id) {
+        this.userid = id;
     }
 
     public Integer getSelectedAspirationLevel() {
