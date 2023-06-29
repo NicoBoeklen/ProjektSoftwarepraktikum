@@ -25,6 +25,13 @@
     + Anforderung des tabellarischen Feedbacks über Button; Weiterleitung an neue Seite
 - Filterfunktion für die tabellarische Übersicht
 
+### feedback.html:
+- Anzeige eines weiteren Feedback-Elements während der Verhandlung
+- weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
+- Button zum Anfordern7Weiterlei
+- Optional: Exportfunktion der Grafik und des textuellen Feedbacks
+    + Export als PDF mit Grafik und textuellem Feedback darunter
+
 
 
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
@@ -39,5 +46,4 @@
 ### negotiation.html:
 
 ### feedback.html (Remi, Florian?):
-- Optional: Exportfunktion der Grafik und des textuellen Feedbacks
-    + Export als PDF mit Grafik und textuellem Feedback darunter
+
