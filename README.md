@@ -6,6 +6,7 @@
 - st176033/ShaleryWad: Florian Schad
 - AemsuCode: Remi Chaieb
 - Nico Böklen
+  
 ## LOGIN 
 
 ### USER:
@@ -38,11 +39,15 @@
 
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
 
+### Allgemein:
+- Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit
+
 ### login.html:
 - spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
 
 ### register.html:
 - Implementierung der Registrierungsfunktion
+- falls nicht implementiert, dann rausnehmen
 
 ### home.html:
 - Darstellung des Enddatums (?)
@@ -50,6 +55,11 @@
 ### negotiation.html:
 - Änderung der Beschreibung/Beschriftung zum TKI-Level
 - bessere Fehlerbehandlung und Validierung der Eingaben
+- Validierung zw AL >= RL
+- 
 
-### feedback.html (Remi, Florian?):
+### feedback.html:
+- Überarbeitung der Utility-Werte
+- "wenig Aussagekraft hat, da die Angebote vom Partner abgelehnt werden können. Aussagekräftiger ist, wenn AL/RL durch die Angebote des Partners erreicht wurden"
+- 
 
