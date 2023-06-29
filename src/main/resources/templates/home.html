@@ -25,12 +25,6 @@
         function startNegotiation() {
             var selectedOption = getNegotiation();
             if (selectedOption) {
-                // AJAX-Anfrage senden
-                //    $.ajax({
-                //       url: "/feedback", // URL des Server-Endpunkts
-                //       method: "GET", // HTTP-Methode
-                //        data: {selectedOption: selectedOption}, // Daten, die an den Server gesendet werden
-                //    });
                 window.location.href = "/negotiation"
             } else {
                 alert("To continue please select one of the negotiations!");
@@ -86,32 +80,25 @@
     <br>
     <br>
 
-    <div class="row">
-        <div class="col-3">
-            <ul class="list-group row" th:each="negotiationID : ${userNegotiations}">
-                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${negotiationID}"
-                    th:text="'Negotiation: ' + ${negotiationID}"></li>
-            </ul>
-        </div>
-        <div class="col-3">
-            <ul class="list-group row" th:each="partnerID : ${userPartner}">
-                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${partnerID}"
-                    th:text="'Negotiation partner: ' + ${partnerID}"></li>
-            </ul>
-        </div>
-        <div class="col-3">
-            <ul class="list-group row" th:each="beginning : ${beginDate}">
-                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${beginning}"
-                    th:text="'Start date: ' + ${beginning}"></li>
-            </ul>
-        </div>
-        <div class="col-3">
-            <ul class="list-group row" th:each="end : ${endDate}">
-                <li class="list-group-item bg-dark text-white border border-secondary" th:value="${end}"
-                    th:text="'End date: ' + ${end}"></li>
-            </ul>
-        </div>
-    </div>
+    <table class="table table-striped text-white">
+        <thead>
+        <tr>
+            <th scope="col">Negotiation</th>
+            <th scope="col">Negotiation partner</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="negotiation, row : ${userNegotiations}">
+            <td th:text="${negotiation}"></td>
+            <td th:text="${userPartner[row.index]}"></td>
+            <td th:text="${beginDate[row.index]}"></td>
+            <td th:text="${endDate[row.index]}"></td>
+        </tr>
+        </tbody>
+    </table>
+
     <br>
     <br>
     <form th:object="${negModel}" th:action="@{/}" method="post">
