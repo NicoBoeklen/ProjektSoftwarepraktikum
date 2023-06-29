@@ -17,6 +17,9 @@
 
 ## TO-DO's (Anfoerungen Übungsblatt 3.3):
 
+### Allgemein:
+- Fehlerbehandlung und Validierung der Eingaben 
+
 ### Admin-Bereich:
 - Erstellung einer neuen Willkommensseite
 - Implementierung zweier Feedback-Elemente, die das Feedback aller Verhandlungen aggregiert
@@ -28,22 +31,25 @@
 ### feedback.html:
 - Anzeige eines weiteren Feedback-Elements während der Verhandlung
 - weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
-- Button zum Anfordern7Weiterlei
+- Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
 - Optional: Exportfunktion der Grafik und des textuellen Feedbacks
     + Export als PDF mit Grafik und textuellem Feedback darunter
 
 
-
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
 
-### Allgemein:
+### login.html:
+- spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
 
-
+### register.html:
+- Implementierung der Registrierungsfunktion
 
 ### home.html:
-
+- Darstellung des Enddatums (?)
 
 ### negotiation.html:
+- Änderung der Beschreibung/Beschriftung zum TKI-Level
+- bessere Fehlerbehandlung und Validierung der Eingaben
 
 ### feedback.html (Remi, Florian?):
 
