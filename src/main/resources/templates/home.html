@@ -87,6 +87,7 @@
             <th scope="col">Negotiation partner</th>
             <th scope="col">Start date</th>
             <th scope="col">End date</th>
+            <th scope="col">Selection</th>
         </tr>
         </thead>
         <tbody>
@@ -95,12 +96,19 @@
             <td th:text="${userPartner[row.index]}"></td>
             <td th:text="${beginDate[row.index]}"></td>
             <td th:text="${endDate[row.index]}"></td>
+            <td>
+                <form th:object="${negModel}" th:action="@{/}" method="post">
+                    <input type="hidden" th:field="*{selectedNegotiationID}" th:value="${negotiation}" />
+                    <button type="submit" class="btn btn-primary">Select</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
 
     <br>
     <br>
+
     <form th:object="${negModel}" th:action="@{/}" method="post">
         <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
                 align="center"
@@ -118,7 +126,6 @@
     </form>
     <br>
     <br>
-
 
 </div>
 
