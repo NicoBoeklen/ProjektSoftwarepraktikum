@@ -61,24 +61,27 @@
     <br>
     <p th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></p>
     <canvas id="UtilityChart"></canvas>
+    <br>
+    <p th:text="'Here you can see your contract imbalance and joint utility based on your offers:'"></p>
+    <canvas id="JointUtilityChart"></canvas>
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
         const worstUtility = /*[[${worstUtility}]]*/ [];
         const xValues = /*[[${countArray}]]*/ [];
-        document.write("Utility Values: " + bestUtility);
+        const chartId = document.getElementById('UtilityChart').getContext('2d');
+        //document.write("Utility Values: " + bestUtility);
 
-        new Chart("UtilityChart", {
+        let chart = new Chart(chartId, {
             type: "line",
-
             data: {
                 labels: xValues,
                 datasets: [{
-                    label: 'BestUtility',
+                    label: 'Best Utility',
                     borderColor: "rgba(255,0,0)",
                     data: bestUtility
                 },
                     {
-                        label: 'WorstUtility',
+                        label: 'Worst Utility',
                         borderColor: "rgba(0,0,255)",
                         data: worstUtility
                     }]
@@ -95,8 +98,39 @@
             }
         });
 
-    </script>
+        const jointUtility = /*[[${jointUtility}]]*/ [];
+        const contractImbalance = /*[[${contractImbalance}]]*/ [];
+        const xValues2 = /*[[${countArray2}]]*/ [];
+        const chartId2 = document.getElementById('JointUtilityChart').getContext('2d');
 
+        let chart2 = new Chart(chartId2, {
+            type: "line",
+            data: {
+                labels: xValues2,
+                datasets: [{
+                    label: 'Joint Utility',
+                    borderColor: "rgb(48,120,48)",
+                    data: jointUtility
+                },
+                    {
+                        label: 'Contract Imbalance',
+                        borderColor: "rgb(89,61,131)",
+                        data: contractImbalance
+                    }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        display: true,
+                        min: 0,
+                        max: 1,
+
+                    }
+                }
+            }
+        });
+
+    </script>
 </div>
 <footer class="text-center text-white" style="background-color: #292828">
 

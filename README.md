@@ -35,6 +35,7 @@
 - weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
 - --> Spinnennetz für TKI-Style
 - --> auf gewünschte Zeit eingehen
+- auf most important issue eingehen
 - Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
 - Optional: Exportfunktion der Grafik und des textuellen Feedbacks
     + Export als PDF mit Grafik und textuellem Feedback darunter
@@ -64,7 +65,7 @@
 - 
 
 ### feedback.html:
-- Überarbeitung der Utility-Werte (Mehrwert der Datentabelle darunter?)
-- "wenig Aussagekraft hat, da die Angebote vom Partner abgelehnt werden können. Aussagekräftiger ist, wenn AL/RL durch die Angebote des Partners erreicht wurden"
+- Überarbeitung der Utility-Werte (Mehrwert der Datentabelle darunter?) -> rausgenommen
+- (erledigt) "wenig Aussagekraft hat, da die Angebote vom Partner abgelehnt werden können. Aussagekräftiger ist, wenn AL/RL durch die Angebote des Partners erreicht wurden" 
 - 
 

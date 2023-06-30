@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Objects;
+
 @Controller
 public class FeedbackController {
     @Autowired
@@ -21,6 +23,7 @@ public class FeedbackController {
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
+        //Feedback 1
         //Über userId seine Zieleingabe zur Verhandlung abrufen (jeder User nur ein negotiation Model)
         Integer userID = userService.getCurrentUser().getUserId();
         Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
@@ -36,18 +39,20 @@ public class FeedbackController {
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
                 .filter(m -> m.getSenderId() == partnerID)
-                .filter(m -> m.getMessageType() != "QUESTION" && m.getMessageType() != "CLARIFICATION")
+                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
                 .map(n -> n.getReceiversBestCase())
-                .filter(utility_issue1 -> utility_issue1 != null) .toArray(Double[]::new);
+                .filter(utility_issue1 -> utility_issue1 != null)
+                .toArray(Double[]::new);
 
         Double[] worstUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
                 .filter(m -> m.getSenderId() == partnerID)
-                .filter(m -> m.getMessageType() != "QUESTION" && m.getMessageType() != "CLARIFICATION")
+                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
                 .map(n -> n.getReceiversWorstCase())
-                .filter(utility_issue1 -> utility_issue1 != null).toArray(Double[]::new);
-        
+                .filter(utility_issue1 -> utility_issue1 != null)
+                .toArray(Double[]::new);
+
         //Feedback during Negotiation
         Double[] bestArray = new Double[bestUtility.length/2];
 
@@ -72,25 +77,63 @@ public class FeedbackController {
         //Individual Feedback
         String feedbackAsp;
         String feedbackRes;
-        System.out.println(selectedAspiration);
-        System.out.println(selectedReservation);
-        System.out.println(bestUtility[bestArray.length-1]);
-        if (selectedAspiration < bestUtility[bestArray.length-1]) {
+        if (selectedAspiration < bestArray[bestArray.length-1]*100) {
             feedbackAsp="Your Aspiration Level is lower than your current best utility. " +
                     "You can make more compromises to lead the negotiation to an successful end.";
         } else {
             feedbackAsp="Your Aspiration Level is higher than your current best utility. " +
                     "You can insist more on your priorities and goals.";
         }
-        if (selectedReservation < bestUtility[bestArray.length-1]) {
+        if (selectedReservation < bestArray[bestArray.length-1]*100) {
             feedbackRes="Your Reservation Level is lower than your current best utility. " +
-                    "You can make more compromises to lead the negotiation to an successful end.";
+                    "Try to achieve your aspiration level and lead the negotiation to an successful end.";
         } else {
             feedbackRes="Your Reservation Level is higher than your current best utility. " +
-                    "Try to insist more on your priorities and goals or.";
+                    "Try to insist more on your priorities and goals.";
         }
         model.addAttribute("feedbackAsp", feedbackAsp);
         model.addAttribute("feedbackRes", feedbackRes);
+
+        //Feedback 2
+        Double[] jointUtility = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> m.getSenderId() == userID)
+                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
+                .map(n -> n.getJointUtilityBest())
+                .filter(utility_issue1 -> utility_issue1 != null)
+                .toArray(Double[]::new);
+
+        Double[] contractImbalance = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> m.getSenderId() == userID)
+                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
+                .map(n -> n.getContractImbalanceBest())
+                .filter(ci -> ci != null)
+                .toArray(Double[]::new);
+
+        //Feedback during Negotiation
+        Double[] jointArray = new Double[jointUtility.length/2];
+
+        for(int i = 0; i<jointUtility.length/2; i++) {
+            jointArray[i] = jointUtility[i];
+        }
+
+        Double[] contractImbalanceArray = new Double[contractImbalance.length/2];
+
+        for(int i = 0; i<contractImbalance.length/2; i++) {
+            contractImbalanceArray[i] = contractImbalance[i];
+        }
+        int[] countArray2 = new int[jointArray.length];
+        for (int i = 0; i < jointArray.length; i++) {
+            countArray2[i] = (i + 1);
+        }
+
+        model.addAttribute("countArray2", countArray2);
+        model.addAttribute("jointUtility", jointArray);
+        model.addAttribute("contractImbalance", contractImbalanceArray);
+
         return "feedback";
     }
 
