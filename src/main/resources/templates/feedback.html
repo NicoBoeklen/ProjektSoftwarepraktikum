@@ -54,15 +54,17 @@
 <div class="container">
     <h3>Feedback during the negotiation</h3>
     <p th:text="'Here you can see the feedback to your selected Negotiation: Negotiation ' + ${selectedOption}"></p>
+    <div class="border p-3">
     <h6 th:text="'You chose this Aspiration Level: ' + ${selectedAspirationLevel}+'%'"></h6>
     <p th:text="${feedbackAsp}"></p>
     <h6 th:text="'You chose this Reservation Level: ' + ${selectedReservationLevel}+'%'"></h6>
     <p th:text="${feedbackRes}"></p>
+    </div>
     <br>
-    <p th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></p>
+    <h5 th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></h5>
     <canvas id="UtilityChart"></canvas>
     <br>
-    <p th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></p>
+    <h5 th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></h5>
     <div style="display: flex;">
         <div style="flex: 1;">
             <canvas id="JointUtilityChart"></canvas>
