@@ -42,11 +42,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
-        List<Double> averageTKIValues = messageService.averageTkiStyle();
-        for (Double tkiValue:averageTKIValues
-             ) {
-            System.out.println(tkiValue);
-        }
+
 
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);

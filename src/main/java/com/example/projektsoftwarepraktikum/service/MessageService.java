@@ -26,6 +26,8 @@ public class MessageService {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    ModelService modelService;
 
     public NegotiationMessage saveNegotiationMessage(NegotiationMessage message) {
         return messageRepository.save(message);
@@ -34,14 +36,17 @@ public class MessageService {
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
     }
+
     public List<Double> averageTkiStyle() {
-        List<Double> tkiAverages = new ArrayList<>();
-        tkiAverages.addAll(messageRepository.getCompeting());
-        tkiAverages.addAll(messageRepository.getCompromising());
-        tkiAverages.addAll(messageRepository.getCollaborating());
-        tkiAverages.addAll(messageRepository.getAvoiding());
-        tkiAverages.addAll(messageRepository.getAccommodating());
-        return tkiAverages;
+        Integer userID = userService.getCurrentUser().getUserId();
+        Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
+        List<Double> tkiAverage = new ArrayList<>();
+        tkiAverage.addAll(messageRepository.getCompeting(selectedOption,userID));
+        tkiAverage.addAll(messageRepository.getCompromising(selectedOption,userID));
+        tkiAverage.addAll(messageRepository.getCollaborating(selectedOption,userID));
+        tkiAverage.addAll(messageRepository.getAvoiding(selectedOption,userID));
+        tkiAverage.addAll(messageRepository.getAccommodating(selectedOption,userID));
+        return tkiAverage;
     }
 
     public Integer getPartnerID(final Integer userID, final Integer negotiationID) {
