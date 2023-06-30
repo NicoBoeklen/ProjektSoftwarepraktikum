@@ -65,7 +65,7 @@
     <h5 th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></h5>
     <canvas id="UtilityChart"></canvas>
     <br>
-    <canvas id="marksChart"></canvas>
+    <canvas id="TkiDiagram"></canvas>
     <br>
     <h5 th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></h5>
     <div style="display: flex;">
@@ -159,18 +159,18 @@
 
         //RADAR CHART
         const tkiValues = /*[[${tkiValues}]]*/ [];
-        let marksCanvas = document.getElementById("marksChart");
-        let marksData = {
-            labels: ["Competing", "Collaborating", "Avoiding", "Accommodating", "Competing", "#"],
+        let diagramCanvas = document.getElementById("TkiDiagram");
+        let TkiDiagramData = {
+            labels: ["Accommodating", "Competing", "Compromising", "Collaborating", "Avoiding"],
             datasets: [{
                 label: "Your TKI Style",
                 backgroundColor: "rgba(200,0,0,0.2)",
                 data: tkiValues
             }]
         };
-        let radarChart = new Chart(marksCanvas, {
+        let radarChart = new Chart(diagramCanvas, {
             type: 'radar',
-            data: marksData
+            data: TkiDiagramData
         });
 
 

@@ -21,7 +21,7 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
     List<Double> getCollaborating(@Param("filterValue") Integer filterValue,@Param("senderId") Integer senderId);
     @Query("SELECT AVG(nm.TKI_Competing_Quantile_Rel) FROM NegotiationMessage nm where nm.negotiation.negotiationId= :filterValue and nm.senderId= :senderId")
     List<Double> getCompeting(@Param("filterValue") Integer filterValue,@Param("senderId") Integer senderId);
-    @Query("SELECT AVG(nm.TKI_Compromising) FROM NegotiationMessage nm where nm.negotiation.negotiationId= :filterValue and nm.senderId= :senderId")
+    @Query("SELECT AVG(nm.TKI_Compromising_Quantile_Rel) FROM NegotiationMessage nm where nm.negotiation.negotiationId= :filterValue and nm.senderId= :senderId")
     List<Double> getCompromising(@Param("filterValue") Integer filterValue,@Param("senderId") Integer senderId);
 
 }
