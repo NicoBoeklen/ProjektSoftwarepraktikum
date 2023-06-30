@@ -10,11 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Service
 public class MessageService {
@@ -37,6 +33,15 @@ public class MessageService {
 
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
+    }
+    public List<Double> averageTkiStyle() {
+        List<Double> tkiAverages = new ArrayList<>();
+        tkiAverages.addAll(messageRepository.getCompeting());
+        tkiAverages.addAll(messageRepository.getCompromising());
+        tkiAverages.addAll(messageRepository.getCollaborating());
+        tkiAverages.addAll(messageRepository.getAvoiding());
+        tkiAverages.addAll(messageRepository.getAccommodating());
+        return tkiAverages;
     }
 
     public Integer getPartnerID(final Integer userID, final Integer negotiationID) {

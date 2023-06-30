@@ -1,6 +1,7 @@
 package com.example.projektsoftwarepraktikum.controller;
 
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
+import com.example.projektsoftwarepraktikum.repository.MessageRepository;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -29,6 +30,8 @@ public class HomeController {
 
     @Autowired
     private ModelService modelService;
+    @Autowired
+    private MessageRepository messageRepository;
 
     /**
      * Zeigt die Startseite Ihrer Anwendung.
@@ -39,6 +42,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
+        List<Double> averageTKIValues = messageService.averageTkiStyle();
+        for (Double tkiValue:averageTKIValues
+             ) {
+            System.out.println(tkiValue);
+        }
+
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());

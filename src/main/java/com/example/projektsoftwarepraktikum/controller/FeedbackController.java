@@ -3,11 +3,14 @@ package com.example.projektsoftwarepraktikum.controller;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -94,6 +97,7 @@ public class FeedbackController {
         model.addAttribute("feedbackAsp", feedbackAsp);
         model.addAttribute("feedbackRes", feedbackRes);
 
+
         //Feedback 2
         Double[] jointUtility = messageService.findAllNegotiationsMessages()
                 .stream()
@@ -146,6 +150,9 @@ public class FeedbackController {
         model.addAttribute("barColors", barColors);
         model.addAttribute("barColors2", barColors2);
         model.addAttribute("contractImbalance", contractImbalanceArray);
+
+        //FEEDBACK 3
+
 
         return "feedback";
     }
