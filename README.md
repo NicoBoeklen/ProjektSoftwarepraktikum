@@ -24,6 +24,7 @@
 ### Admin-Bereich:
 - Erstellung einer neuen Willkommensseite
 - Implementierung zweier Feedback-Elemente, die das Feedback aller Verhandlungen aggregiert
+- -> Durchschnitt aller TKI Stile der Verhandler(Durchschnitt über alle Nachrichten oder alle Verhandlungen)
       + am besten direkt auf der Willkommensseite des Admin
 - tabellarische Übersicht der Ergebnisse aller Verhandlungen, der gesetzten Ziele sowie das Feedback (Ziele vs. Ergebnis)
     + Anforderung des tabellarischen Feedbacks über Button; Weiterleitung an neue Seite
@@ -31,9 +32,9 @@
 
 ### feedback.html:
 - Anzeige eines weiteren Feedback-Elements während der Verhandlung
-- --> Verlauf Contract Imbalance, Joint Utility (Ampelfarben!)
+- (erledigt)--> Verlauf Contract Imbalance, Joint Utility (Ampelfarben!)
 - weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
-- --> Spinnennetz für TKI-Style
+- --> Spinnennetz für TKI-Style (Durchschnitt über alle Nachrichten -> relative Werte verwenden, die gesamt 100 ergeben)
 - --> auf gewünschte Zeit eingehen
 - auf most important issue eingehen
 - Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
