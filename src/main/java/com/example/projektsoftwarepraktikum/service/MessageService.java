@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class MessageService {
@@ -36,6 +37,18 @@ public class MessageService {
 
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
+    }
+
+    public Integer getPartnerID(final Integer userID, final Integer negotiationID) {
+        Integer partnerID = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> negotiationID == m.getNegotiation().getNegotiationId())
+                .map(n -> n.getSenderId())
+                .filter(m -> m != userID)
+                .distinct()
+                .findFirst()
+                .orElse(null);
+        return partnerID;
     }
 
     public NegotiationMessage saveNegotiationMessageData(final String[] data, Negotiation neg) {

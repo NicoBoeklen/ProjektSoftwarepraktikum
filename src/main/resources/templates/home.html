@@ -86,7 +86,7 @@
             <th scope="col">Negotiation</th>
             <th scope="col">Negotiation partner</th>
             <th scope="col">Start date</th>
-            <th scope="col">End date</th>
+            <!-- <th scope="col">End date</th> -->
             <th scope="col">Selection</th>
         </tr>
         </thead>
@@ -95,7 +95,7 @@
             <td th:text="${negotiation}"></td>
             <td th:text="${userPartner[row.index]}"></td>
             <td th:text="${beginDate[row.index]}"></td>
-            <td th:text="${endDate[row.index]}"></td>
+            <!-- <td th:text="${endDate[row.index]}"></td> -->
             <td>
                 <form th:object="${negModel}" th:action="@{/}" method="post">
                     <input type="hidden" th:field="*{selectedNegotiationID}" th:value="${negotiation}" />

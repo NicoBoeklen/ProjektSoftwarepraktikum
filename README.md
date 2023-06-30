@@ -16,7 +16,7 @@
 - Benutzername: admin
 - Passwort: admin
 
-## TO-DO's (Anfoerungen Übungsblatt 3.3):
+## TO-DO's (Anforderungen Übungsblatt 3.3):
 
 ### Allgemein:
 - Fehlerbehandlung und Validierung der Eingaben 
@@ -31,7 +31,10 @@
 
 ### feedback.html:
 - Anzeige eines weiteren Feedback-Elements während der Verhandlung
+- --> Verlauf Contract Imbalance, Joint Utility (Ampelfarben!)
 - weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
+- --> Spinnennetz für TKI-Style
+- --> auf gewünschte Zeit eingehen
 - Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
 - Optional: Exportfunktion der Grafik und des textuellen Feedbacks
     + Export als PDF mit Grafik und textuellem Feedback darunter
@@ -41,6 +44,7 @@
 
 ### Allgemein:
 - Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit
+- header, footer auslagern
 
 ### login.html:
 - spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
@@ -50,7 +54,8 @@
 - falls nicht implementiert, dann rausnehmen
 
 ### home.html:
-- Darstellung des Enddatums (?)
+- Darstellung des Enddatums (?) -> aktuell rausgenommen
+- Button für jede Verhandlung (funktioniert noch nicht)
 
 ### negotiation.html:
 - Änderung der Beschreibung/Beschriftung zum TKI-Level
@@ -59,7 +64,7 @@
 - 
 
 ### feedback.html:
-- Überarbeitung der Utility-Werte
+- Überarbeitung der Utility-Werte (Mehrwert der Datentabelle darunter?)
 - "wenig Aussagekraft hat, da die Angebote vom Partner abgelehnt werden können. Aussagekräftiger ist, wenn AL/RL durch die Angebote des Partners erreicht wurden"
 - 
 

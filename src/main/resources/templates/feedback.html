@@ -58,7 +58,8 @@
     <p th:text="${feedbackAsp}"></p>
     <h6 th:text="'You chose this Reservation Level: ' + ${selectedReservationLevel}+'%'"></h6>
     <p th:text="${feedbackRes}"></p>
-
+    <br>
+    <p th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></p>
     <canvas id="UtilityChart"></canvas>
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
