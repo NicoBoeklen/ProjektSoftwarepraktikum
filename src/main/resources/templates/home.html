@@ -98,7 +98,9 @@
             <!-- <td th:text="${endDate[row.index]}"></td> -->
             <td>
                 <form th:object="${negModel}" th:action="@{/}" method="post">
-                    <input type="hidden" th:field="*{selectedNegotiationID}" th:value="${negotiation}" />
+                    <select hidden th:field="*{selectedNegotiationID}">
+                        <option selected hidden th:value="${negotiation}"></option>
+                    </select>
                     <button type="submit" class="btn btn-primary">Select</button>
                 </form>
             </td>
@@ -108,7 +110,7 @@
 
     <br>
     <br>
-
+    <!--
     <form th:object="${negModel}" th:action="@{/}" method="post">
         <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
                 align="center"
@@ -126,7 +128,7 @@
     </form>
     <br>
     <br>
-
+    -->
 </div>
 
 <footer class="text-center text-white" style="background-color: #292828">

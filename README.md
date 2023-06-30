@@ -57,7 +57,6 @@
 
 ### home.html:
 - Darstellung des Enddatums (?) -> aktuell rausgenommen
-- Button für jede Verhandlung (funktioniert noch nicht)
 
 ### negotiation.html:
 - Änderung der Beschreibung/Beschriftung zum TKI-Level
