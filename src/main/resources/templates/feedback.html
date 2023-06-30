@@ -62,7 +62,7 @@
     <p th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></p>
     <canvas id="UtilityChart"></canvas>
     <br>
-    <p th:text="'Here you can see your contract imbalance and joint utility based on your offers:'"></p>
+    <p th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></p>
     <div style="display: flex;">
         <div style="flex: 1;">
             <canvas id="JointUtilityChart"></canvas>
@@ -92,7 +92,7 @@
                     }]
             },
             options: {
-                legend: {display: false},
+                legend: {display: true},
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -105,8 +105,8 @@
 
         const jointUtility = /*[[${jointUtility}]]*/ [];
         const contractImbalance = /*[[${contractImbalance}]]*/ [];
-        var barColors ="red";
-        var barColors2 ="blue";
+        const barColors = /*[[${barColors}]]*/ [];
+        const barColors2 = /*[[${barColors2}]]*/ [];
 
         let chart2 = new Chart("JointUtilityChart", {
             type: "bar",
@@ -119,7 +119,7 @@
                 }]
             },
             options: {
-                legend: {display: false},
+                legend: {display: true},
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -141,7 +141,7 @@
                     }]
             },
             options: {
-                legend: {display: false},
+                legend: {display: true},
                 scales: {
                     yAxes: [{
                         ticks: {

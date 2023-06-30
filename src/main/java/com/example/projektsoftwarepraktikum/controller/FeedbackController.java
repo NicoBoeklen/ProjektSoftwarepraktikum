@@ -115,18 +115,36 @@ public class FeedbackController {
 
         //Feedback during Negotiation
         Double[] jointArray = new Double[jointUtility.length/2];
+        String[] barColors = new String[jointUtility.length/2];
 
         for(int i = 0; i<jointUtility.length/2; i++) {
             jointArray[i] = jointUtility[i];
+            if (jointArray[i] >= 1.5) {
+                barColors[i] = "green";
+            } else if (jointArray[i] >= 1.4) {
+                barColors[i] = "yellow";
+            } else if (jointArray[i] >= 1.3) {
+                barColors[i] = "red";
+            }
         }
 
         Double[] contractImbalanceArray = new Double[contractImbalance.length/2];
+        String[] barColors2 = new String[contractImbalance.length/2];
 
         for(int i = 0; i<contractImbalance.length/2; i++) {
             contractImbalanceArray[i] = contractImbalance[i];
+            if (contractImbalanceArray[i] <= 0.1) {
+                barColors2[i] = "green";
+            } else if (contractImbalanceArray[i] <= 0.3) {
+                barColors2[i] = "yellow";
+            } else if (contractImbalanceArray[i] <= 0.5) {
+                barColors2[i] = "red";
+            }
         }
 
         model.addAttribute("jointUtility", jointArray);
+        model.addAttribute("barColors", barColors);
+        model.addAttribute("barColors2", barColors2);
         model.addAttribute("contractImbalance", contractImbalanceArray);
 
         return "feedback";
