@@ -152,7 +152,9 @@ public class FeedbackController {
         model.addAttribute("contractImbalance", contractImbalanceArray);
 
         //FEEDBACK 3
-
+        List<Double> tkiList= messageService.averageTkiStyle();
+        Double[] tkiValues = tkiList.toArray(new Double[0]);
+        model.addAttribute("tkiValues", tkiValues);
 
         return "feedback";
     }

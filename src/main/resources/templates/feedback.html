@@ -158,14 +158,14 @@
         });
 
         //RADAR CHART
-        const TKI_values = /*[[${tkiValues}]]*/ [];
+        const tkiValues = /*[[${tkiValues}]]*/ [];
         let marksCanvas = document.getElementById("marksChart");
         let marksData = {
             labels: ["Competing", "Collaborating", "Avoiding", "Accommodating", "Competing", "#"],
             datasets: [{
                 label: "Your TKI Style",
                 backgroundColor: "rgba(200,0,0,0.2)",
-                data: [65, 75, 70, 80, 60, 80]
+                data: tkiValues
             }]
         };
         let radarChart = new Chart(marksCanvas, {

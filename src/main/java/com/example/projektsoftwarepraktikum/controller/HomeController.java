@@ -42,8 +42,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
-
-
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
