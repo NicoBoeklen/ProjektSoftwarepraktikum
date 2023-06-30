@@ -63,15 +63,20 @@
     <canvas id="UtilityChart"></canvas>
     <br>
     <p th:text="'Here you can see your contract imbalance and joint utility based on your offers:'"></p>
-    <canvas id="JointUtilityChart"></canvas>
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <canvas id="JointUtilityChart"></canvas>
+        </div>
+        <div style="flex: 1;">
+            <canvas id="ContractImbalanceChart"></canvas>
+        </div>
+    </div>
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
         const worstUtility = /*[[${worstUtility}]]*/ [];
         const xValues = /*[[${countArray}]]*/ [];
-        const chartId = document.getElementById('UtilityChart').getContext('2d');
-        //document.write("Utility Values: " + bestUtility);
 
-        let chart = new Chart(chartId, {
+        let chart = new Chart("UtilityChart", {
             type: "line",
             data: {
                 labels: xValues,
@@ -87,45 +92,62 @@
                     }]
             },
             options: {
+                legend: {display: false},
                 scales: {
-                    y: {
-                        display: true,
-                        min: 0,
-                        max: 1,
-
-                    }
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
                 }
             }
         });
 
         const jointUtility = /*[[${jointUtility}]]*/ [];
         const contractImbalance = /*[[${contractImbalance}]]*/ [];
-        const xValues2 = /*[[${countArray2}]]*/ [];
-        const chartId2 = document.getElementById('JointUtilityChart').getContext('2d');
+        var barColors ="red";
+        var barColors2 ="blue";
 
-        let chart2 = new Chart(chartId2, {
-            type: "line",
+        let chart2 = new Chart("JointUtilityChart", {
+            type: "bar",
             data: {
-                labels: xValues2,
+                labels: xValues,
                 datasets: [{
                     label: 'Joint Utility',
-                    borderColor: "rgb(48,120,48)",
+                    backgroundColor: barColors,
                     data: jointUtility
-                },
-                    {
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                }
+            }
+        });
+
+        let chart3 = new Chart("ContractImbalanceChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
                         label: 'Contract Imbalance',
-                        borderColor: "rgb(89,61,131)",
+                        backgroundColor: barColors2,
                         data: contractImbalance
                     }]
             },
             options: {
+                legend: {display: false},
                 scales: {
-                    y: {
-                        display: true,
-                        min: 0,
-                        max: 1,
-
-                    }
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
                 }
             }
         });

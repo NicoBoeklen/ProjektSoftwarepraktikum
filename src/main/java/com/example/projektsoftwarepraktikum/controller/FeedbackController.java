@@ -125,12 +125,7 @@ public class FeedbackController {
         for(int i = 0; i<contractImbalance.length/2; i++) {
             contractImbalanceArray[i] = contractImbalance[i];
         }
-        int[] countArray2 = new int[jointArray.length];
-        for (int i = 0; i < jointArray.length; i++) {
-            countArray2[i] = (i + 1);
-        }
 
-        model.addAttribute("countArray2", countArray2);
         model.addAttribute("jointUtility", jointArray);
         model.addAttribute("contractImbalance", contractImbalanceArray);
 
