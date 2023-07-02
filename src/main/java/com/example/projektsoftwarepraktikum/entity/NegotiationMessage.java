@@ -99,6 +99,7 @@ public class NegotiationMessage {
     private Integer TKI_Compromising_Quantile_Abs;
 
     private Integer TKI_Avoiding_Quantile_Abs;
+    private Integer TKI_Collaborating_Quantile_Abs;
 
     private Integer TKI_Accommodating_Quantile_Abs;
 
@@ -111,6 +112,7 @@ public class NegotiationMessage {
     private Double TKI_Avoiding_Quantile_Rel;
 
     private Double TKI_Accommodating_Quantile_Rel;
+
 
     public NegotiationMessage() {
         // empty constructor for Hibernate
@@ -451,7 +453,9 @@ public class NegotiationMessage {
     public void setTKI_Compromising_Quantile_Abs(Integer TKI_Compromising_Quantile_Abs) {
         this.TKI_Compromising_Quantile_Abs = TKI_Compromising_Quantile_Abs;
     }
-
+    public void setTKI_Collaborating_Quantile_Abs(Integer TKI_Collaborating_Quantile_Abs) {
+        this.TKI_Collaborating_Quantile_Abs = TKI_Collaborating_Quantile_Abs;
+    }
     public Integer getTKI_Avoiding_Quantile_Abs() {
         return TKI_Avoiding_Quantile_Abs;
     }
