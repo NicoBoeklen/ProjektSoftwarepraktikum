@@ -1,7 +1,9 @@
 package com.example.projektsoftwarepraktikum.controller;
 
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
+import com.example.projektsoftwarepraktikum.entity.Rolle;
 import com.example.projektsoftwarepraktikum.repository.MessageRepository;
+import com.example.projektsoftwarepraktikum.repository.RoleRepository;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -32,7 +34,8 @@ public class HomeController {
     private ModelService modelService;
     @Autowired
     private MessageRepository messageRepository;
-
+    @Autowired
+    private RoleRepository roleRepository;
     /**
      * Zeigt die Startseite Ihrer Anwendung.
      *
@@ -42,6 +45,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
+        boolean isAdmin = userService.getCurrentUser().getRoles().stream()
+                .map(Rolle::getId)
+                .anyMatch(roleId -> roleRepository.getRolename(roleId).contains("ROLE_ADMIN"));
+        if(isAdmin){
+            return "redirect:/admin/home";
+        }
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
