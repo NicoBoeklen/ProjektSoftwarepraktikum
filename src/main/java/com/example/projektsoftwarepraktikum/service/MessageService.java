@@ -203,6 +203,9 @@ public class MessageService {
                 message.setTKI_Compromising_Quantile_Abs(Integer.valueOf(data[40]));
             }
             if (data[41] != "") {
+                message.setTKI_Competing_Quantile_Abs(Integer.valueOf(data[40]));
+            }
+            if (data[42] != "") {
                 message.setTKI_Avoiding_Quantile_Abs(Integer.valueOf(data[41]));
             }
             if (data[43] != "") {
