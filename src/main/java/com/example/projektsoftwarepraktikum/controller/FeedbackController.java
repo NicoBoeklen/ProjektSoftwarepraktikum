@@ -3,9 +3,7 @@ package com.example.projektsoftwarepraktikum.controller;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -152,7 +150,7 @@ public class FeedbackController {
         model.addAttribute("contractImbalance", contractImbalanceArray);
 
         //FEEDBACK 3
-        List<Double> tkiList= messageService.averageTkiStyle();
+        List<Double> tkiList= messageService.averageTkiStyleSingleUser();
         Double[] tkiValues = tkiList.toArray(new Double[0]);
         model.addAttribute("tkiValues", tkiValues);
 

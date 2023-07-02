@@ -37,7 +37,7 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
-    public List<Double> averageTkiStyle() {
+    public List<Double> averageTkiStyleSingleUser() {
         Integer userID = userService.getCurrentUser().getUserId();
         Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
         List<Double> tkiAverage = new ArrayList<>();
@@ -48,7 +48,15 @@ public class MessageService {
         tkiAverage.addAll(messageRepository.getAccommodating(selectedOption,userID));
         return tkiAverage;
     }
-
+    public List<Double> averageTkiStyleAllUser() {
+        List<Double> tkiAverage = new ArrayList<>();
+        tkiAverage.addAll(messageRepository.getAllUserCompeting());
+        tkiAverage.addAll(messageRepository.getAllUserCompromising());
+        tkiAverage.addAll(messageRepository.getAllUserCollaborating());
+        tkiAverage.addAll(messageRepository.getAllUserAvoiding());
+        tkiAverage.addAll(messageRepository.getAllUserAccommodating());
+        return tkiAverage;
+    }
     public Integer getPartnerID(final Integer userID, final Integer negotiationID) {
         Integer partnerID = findAllNegotiationsMessages()
                 .stream()

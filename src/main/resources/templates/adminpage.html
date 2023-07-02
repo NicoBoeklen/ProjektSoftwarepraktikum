@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <!--<th:block th:insert="~{fragments/htmlHead :: head}"></th:block>-->
     <title>Home</title>
 
@@ -78,7 +79,27 @@
 
     <br>
 
+    <canvas id="TkiDiagram"></canvas>
+
 </div>
+
+<script th:inline="javascript">
+    //RADAR CHART
+    const tkiAllUserValues = /*[[${tkiAllUserValues}]]*/ [];
+    let diagramCanvas = document.getElementById("TkiDiagram");
+    let TkiDiagramData = {
+        labels: ["Competing", "Compromising", "Collaborating", "Avoiding", "Accommodating"],
+        datasets: [{
+            label: "Average TKI-Style",
+            backgroundColor: "rgb(255,255,255)",
+            data: tkiAllUserValues
+        }]
+    };
+    let radarChart = new Chart(diagramCanvas, {
+        type: 'radar',
+        data: TkiDiagramData
+    });
+</script>
 
 <footer class="text-center text-white" style="background-color: #292828">
 
