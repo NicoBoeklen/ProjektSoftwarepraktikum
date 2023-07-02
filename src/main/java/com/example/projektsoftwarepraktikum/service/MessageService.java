@@ -205,23 +205,23 @@ public class MessageService {
             if (data[41] != "") {
                 message.setTKI_Avoiding_Quantile_Abs(Integer.valueOf(data[41]));
             }
-            if (data[42] != "") {
-                message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[42]));
-            }
-            if (data[43] != "" && !Objects.equals(data[43], "null")) {
-                message.setTKI_Competing_Quantile_Rel(Double.valueOf(data[43].replace(",",".")));
+            if (data[43] != "") {
+                message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[43]));
             }
             if (data[44] != "" && !Objects.equals(data[44], "null")) {
-                message.setTKI_Compromising_Quantile_Rel(Double.valueOf(data[44].replace(",",".")));
+                message.setTKI_Competing_Quantile_Rel(Double.valueOf(data[44].replace(",",".")));
             }
             if (data[45] != "" && !Objects.equals(data[45], "null")) {
-                message.setTKI_Collaborating_Quantile_Rel(Double.valueOf(data[45].replace(",",".")));
+                message.setTKI_Compromising_Quantile_Rel(Double.valueOf(data[45].replace(",",".")));
             }
             if (data[46] != "" && !Objects.equals(data[46], "null")) {
-                message.setTKI_Avoiding_Quantile_Rel(Double.valueOf(data[46].replace(",",".")));
+                message.setTKI_Collaborating_Quantile_Rel(Double.valueOf(data[46].replace(",",".")));
             }
             if (data[47] != "" && !Objects.equals(data[47], "null")) {
-                message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[47].replace(",",".")));
+                message.setTKI_Avoiding_Quantile_Rel(Double.valueOf(data[47].replace(",",".")));
+            }
+            if (data[48] != "" && !Objects.equals(data[48], "null")) {
+                message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[48].replace(",",".")));
             }
         }
         neg.addMessage(message);
