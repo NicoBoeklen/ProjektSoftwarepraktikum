@@ -93,7 +93,9 @@
             <canvas id="ContractImbalanceChart"></canvas>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Request feedback after negotiation</button>
+    <form th:action="@{/feedbackAfter}">
+        <button type="submit" class="btn btn-primary">Request feedback after negotiation</button>
+    </form>
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
         const worstUtility = /*[[${worstUtility}]]*/ [];
