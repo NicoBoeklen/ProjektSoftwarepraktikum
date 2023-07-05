@@ -106,12 +106,14 @@
                 <br>
                 <div class="slider-group">
                     <label for="aspirationLevel">Aspiration Level (in %)</label>
-                    <input th:field="*{selectedAspirationLevel}" oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
+                    <input th:field="*{selectedAspirationLevel}" oninput="this.nextElementSibling.value = this.value"
+                           min="0" max="100" type="range"
                            id="aspirationLevel" name="aspirationLevel" class="issue-range" required/>
                     <output id="valueAspirationLevel">50</output>
                     <br>
                     <label for="reservationLevel">Reservation Level (in %)</label>
-                    <input th:field="*{selectedReservationLevel}" oninput="this.nextElementSibling.value = this.value" min="0" max="100" type="range"
+                    <input th:field="*{selectedReservationLevel}" oninput="this.nextElementSibling.value = this.value"
+                           min="0" max="100" type="range"
                            id="reservationLevel" name="reservationLevel" class="issue-range" required/>
                     <output id="valueReservationLevel">50</output>
                 </div>
@@ -122,10 +124,14 @@
         </div>
         <div class="col-5 border">
             <h4>TKI-Style?</h4>
-            <p>The TKI-Style refers to negotiation styles based on the Thomas-Kilmann Conflict Mode Instrument (TKI). It assesses individuals' preferred approaches to handling conflict through five styles. By understanding their preferred style, negotiators can develop effective strategies to navigate conflicts and work towards mutually beneficial resolutions.</p>
+            <p>The TKI-Style refers to negotiation styles based on the Thomas-Kilmann Conflict Mode Instrument (TKI). It
+                assesses individuals' preferred approaches to handling conflict through five styles. By understanding
+                their preferred style, negotiators can develop effective strategies to navigate conflicts and work
+                towards mutually beneficial resolutions.</p>
             <br>
             <h4>Aspiration Level?</h4>
-            <p>The Aspiration Level is the value of the desired utility in %. In other words, what you want to achieve.</p>
+            <p>The Aspiration Level is the value of the desired utility in %. In other words, what you want to
+                achieve.</p>
             <br>
             <h4>Reservation Level?</h4>
             <p>The Reservation Level is the lowest value of the Utility in % that you would accept.</p>
@@ -151,14 +157,15 @@
         </section>
 
 
-        <hr class="my-5" />
+        <hr class="my-5"/>
 
 
         <section class="mb-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <p>
-                        This site is designed to provide users with feedback on their negotiations in order to get better in further negotiations!
+                        This site is designed to provide users with feedback on their negotiations in order to get
+                        better in further negotiations!
                     </p>
                 </div>
             </div>

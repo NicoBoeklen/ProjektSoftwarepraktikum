@@ -12,12 +12,13 @@ import java.util.List;
 public class FeedbackAfterController {
     @Autowired
     MessageService messageService;
+
     @GetMapping("/feedbackAfter")
     public String startFeedback(Model model) {
-        List<Double> tkiList= messageService.averageTkiStyleSingleUser();
+        List<Double> tkiList = messageService.averageTkiStyleSingleUser();
         Double[] tkiValues = tkiList.toArray(new Double[0]);
         model.addAttribute("tkiValues", tkiValues);
         return "feedbackAfter";
     }
-    }
+}
 

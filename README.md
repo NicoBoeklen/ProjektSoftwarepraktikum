@@ -31,10 +31,6 @@
 - Filterfunktion für die tabellarische Übersicht
 
 ### feedback.html:
-- Anzeige eines weiteren Feedback-Elements während der Verhandlung
-- (erledigt)--> Verlauf Contract Imbalance, Joint Utility (Ampelfarben!)
-- weitere Seite für die Anzeige des Feedbacks nach der Verhandlung
-- --> Spinnennetz für TKI-Style (Durchschnitt über alle Nachrichten -> relative Werte verwenden, die gesamt 100 ergeben)
 - --> auf gewünschte Zeit eingehen
 - auf most important issue eingehen
 - Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
@@ -64,8 +60,4 @@
 - Validierung zw AL >= RL
 - 
 
-### feedback.html:
-- Überarbeitung der Utility-Werte (Mehrwert der Datentabelle darunter?) -> rausgenommen
-- (erledigt) "wenig Aussagekraft hat, da die Angebote vom Partner abgelehnt werden können. Aussagekräftiger ist, wenn AL/RL durch die Angebote des Partners erreicht wurden" 
-- 
 

@@ -151,12 +151,6 @@ public class FeedbackController {
         model.addAttribute("barColors", barColors);
         model.addAttribute("barColors2", barColors2);
         model.addAttribute("contractImbalance", contractImbalanceArray);
-
-        //FEEDBACK 3
-        List<Double> tkiList= messageService.averageTkiStyleSingleUser();
-        Double[] tkiValues = tkiList.toArray(new Double[0]);
-        model.addAttribute("tkiValues", tkiValues);
-
         return "feedback";
     }
     @PostMapping("/feedback")

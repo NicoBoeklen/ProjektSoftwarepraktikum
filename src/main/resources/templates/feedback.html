@@ -57,10 +57,10 @@
     <h3>Feedback during the negotiation</h3>
     <p th:text="'Here you can see the feedback to your selected Negotiation: Negotiation ' + ${selectedOption}"></p>
     <div class="border p-3">
-    <h6 th:text="'You chose this Aspiration Level: ' + ${selectedAspirationLevel}+'%'"></h6>
-    <p th:text="${feedbackAsp}"></p>
-    <h6 th:text="'You chose this Reservation Level: ' + ${selectedReservationLevel}+'%'"></h6>
-    <p th:text="${feedbackRes}"></p>
+        <h6 th:text="'You chose this Aspiration Level: ' + ${selectedAspirationLevel}+'%'"></h6>
+        <p th:text="${feedbackAsp}"></p>
+        <h6 th:text="'You chose this Reservation Level: ' + ${selectedReservationLevel}+'%'"></h6>
+        <p th:text="${feedbackRes}"></p>
     </div>
     <br>
     <h5 th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></h5>
@@ -72,15 +72,17 @@
         <br>
         <br>
         <label for="buttonExport2">JointUtility Chart:</label>
-        <button class="btn btn-secondary" id="buttonExport2"onclick="exportChart2()">Export</button>
+        <button class="btn btn-secondary" id="buttonExport2" onclick="exportChart2()">Export</button>
         <br>
         <br>
         <label for="buttonExport3">ContractImbalance Chart:</label>
-        <button class="btn btn-secondary" id="buttonExport3"onclick="exportChart3()">Export</button>
+        <button class="btn btn-secondary" id="buttonExport3" onclick="exportChart3()">Export</button>
     </div>
     <canvas id="UtilityChart"></canvas>
     <br>
-    <canvas id="TkiDiagram"></canvas>
+    <button class="btn btn-secondary" id="toggleButtonAsp">Show Aspiration Level</button>
+    <button class="btn btn-secondary" id="toggleButtonRes">Show Reservation Level</button>
+    <br>
     <br>
     <h5 th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></h5>
     <div style="display: flex;">
@@ -91,14 +93,15 @@
             <canvas id="ContractImbalanceChart"></canvas>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary">Request feedback after negotiation</button>
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
         const worstUtility = /*[[${worstUtility}]]*/ [];
         const aspLevelValue = /*[[${selectedAspirationLevel}]]*/ [];
         const resLevelValue = /*[[${selectedReservationLevel}]]*/ [];
         const xValues = /*[[${countArray}]]*/ [];
-        const aspLevel = Array(xValues.length).fill(aspLevelValue/100);
-        const resLevel = Array(xValues.length).fill(resLevelValue/100);
+        const aspLevel = Array(xValues.length).fill(aspLevelValue / 100);
+        const resLevel = Array(xValues.length).fill(resLevelValue / 100);
 
         let chart = new Chart("UtilityChart", {
             type: "line",
@@ -170,10 +173,10 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                        label: 'Contract Imbalance',
-                        backgroundColor: barColors2,
-                        data: contractImbalance
-                    }]
+                    label: 'Contract Imbalance',
+                    backgroundColor: barColors2,
+                    data: contractImbalance
+                }]
             },
             options: {
                 legend: {display: true},
@@ -187,22 +190,6 @@
             }
         });
 
-        //RADAR CHART
-        const tkiValues = /*[[${tkiValues}]]*/ [];
-        let diagramCanvas = document.getElementById("TkiDiagram");
-        let TkiDiagramData = {
-            labels: ["Competing", "Compromising", "Collaborating", "Avoiding", "Accommodating"],
-            datasets: [{
-                label: "Your TKI Style",
-                backgroundColor: "rgba(200,0,0,0.2)",
-                data: tkiValues
-            }]
-        };
-        let radarChart = new Chart(diagramCanvas, {
-            type: 'radar',
-            data: TkiDiagramData
-        });
-
         function exportChart() {
             let url = chart.toBase64Image();
             let a = document.createElement('a');
@@ -210,6 +197,7 @@
             a.download = 'UtilityChart.png';
             a.click();
         }
+
         function exportChart2() {
             let url = chart2.toBase64Image();
             let a = document.createElement('a');
@@ -217,6 +205,7 @@
             a.download = 'JointUtilityChart.png';
             a.click();
         }
+
         function exportChart3() {
             let url = chart3.toBase64Image();
             let a = document.createElement('a');
@@ -225,6 +214,33 @@
             a.click();
         }
 
+        //Buttons zum Einblenden
+        let toggleButtonAsp = document.getElementById('toggleButtonAsp');
+        toggleButtonAsp.addEventListener('click', toggleLineAsp);
+        let toggleButtonRes = document.getElementById('toggleButtonRes');
+        toggleButtonRes.addEventListener('click', toggleLineRes);
+        //Bei Start ausgeblendet
+        let dataset = chart.data.datasets[2];
+        dataset.hidden = true;
+        let dataset2 = chart.data.datasets[3];
+        dataset2.hidden = true;
+        chart.update();
+
+        function toggleLineAsp() {
+            let datasetIndex = 2;
+            let dataset = chart.data.datasets[datasetIndex];
+
+            dataset.hidden = !dataset.hidden;
+            chart.update();
+        }
+
+        function toggleLineRes() {
+            let datasetIndex = 3;
+            let dataset = chart.data.datasets[datasetIndex];
+
+            dataset.hidden = !dataset.hidden;
+            chart.update();
+        }
     </script>
 </div>
 <footer class="text-center text-white" style="background-color: #292828">
