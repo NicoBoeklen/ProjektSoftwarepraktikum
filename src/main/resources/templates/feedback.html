@@ -64,8 +64,21 @@
     </div>
     <br>
     <h5 th:text="'Here you can see the utility values from your partners offers/counteroffers:'"></h5>
+    <button class="btn btn-primary" data-toggle="collapse" data-target="#demo">Export diagrams</button>
+    <div id="demo" class="collapse border p-3">
+        <br>
+        <label for="buttonExport">Utility Chart:</label>
+        <button class="btn btn-secondary" id="buttonExport" onclick="exportChart()">Export</button>
+        <br>
+        <br>
+        <label for="buttonExport2">JointUtility Chart:</label>
+        <button class="btn btn-secondary" id="buttonExport2"onclick="exportChart2()">Export</button>
+        <br>
+        <br>
+        <label for="buttonExport3">ContractImbalance Chart:</label>
+        <button class="btn btn-secondary" id="buttonExport3"onclick="exportChart3()">Export</button>
+    </div>
     <canvas id="UtilityChart"></canvas>
-    <button class="btn btn-primary" onclick="exportChart()">Exportieren</button>
     <br>
     <canvas id="TkiDiagram"></canvas>
     <br>
@@ -179,7 +192,21 @@
             let url = chart.toBase64Image();
             let a = document.createElement('a');
             a.href = url;
-            a.download = 'chart.png';
+            a.download = 'UtilityChart.png';
+            a.click();
+        }
+        function exportChart2() {
+            let url = chart2.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'JointUtilityChart.png';
+            a.click();
+        }
+        function exportChart3() {
+            let url = chart3.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'ContractImbalanceChart.png';
             a.click();
         }
 
