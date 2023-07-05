@@ -94,6 +94,10 @@
     <script th:inline="javascript">
         const bestUtility = /*[[${bestUtility}]]*/ [];
         const worstUtility = /*[[${worstUtility}]]*/ [];
+        const aspLevelValue = /*[[${selectedAspirationLevel}]]*/ [];
+        const resLevelValue = /*[[${selectedReservationLevel}]]*/ [];
+        const aspLevel = Array(xValues.length).fill(aspLevelValue);
+        const resLevel = Array(xValues.length).fill(resLevelValue);
         const xValues = /*[[${countArray}]]*/ [];
 
         let chart = new Chart("UtilityChart", {
@@ -109,7 +113,18 @@
                         label: 'Worst Utility',
                         borderColor: "rgba(0,0,255)",
                         data: worstUtility
-                    }]
+                    },
+                    {
+                        label: 'Aspiration Level',
+                        borderColor: "rgba(0,0,0)",
+                        data: aspLevel
+                    },
+                    {
+                        label: 'Reservation Level',
+                        borderColor: "rgba(0,0,0)",
+                        data: resLevel
+                    }
+                ]
             },
             options: {
                 legend: {display: true},
