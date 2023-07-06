@@ -44,7 +44,6 @@
 - Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit 
   + wäre dafür "Home" aus der Navbar zu entfernen, so dass man nur noch über das Klicken auf "Sopra..." auf die Willkommensseite gelangt (Flo)
 - header, footer auslagern
-  
 
 ### login.html:
 - spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
@@ -52,9 +51,6 @@
 ### register.html:
 - Implementierung der Registrierungsfunktion
 - falls nicht implementiert, dann rausnehmen
-
-### home.html:
-- Darstellung des Enddatums (?) -> aktuell rausgenommen
 
 ### Extra Features:
 
