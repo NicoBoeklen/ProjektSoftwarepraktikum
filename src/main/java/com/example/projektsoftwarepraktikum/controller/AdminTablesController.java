@@ -6,19 +6,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class FeedbackAfterController {
+public class AdminTablesController {
+
     @Autowired
     MessageService messageService;
+    @GetMapping("/admin/tables")
+    public String showAdmin(Model model) {
 
-    @GetMapping("/feedbackAfter")
-    public String startFeedback(Model model) {
-        List<Double> tkiList = messageService.averageTkiStyleSingleUser();
-        Double[] tkiValues = tkiList.toArray(new Double[0]);
-        model.addAttribute("tkiValues", tkiValues);
-        return "feedbackAfter";
+    return "adminTables";
     }
 }
-

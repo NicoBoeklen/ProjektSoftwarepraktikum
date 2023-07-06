@@ -31,7 +31,7 @@ public class StartNegotiationController {
         negId = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedNegotiationID();
 
         List<Double> averageTKIValues = messageService.averageTkiStyleSingleUser();
-        for (Double tkiValue:averageTKIValues
+        for (Double tkiValue : averageTKIValues
         ) {
             System.out.println(tkiValue);
         }
