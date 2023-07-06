@@ -44,6 +44,7 @@
 - Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit 
   + wäre dafür "Home" aus der Navbar zu entfernen, so dass man nur noch über das Klicken auf "Sopra..." auf die Willkommensseite gelangt (Flo)
 - header, footer auslagern
+  
 
 ### login.html:
 - spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
@@ -54,6 +55,17 @@
 
 ### home.html:
 - Darstellung des Enddatums (?) -> aktuell rausgenommen
+
+### Extra Features:
+
+- Tooltip
+- Popover
+- Darkmode Lightmode (Luca & Tony)
+- Ladebalken Issues (Luca)
+- Navbar admin seite anpassen (Luca)
+- Export Buttons verschönern (Bootstrap Modal?) (Luca)
+- ?Sprachen (Tony)
+- 
 
 
 
