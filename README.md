@@ -55,9 +55,5 @@
 ### home.html:
 - Darstellung des Enddatums (?) -> aktuell rausgenommen
 
-### negotiation.html:
-- bessere Fehlerbehandlung und Validierung der Eingaben
-- Validierung zw AL >= RL
-- 
 
 
