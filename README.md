@@ -41,7 +41,8 @@
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
 
 ### Allgemein:
-- Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit
+- Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit 
+  + wäre dafür "Home" aus der Navbar zu entfernen, so dass man nur noch über das Klicken auf "Sopra..." auf die Willkommensseite gelangt (Flo)
 - header, footer auslagern
 
 ### login.html:
