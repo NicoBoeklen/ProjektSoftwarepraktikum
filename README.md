@@ -31,11 +31,11 @@
 - Filterfunktion für die tabellarische Übersicht
 
 ### feedback.html:
-- --> auf gewünschte Zeit eingehen
+- --> auf gewünschte Zeit eingehen (Enddatum!)
+- -> Achtung Startdatum nicht Init Datum
 - auf most important issue eingehen
-- Button zum Anfordern des Feedbacks bzw. zur Weiterleitung
-- Optional: Exportfunktion der Grafik und des textuellen Feedbacks
-    + Export als PDF mit Grafik und textuellem Feedback darunter
+- Text zu Graphen
+- Text zu TKI Styles
 
 
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
@@ -56,7 +56,6 @@
 - Darstellung des Enddatums (?) -> aktuell rausgenommen
 
 ### negotiation.html:
-- Änderung der Beschreibung/Beschriftung zum TKI-Level
 - bessere Fehlerbehandlung und Validierung der Eingaben
 - Validierung zw AL >= RL
 - 
