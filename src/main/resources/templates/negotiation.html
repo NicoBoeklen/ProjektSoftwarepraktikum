@@ -21,13 +21,30 @@
 
         function validateInput() {
             let time = parseInt(document.getElementById("time").value);
+            let resLevel = document.getElementById("valueReservationLevel").value;
+            let aspLevel = document.getElementById("valueAspirationLevel").value;
+            let errorContainer = document.getElementById("errorContainer");
+            let errorContainerText = document.getElementById("errorContainerText");
 
+            errorContainerText.innerHTML = "";
+            errorContainer.hidden = true;
             // Check if time is negative
             if (time <= 0) {
-                alert("Chosen time can not be negativ or null!");
+                errorContainerText.innerHTML = "Chosen time can not be negativ or null!";
+                errorContainer.hidden = false;
+                return false;
+            }
+            if (resLevel > aspLevel) {
+                errorContainerText.innerHTML = "Aspiration Level has to be higher than Reservation Level!";
+                errorContainer.hidden = false;
                 return false;
             }
             return true;
+        }
+
+        function hideError() {
+            let errorContainer = document.getElementById('errorContainer');
+            errorContainer.hidden = true;
         }
     </script>
 </head>
@@ -70,6 +87,10 @@
     <h1>Negotiation goals</h1><br>
     <h4 th:text="'Please fill in the following parameters'"></h4>
     <br>
+    <div id="errorContainer" hidden class="alert alert-danger alert-dismissible fade show">
+        <p><strong>Warning:</strong> <span id="errorContainerText"></span></p>
+        <button onclick="hideError()" type="button" class="close">&times;</button>
+    </div>
     <div class="row">
         <div class="col-5">
             <form th:object="${negModel}" th:action="@{/negotiation}" method="post" onsubmit="return validateInput()">
