@@ -78,6 +78,11 @@
     <br>
     <p th:text="'Start Date: '+${beginDate}"></p>
     <p th:text="'End Date: '+${endDate}"></p>
+    <p>
+        <span>In this time you wrote </span>
+        <strong th:text="${messageCount}"></strong>
+        <span> Messages.</span>
+    </p>
     <canvas id="timeChart"></canvas>
     <h6 th:text="${feedbackTime}"></h6>
     <br>

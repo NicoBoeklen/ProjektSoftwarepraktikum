@@ -45,9 +45,9 @@ public class FeedbackAfterController {
         int highestIndex = getIndexOfHighestValue(tkiValues);
         String feedback;
         if (Objects.equals(tkiTypes[highestIndex], selectedTKI)) {
-            feedback = "Your favoured TKI-Style also matches with your most accurate TKI-Style";
+            feedback = "Your favoured TKI-Style also matches with your most accurate TKI-Style.";
         } else {
-            feedback = "Your favoured TKI-Style does not match with your most accurate TKI-Style";
+            feedback = "Your favoured TKI-Style does not match with your most accurate TKI-Style.";
         }
         model.addAttribute("feedback", feedback);
 
@@ -87,13 +87,20 @@ public class FeedbackAfterController {
             feedbackTime = "You did not finish the negotiation in your preferred time. Maybe try to answer faster next time.";
         }
 
+        List<Integer> messageCount = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getMessageCount())
+                .toList();
+
         //Value aus Accept für most important issue
         String acceptValue = messageService.getEndValueOfMostImportantIssue(selectedOption, selectedIssue);
 
         String[] issues = new String[]{"Investment","Lawn", "Sponsoring","Training camp","Involvement of the fans"};
 
-
         model.addAttribute("feedbackTime", feedbackTime);
+        model.addAttribute("messageCount", messageCount.get(0));
         model.addAttribute("accept", acceptValue);
         model.addAttribute("selectedTime", selectedTime);
         model.addAttribute("selectedIssue", issues[selectedIssue]);
