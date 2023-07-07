@@ -12,9 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.5/datatables.min.css" rel="stylesheet"/>
 
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.5/datatables.min.js"></script>
     <title>TablesAdmin</title>
 
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
     <link href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <link rel="stylesheet" type="text/css" href="../static/logo.css"/>
@@ -77,29 +81,43 @@
     </div>
 </nav>
 
-<div class="container-fluid bg-dark text-white p-3" align="center">
-    <table
-            id="table"
-            data-url="json/data1.json"
-            data-filter-control="true"
-            data-show-search-clear-button="true">
+<div class="container pt-3 bg-light">
+    <table id="NegotiationMessageTable"
+        data-filter-control="true"
+        data-show-search-clear-button="true">
         <thead>
         <tr>
-            <th data-field="id">ID</th>
-            <th data-field="name" data-filter-control="input">Item Name</th>
-            <th data-field="price" data-filter-control="select">Item Price</th>
+            <th data-field="senderId" data-filter-control="select">Sender ID</th>
+            <th data-field="negoOutcome" data-filter-control="Outcome">SenderName</th>
+            <th data-field="contractImbalanceBest">BestUtility</th>
+            <th data-field="contractImbalanceBest">ContractImbalanceBest</th>
         </tr>
         </thead>
+        <tbody>
+        </tbody>
     </table>
-
-    <script>
-        $(function() {
-            $('#table').bootstrapTable()
-        })
-    </script>
-
 </div>
-
+<script>
+        function DataForTable(data) {
+        $('#NegotiationMessageTable').bootstrapTable({
+            data: data,
+            columns: [{field: 'senderId'},{ field: 'negoOutcome'},{ field: 'jointUtilityBest'},{ field: 'contractImbalanceBest'}]
+        });
+    }
+    $(document).ready(function() {
+        $.ajax({
+            url: '/admin/data',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                DataForTable(data);
+            },
+            error: function(error) {
+                console.log('Error:', error);
+            }
+        });
+    });
+</script>
 
 <footer class="text-center text-white" style="background-color: #292828">
 
