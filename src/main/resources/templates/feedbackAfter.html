@@ -57,12 +57,22 @@
     <h5 th:text="'Here you can see the your personal TKI-Style:'"></h5>
     <br>
     <canvas id="TkiDiagram"></canvas>
-    <h6 th:text="'Your TKI-Style is:'"></h6>
-    <div>
-        <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}" >
-           <p th:text="${tki}+'% '+${tkiType} "></p>
+    <div class="row">
+        <div class="col-3  border rounded-lg bg-secondary p-2">
+            <h6 th:text="'Your TKI-Style is:'"></h6>
+            <div>
+                <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}">
+                    <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3  border rounded-lg bg-secondary p-2">
+            <br>
+            <p th:text="'You have chosen ' +${selectedTKI} +' as your favoured TKI-Style.'"></p>
+            <p th:text="${feedback}"></p>
+        </div>
     </div>
-    </div>
+
 </div>
 <script th:inline="javascript">
     //RADAR CHART
@@ -80,7 +90,6 @@
         type: 'radar',
         data: TkiDiagramData
     });
-
 
 </script>
 </div>
