@@ -80,15 +80,23 @@ public class FeedbackAfterController {
         long hours = duration.toHours();
         float days = (float) hours / 24;
 
+        String feedbackTime;
+        if (days < selectedTime) {
+            feedbackTime = "You finished the negotiation in your preferred time. Congratulations!";
+        } else {
+            feedbackTime = "You did not finish the negotiation in your preferred time. Maybe try to answer faster next time.";
+        }
+
         //Value aus Accept für most important issue
         String acceptValue = messageService.getEndValueOfMostImportantIssue(selectedOption, selectedIssue);
 
         String[] issues = new String[]{"Investment","Lawn", "Sponsoring","Training camp","Involvement of the fans"};
 
+
+        model.addAttribute("feedbackTime", feedbackTime);
         model.addAttribute("accept", acceptValue);
         model.addAttribute("selectedTime", selectedTime);
         model.addAttribute("selectedIssue", issues[selectedIssue]);
-        model.addAttribute("hours", hours);
         model.addAttribute("days", days);
         model.addAttribute("beginDate", begin.get().format(formatter));
         model.addAttribute("endDate", end.get().format(formatter));

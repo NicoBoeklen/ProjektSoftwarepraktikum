@@ -76,14 +76,12 @@
     <br>
     <h5 th:text="'Here you can see feedback to the duration of the negotiation and your most important issue:'"></h5>
     <br>
-    <p th:text="${beginDate}"></p>
-    <p th:text="${endDate}"></p>
-    <p th:text="${hours}"></p>
-    <p th:text="${days}"></p>
-    <p th:text="${selectedIssue}"></p>
-    <p th:text="${accept}"></p>
-
+    <p th:text="'Start Date: '+${beginDate}"></p>
+    <p th:text="'End Date: '+${endDate}"></p>
     <canvas id="timeChart"></canvas>
+    <h6 th:text="${feedbackTime}"></h6>
+    <br>
+    <h6 th:text="'Your most important issue <<'+${selectedIssue}+'>> had an outcome value of <<'+${accept}+'>>.'"></h6>
 
 </div>
 <script th:inline="javascript">
