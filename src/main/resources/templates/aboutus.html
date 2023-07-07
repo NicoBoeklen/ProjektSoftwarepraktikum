@@ -18,39 +18,8 @@
     </script>
 </head>
 <body style="background-color: #343a40">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            <div class="logo-image">
-                <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
-            </div>
-        </a>
-        <a class="navbar-brand text-primary" href="#">SOPRA Negotiation Website</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
-                </li>
+<th:block th:include="fragments/navbar.html :: navbar" ></th:block>
 
-            </ul>
-            <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
-                <i class="fa fa-user icon"></i>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Log out" class="btn btn-primary"/></form>
-            </ul>
-        </div>
-
-    </div>
-</nav>
 <div class="container-fluid bg-dark text-white p-3" align="center">
 
     <h2>These are the Creators!</h2>
@@ -103,49 +72,9 @@
 </div>
 
 
-
-<footer class="text-center text-white" style="background-color: #292828">
-
-    <div class="container" >
-
-        <section class="mt-5">
-
-            <div class="row text-center d-flex justify-content-center pt-5">
-
-                <div class="col-md-2">
-                    <h6 class="text-uppercase font-weight-bold">
-                        <a href="/aboutus" class="text-white">About us</a>
-                    </h6>
-                </div>
-            </div>
-
-        </section>
+<th:block th:include="fragments/footer.html :: footer" ></th:block>
 
 
-        <hr class="my-5" />
-
-
-        <section class="mb-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
-                    <p>
-                        This site is designed to provide users with feedback on their negotiations in order to get better in further negotiations!!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </div>
-    <div
-            class="text-center p-3"
-            style="background-color: rgba(0, 0, 0, 0.2)"
-    >
-        © 2023 Copyright:
-        <a class="text-white" href="http://localhost:8080"
-        >SOPRANegotiation.com</a
-        >
-    </div>
-</footer>
 </div>
 </body>
 </html>
