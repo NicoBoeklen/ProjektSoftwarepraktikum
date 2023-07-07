@@ -53,6 +53,7 @@ public class FeedbackAfterController {
 
         //Feedback 2
         Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
+        String selectedIssue = modelService.findNegotiationModelByUserId(userID).getSelectedIssue();
         //begin als Startdatum und nicht init datum
         Comparator<LocalDateTime> negComparator = new Comparator<LocalDateTime>() {
 
@@ -78,6 +79,16 @@ public class FeedbackAfterController {
         long hours = duration.toHours();
         float days = (float) hours / 24;
 
+        //Value aus Accept für most important issue
+        List<String> accept = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue1())
+                .toList();
+
+        model.addAttribute("accept", accept.get(0));
+        model.addAttribute("selectedIssue", selectedIssue);
         model.addAttribute("hours", hours);
         model.addAttribute("days", days);
         model.addAttribute("beginDate", begin.get().format(formatter));
