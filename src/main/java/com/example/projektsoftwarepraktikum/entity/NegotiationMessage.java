@@ -1,5 +1,6 @@
 package com.example.projektsoftwarepraktikum.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -13,7 +14,7 @@ public class NegotiationMessage {
     @GeneratedValue
     @Column(name = "negotiationMessageID")
     private Integer negotiationMessageId;
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "negotiationID")
     private Negotiation negotiation;
