@@ -46,46 +46,42 @@
             let errorContainer = document.getElementById('errorContainer');
             errorContainer.hidden = true;
         }
+
+            let input1 = document.getElementById("input1");
+            let input2 = document.getElementById("input2");
+
+            let progressBar = document.querySelector(".progress-bar");
+
+            input1.addEventListener("change", updateProgress);
+            input2.addEventListener("change", updateProgress);
+        function updateProgress() {
+            let  progress = 0;
+            if (input1.val() !== "") {
+                progress += 50;
+            }
+            if (input2.val() !== "") {
+                progress += 50;
+            }
+            let progressString = progress.toString();
+
+            progressBar.style.width = progress + "%";
+            progressBar.setAttribute("aria-valuenow", progressString)
+            progressBar.innerHTML = progress + "%";
+        }
+
     </script>
 </head>
 <body style="background-color: #343a40">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            <div class="logo-image">
-                <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid">
-            </div>
-        </a>
-        <a class="navbar-brand text-primary" href="#">SOPRA Negotiation Website</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active text-primary" aria-current="page" href="/">Home</a>
-                </li>
+<th:block th:include="fragments/navbar.html :: navbar" ></th:block>
 
-            </ul>
-            <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
-                <i class="fa fa-user icon"></i>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Log out" class="btn btn-primary"/></form>
-            </ul>
-        </div>
-
-    </div>
-</nav>
 <div class="container-fluid bg-dark text-white p-5">
     <h1>Negotiation goals</h1><br>
     <h4 th:text="'Please fill in the following parameters'"></h4>
+    <div class="progress">
+        <div class="progress-bar progress-bar-animated" role="progressbar" style="width: 0%"></div>
+
+    </div>
     <br>
     <div id="errorContainer" hidden class="alert alert-danger alert-dismissible fade show" style="width: 50%; padding: 1rem;">
         <p style="margin-bottom: 0;"><strong>Warning:</strong> <span id="errorContainerText"></span></p>
@@ -96,7 +92,7 @@
             <form th:object="${negModel}" th:action="@{/negotiation}" method="post" onsubmit="return validateInput()">
                 <label for="input1">TKI-Style</label>
                 <br>
-                <select id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                <select onclick="updateProgress()" id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
                         required th:field="*{selectedTKIStyle}">
                     <option selected hidden value="">Choose your favoured TKI-Style</option>
                     <option value="Competing">Competing</option>
@@ -160,49 +156,9 @@
     </div>
 
 </div>
-<footer class="text-center text-white" style="background-color: #292828">
 
-    <div class="container">
+<th:block th:include="fragments/footer.html :: footer" ></th:block>
 
-        <section class="mt-5">
-
-            <div class="row text-center d-flex justify-content-center pt-5">
-
-                <div class="col-md-2">
-                    <h6 class="text-uppercase font-weight-bold">
-                        <a href="/aboutus" class="text-white">About us</a>
-                    </h6>
-                </div>
-            </div>
-
-        </section>
-
-
-        <hr class="my-5"/>
-
-
-        <section class="mb-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
-                    <p>
-                        This site is designed to provide users with feedback on their negotiations in order to get
-                        better in further negotiations!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </div>
-    <div
-            class="text-center p-3"
-            style="background-color: rgba(0, 0, 0, 0.2)"
-    >
-        © 2023 Copyright:
-        <a class="text-white" href="http://localhost:8080"
-        >SOPRANegotiation.com</a
-        >
-    </div>
-</footer>
 </div>
 </body>
 </html>
