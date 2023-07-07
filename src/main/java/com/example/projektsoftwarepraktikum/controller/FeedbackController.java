@@ -121,6 +121,8 @@ public class FeedbackController {
         //Feedback during Negotiation
         Double[] jointArray = new Double[jointUtility.length/2];
         String[] barColors = new String[jointUtility.length/2];
+        String feedbackJointUtility;
+        String feedbackContractImbalance;
 
         for(int i = 0; i<jointUtility.length/2; i++) {
             jointArray[i] = jointUtility[i];
@@ -128,9 +130,16 @@ public class FeedbackController {
                 barColors[i] = "green";
             } else if (jointArray[i] >= 1.4) {
                 barColors[i] = "yellow";
-            } else if (jointArray[i] >= 1.3) {
+            } else {
                 barColors[i] = "red";
             }
+        }
+        if (jointArray[jointArray.length-1] >= 1.5) {
+            feedbackJointUtility = "The joint utility from your last offer is very good. Both of you will benefit from this negotiation.";
+        } else if(jointArray[jointArray.length-1] >= 1.4) {
+            feedbackJointUtility = "The joint utility from your last offer is good. The negotiation could lead to benefits for both of you.";
+        } else {
+            feedbackJointUtility = "The joint utility from your last offer is ok. You can negotiate more to find a solution from which you both benefit more.";
         }
 
         Double[] contractImbalanceArray = new Double[contractImbalance.length/2];
@@ -142,15 +151,25 @@ public class FeedbackController {
                 barColors2[i] = "green";
             } else if (contractImbalanceArray[i] <= 0.3) {
                 barColors2[i] = "yellow";
-            } else if (contractImbalanceArray[i] <= 0.5) {
+            } else {
                 barColors2[i] = "red";
             }
+        }
+
+        if (contractImbalanceArray[contractImbalanceArray.length-1] <= 0.1) {
+            feedbackContractImbalance ="The contract imbalance from your last offer is very good. Your negotiation is very fair and no one benefits from the others loses.";
+        } else if (contractImbalanceArray[contractImbalanceArray.length-1] <= 0.3) {
+            feedbackContractImbalance ="The contract imbalance from your last offer is ok. But try to improve your fairness that your partner feels well treated.";
+        } else {
+            feedbackContractImbalance ="The contract imbalance from your last offer is bad. Your partner might feel like only you benefit from the actual offer.";
         }
 
         model.addAttribute("jointUtility", jointArray);
         model.addAttribute("barColors", barColors);
         model.addAttribute("barColors2", barColors2);
         model.addAttribute("contractImbalance", contractImbalanceArray);
+        model.addAttribute("feedbackJointUtility", feedbackJointUtility);
+        model.addAttribute("feedbackContractImbalance", feedbackContractImbalance);
         return "feedback";
     }
     @PostMapping("/feedback")
