@@ -58,6 +58,7 @@
     <br>
     <canvas id="TkiDiagram"></canvas>
     <div class="row">
+        <div class="col-3"></div>
         <div class="col-3  border rounded-lg bg-secondary p-2">
             <h6 th:text="'Your TKI-Style is:'"></h6>
             <div>
@@ -72,7 +73,13 @@
             <p th:text="${feedback}"></p>
         </div>
     </div>
-
+    <br>
+    <h5 th:text="'Here you can see feedback to the duration of the negotiation and your most important issue:'"></h5>
+    <br>
+    <p th:text="${beginDate}"></p>
+    <p th:text="${endDate}"></p>
+    <p th:text="${hours}"></p>
+    <p th:text="${days}"></p>
 </div>
 <script th:inline="javascript">
     //RADAR CHART

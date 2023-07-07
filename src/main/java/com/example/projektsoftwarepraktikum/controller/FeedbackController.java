@@ -157,13 +157,17 @@ public class FeedbackController {
         }
 
         if (contractImbalanceArray[contractImbalanceArray.length-1] <= 0.1) {
-            feedbackContractImbalance ="The contract imbalance from your last offer is very good. Your negotiation is very fair and no one benefits from the others loses.";
+            feedbackContractImbalance ="The contract imbalance from your last offer is very good. Your negotiation is very fair and no one benefits excessively from the others loses.";
         } else if (contractImbalanceArray[contractImbalanceArray.length-1] <= 0.3) {
             feedbackContractImbalance ="The contract imbalance from your last offer is ok. But try to improve your fairness that your partner feels well treated.";
         } else {
             feedbackContractImbalance ="The contract imbalance from your last offer is bad. Your partner might feel like only you benefit from the actual offer.";
         }
-
+        int[] countArray2 = new int[jointArray.length];
+        for (int i = 0; i < jointArray.length; i++) {
+            countArray2[i] = (i + 1);
+        }
+        model.addAttribute("countArray2", countArray2);
         model.addAttribute("jointUtility", jointArray);
         model.addAttribute("barColors", barColors);
         model.addAttribute("barColors2", barColors2);

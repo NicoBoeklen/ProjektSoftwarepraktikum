@@ -156,11 +156,12 @@
         const contractImbalance = /*[[${contractImbalance}]]*/ [];
         const barColors = /*[[${barColors}]]*/ [];
         const barColors2 = /*[[${barColors2}]]*/ [];
+        const xValues2 = /*[[${countArray2}]]*/ [];
 
         let chart2 = new Chart("JointUtilityChart", {
             type: "bar",
             data: {
-                labels: xValues,
+                labels: xValues2,
                 datasets: [{
                     label: 'Joint Utility',
                     backgroundColor: barColors,
@@ -182,7 +183,7 @@
         let chart3 = new Chart("ContractImbalanceChart", {
             type: "bar",
             data: {
-                labels: xValues,
+                labels: xValues2,
                 datasets: [{
                     label: 'Contract Imbalance',
                     backgroundColor: barColors2,

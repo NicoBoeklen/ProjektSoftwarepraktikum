@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -36,6 +33,7 @@ public class HomeController {
     private MessageRepository messageRepository;
     @Autowired
     private RoleRepository roleRepository;
+
     /**
      * Zeigt die Startseite Ihrer Anwendung.
      *
@@ -48,7 +46,7 @@ public class HomeController {
         boolean isAdmin = userService.getCurrentUser().getRoles().stream()
                 .map(Rolle::getId)
                 .anyMatch(roleId -> roleRepository.getRolename(roleId).contains("ROLE_ADMIN"));
-        if(isAdmin){
+        if (isAdmin) {
             return "redirect:/admin/home";
         }
         NegotiationModel negModel = new NegotiationModel();
@@ -67,11 +65,12 @@ public class HomeController {
                 .filter(m -> negotiationIds.contains(m.getNegotiation().getNegotiationId()))
                 .map(n -> n.getSenderId())
                 .filter(m -> m != userService.getCurrentUser().getUserId())
-                .map(m->userService.getUserById(m).getUsername())
+                .map(m -> userService.getUserById(m).getUsername())
                 .distinct()
                 .collect(Collectors.toList());
         model.addAttribute("userPartner", partnerIDs);
 
+        //begin als Startdatum und nicht init datum
         List<String> begin = new LinkedList<>();
         Comparator<LocalDateTime> minComparator = new Comparator<LocalDateTime>() {
 
@@ -81,10 +80,11 @@ public class HomeController {
             }
         };
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        for(Integer negotiation: negotiationIds) {
+        for (Integer negotiation : negotiationIds) {
             Optional<LocalDateTime> beginning = messageService.findAllNegotiationsMessages()
                     .stream()
-                    .filter(m -> m.getNegotiation().getNegotiationId()==negotiation)
+                    .filter(m -> m.getNegotiation().getNegotiationId() == negotiation)
+                    .filter(m -> !Objects.equals(m.getMessageType(),"INIT"))
                     .map(n -> n.getSentDate())
                     .min(minComparator);
             begin.add(beginning.get().format(formatter));
@@ -92,10 +92,10 @@ public class HomeController {
         model.addAttribute("beginDate", begin);
 
         List<String> end = new LinkedList<>();
-        for(Integer negotiation: negotiationIds) {
+        for (Integer negotiation : negotiationIds) {
             Optional<LocalDateTime> ending = messageService.findAllNegotiationsMessages()
                     .stream()
-                    .filter(m -> m.getNegotiation().getNegotiationId()==negotiation)
+                    .filter(m -> m.getNegotiation().getNegotiationId() == negotiation)
                     .map(n -> n.getSentDate())
                     .max(minComparator);
             end.add(ending.get().format(formatter));

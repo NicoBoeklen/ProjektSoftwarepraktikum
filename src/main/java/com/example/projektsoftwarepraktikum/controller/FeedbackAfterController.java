@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Controller
 public class FeedbackAfterController {
@@ -50,6 +50,40 @@ public class FeedbackAfterController {
             feedback = "Your favoured TKI-Style does not match with your most accurate TKI-Style";
         }
         model.addAttribute("feedback", feedback);
+
+        //Feedback 2
+        Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
+        //begin als Startdatum und nicht init datum
+        Comparator<LocalDateTime> negComparator = new Comparator<LocalDateTime>() {
+
+            @Override
+            public int compare(LocalDateTime n1, LocalDateTime n2) {
+                return n1.compareTo(n2);
+            }
+        };
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        Optional<LocalDateTime> begin = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .filter(m -> !Objects.equals(m.getMessageType(), "INIT"))
+                .map(n -> n.getSentDate())
+                .min(negComparator);
+        Optional<LocalDateTime> end = messageService.findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
+                .map(n -> n.getSentDate())
+                .max(negComparator);
+        Duration duration = Duration.between(begin.get(), end.get());
+        long hours = duration.toHours();
+        float days = (float) hours / 24;
+
+        model.addAttribute("hours", hours);
+        model.addAttribute("days", days);
+        model.addAttribute("beginDate", begin.get().format(formatter));
+        model.addAttribute("endDate", end.get().format(formatter));
+
+
         return "feedbackAfter";
     }
 
