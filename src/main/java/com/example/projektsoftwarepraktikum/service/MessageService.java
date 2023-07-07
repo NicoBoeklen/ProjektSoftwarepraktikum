@@ -41,13 +41,14 @@ public class MessageService {
         Integer userID = userService.getCurrentUser().getUserId();
         Integer selectedOption = modelService.findNegotiationModelByUserId(userID).getSelectedNegotiationID();
         List<Double> tkiAverage = new ArrayList<>();
-        tkiAverage.addAll(messageRepository.getCompeting(selectedOption,userID));
-        tkiAverage.addAll(messageRepository.getCompromising(selectedOption,userID));
-        tkiAverage.addAll(messageRepository.getCollaborating(selectedOption,userID));
-        tkiAverage.addAll(messageRepository.getAvoiding(selectedOption,userID));
-        tkiAverage.addAll(messageRepository.getAccommodating(selectedOption,userID));
+        tkiAverage.addAll(messageRepository.getCompeting(selectedOption, userID));
+        tkiAverage.addAll(messageRepository.getCompromising(selectedOption, userID));
+        tkiAverage.addAll(messageRepository.getCollaborating(selectedOption, userID));
+        tkiAverage.addAll(messageRepository.getAvoiding(selectedOption, userID));
+        tkiAverage.addAll(messageRepository.getAccommodating(selectedOption, userID));
         return tkiAverage;
     }
+
     public List<Double> averageTkiStyleAllUser() {
         List<Double> tkiAverage = new ArrayList<>();
         tkiAverage.addAll(messageRepository.getAllUserCompeting());
@@ -57,6 +58,7 @@ public class MessageService {
         tkiAverage.addAll(messageRepository.getAllUserAccommodating());
         return tkiAverage;
     }
+
     public Integer getPartnerID(final Integer userID, final Integer negotiationID) {
         Integer partnerID = findAllNegotiationsMessages()
                 .stream()
@@ -69,6 +71,54 @@ public class MessageService {
         return partnerID;
     }
 
+    public String getEndValueOfMostImportantIssue(Integer selectedNegotiation, Integer issue) {
+        List<String> accept1 = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue1())
+                .toList();
+        List<String> accept2 = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue2())
+                .toList();
+        List<String> accept3 = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue3())
+                .toList();
+        List<String> accept4 = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue4())
+                .toList();
+        List<String> accept5 = findAllNegotiationsMessages()
+                .stream()
+                .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .map(n -> n.getValue5())
+                .toList();
+
+        switch (issue) {
+            case 1:
+                return accept1.get(0);
+            case 2:
+                return accept2.get(0);
+            case 3:
+                return accept3.get(0);
+            case 4:
+                return accept4.get(0);
+            case 5:
+                return accept5.get(0);
+        }
+        return null;
+
+    }
+
     public NegotiationMessage saveNegotiationMessageData(final String[] data, Negotiation neg) {
         NegotiationMessage message = new NegotiationMessage();
         message.setNegotiation(neg);
@@ -77,32 +127,32 @@ public class MessageService {
         newUser(Integer.valueOf(data[1]));
 
         if (data[2] != "" && !Objects.equals(data[2], "null")) {
-            message.setSenderBestCase(Double.valueOf(data[2].replace(",",".")));
+            message.setSenderBestCase(Double.valueOf(data[2].replace(",", ".")));
         }
-        if (data[3] != ""&& !Objects.equals(data[3], "null")) {
-            message.setSenderWorstCase(Double.valueOf(data[3].replace(",",".")));
+        if (data[3] != "" && !Objects.equals(data[3], "null")) {
+            message.setSenderWorstCase(Double.valueOf(data[3].replace(",", ".")));
         }
-        if (data[4] != ""&& !Objects.equals(data[4], "null")) {
-            message.setReceiversBestCase(Double.valueOf(data[4].replace(",",".")));
+        if (data[4] != "" && !Objects.equals(data[4], "null")) {
+            message.setReceiversBestCase(Double.valueOf(data[4].replace(",", ".")));
         }
-        if (data[5] != ""&& !Objects.equals(data[5], "null")) {
-            message.setReceiversWorstCase(Double.valueOf(data[5].replace(",",".")));
+        if (data[5] != "" && !Objects.equals(data[5], "null")) {
+            message.setReceiversWorstCase(Double.valueOf(data[5].replace(",", ".")));
         }
         if (data[6] != "") {
             String[] datum = data[6].split(",");
-            int month = monthToInt(datum[0].substring(0,3));
+            int month = monthToInt(datum[0].substring(0, 3));
             int day = Integer.valueOf(datum[0].substring(4, datum[0].length()));
-            int year = Integer.valueOf(datum[1].substring(2, 5))+2000;
+            int year = Integer.valueOf(datum[1].substring(2, 5)) + 2000;
             //je nachdem ob Stunde 1-Stellig (16) oder 2-Stellig (17)
             int hour, minute, second;
             if (datum[1].length() == 17) {
-                 hour = hourAMPM(datum[1].substring(6, 8), datum[1].substring(15, 17));
-                 minute = Integer.valueOf(datum[1].substring(9, 11));
-                 second = Integer.valueOf(datum[1].substring(12, 14));
+                hour = hourAMPM(datum[1].substring(6, 8), datum[1].substring(15, 17));
+                minute = Integer.valueOf(datum[1].substring(9, 11));
+                second = Integer.valueOf(datum[1].substring(12, 14));
             } else {
-                 hour = hourAMPM(datum[1].substring(6, 7), datum[1].substring(14, 16));
-                 minute = Integer.valueOf(datum[1].substring(8, 10));
-                 second = Integer.valueOf(datum[1].substring(11, 13));
+                hour = hourAMPM(datum[1].substring(6, 7), datum[1].substring(14, 16));
+                minute = Integer.valueOf(datum[1].substring(8, 10));
+                second = Integer.valueOf(datum[1].substring(11, 13));
             }
             LocalDateTime date = LocalDateTime.of(year, month, day, hour, minute, second);
             message.setSentDate(date);
@@ -113,17 +163,17 @@ public class MessageService {
         if (data[8] != "") {
             message.setNegoOutcome(data[8]);
         }
-        if (data[9] != ""&& !Objects.equals(data[9], "null")) {
-            message.setJointUtilityBest(Double.valueOf(data[9].replace(",",".")));
+        if (data[9] != "" && !Objects.equals(data[9], "null")) {
+            message.setJointUtilityBest(Double.valueOf(data[9].replace(",", ".")));
         }
         if (data[10] != "" && !Objects.equals(data[10], "null")) {
-            message.setJointUtilityWorst(Double.valueOf(data[10].replace(",",".")));
+            message.setJointUtilityWorst(Double.valueOf(data[10].replace(",", ".")));
         }
         if (data[11] != "" && !Objects.equals(data[11], "null")) {
-            message.setContractImbalanceBest(Double.valueOf(data[11].replace(",",".")));
+            message.setContractImbalanceBest(Double.valueOf(data[11].replace(",", ".")));
         }
         if (data[12] != "" && !Objects.equals(data[12], "null")) {
-            message.setContractImbalanceWorst(Double.valueOf(data[12].replace(",",".")));
+            message.setContractImbalanceWorst(Double.valueOf(data[12].replace(",", ".")));
         }
         if (data[13] != "") {
             message.setMessageCount(Integer.valueOf(data[13]));
@@ -135,7 +185,7 @@ public class MessageService {
             message.setValue5(data[15]);
         }
         if (data[16] != "" && !Objects.equals(data[16], "null")) {
-            message.setUtility_Issue5(Double.valueOf(data[16].replace(",",".")));
+            message.setUtility_Issue5(Double.valueOf(data[16].replace(",", ".")));
         }
         if (data[17] != "") {
             message.setIssue4(data[17]);
@@ -144,7 +194,7 @@ public class MessageService {
             message.setValue4(data[18]);
         }
         if (data[19] != "" && !Objects.equals(data[19], "null")) {
-            message.setUtility_Issue4(Double.valueOf(data[19].replace(",",".")));
+            message.setUtility_Issue4(Double.valueOf(data[19].replace(",", ".")));
         }
         if (data[20] != "") {
             message.setIssue2(data[20]);
@@ -153,7 +203,7 @@ public class MessageService {
             message.setValue2(data[21]);
         }
         if (data[22] != "" && !Objects.equals(data[22], "null")) {
-            message.setUtility_Issue2(Double.valueOf(data[22].replace(",",".")));
+            message.setUtility_Issue2(Double.valueOf(data[22].replace(",", ".")));
         }
         if (data[23] != "") {
             message.setIssue3(data[23]);
@@ -162,7 +212,7 @@ public class MessageService {
             message.setValue3(data[24]);
         }
         if (data[25] != "" && !Objects.equals(data[25], "null")) {
-            message.setUtility_Issue3(Double.valueOf(data[25].replace(",",".")));
+            message.setUtility_Issue3(Double.valueOf(data[25].replace(",", ".")));
         }
         if (!Objects.equals(data[7], "INIT")) {
             if (data[26] != "") {
@@ -172,7 +222,7 @@ public class MessageService {
                 message.setValue1(data[27]);
             }
             if (data[28] != "" && !Objects.equals(data[28], "null")) {
-                message.setUtility_Issue1(Double.valueOf(data[28].replace(",",".")));
+                message.setUtility_Issue1(Double.valueOf(data[28].replace(",", ".")));
             }
             if (data[29] != "") {
                 message.setQ1(Integer.valueOf(data[29]));
@@ -220,19 +270,19 @@ public class MessageService {
                 message.setTKI_Accommodating_Quantile_Abs(Integer.valueOf(data[43]));
             }
             if (data[44] != "" && !Objects.equals(data[44], "null")) {
-                message.setTKI_Competing_Quantile_Rel(Double.valueOf(data[44].replace(",",".")));
+                message.setTKI_Competing_Quantile_Rel(Double.valueOf(data[44].replace(",", ".")));
             }
             if (data[45] != "" && !Objects.equals(data[45], "null")) {
-                message.setTKI_Compromising_Quantile_Rel(Double.valueOf(data[45].replace(",",".")));
+                message.setTKI_Compromising_Quantile_Rel(Double.valueOf(data[45].replace(",", ".")));
             }
             if (data[46] != "" && !Objects.equals(data[46], "null")) {
-                message.setTKI_Collaborating_Quantile_Rel(Double.valueOf(data[46].replace(",",".")));
+                message.setTKI_Collaborating_Quantile_Rel(Double.valueOf(data[46].replace(",", ".")));
             }
             if (data[47] != "" && !Objects.equals(data[47], "null")) {
-                message.setTKI_Avoiding_Quantile_Rel(Double.valueOf(data[47].replace(",",".")));
+                message.setTKI_Avoiding_Quantile_Rel(Double.valueOf(data[47].replace(",", ".")));
             }
             if (data[48] != "" && !Objects.equals(data[48], "null")) {
-                message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[48].replace(",",".")));
+                message.setTKI_Accommodating_Quantile_Rel(Double.valueOf(data[48].replace(",", ".")));
             }
         }
         neg.addMessage(message);
@@ -260,7 +310,7 @@ public class MessageService {
     private int hourAMPM(String time, String format) {
         if (Objects.equals(format, "PM")) {
             int hour = Integer.valueOf(time);
-            hour+=12;
+            hour += 12;
             if (hour == 24) {
                 hour = 0;
             }
@@ -271,7 +321,7 @@ public class MessageService {
     }
 
     private int monthToInt(String month) {
-        switch(month) {
+        switch (month) {
             case "Dec":
                 return 12;
             case "Nov":

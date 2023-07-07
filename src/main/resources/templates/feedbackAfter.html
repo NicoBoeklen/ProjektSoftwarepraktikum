@@ -82,6 +82,9 @@
     <p th:text="${days}"></p>
     <p th:text="${selectedIssue}"></p>
     <p th:text="${accept}"></p>
+
+    <canvas id="timeChart"></canvas>
+
 </div>
 <script th:inline="javascript">
     //RADAR CHART
@@ -100,6 +103,33 @@
         data: TkiDiagramData
     });
 
+    let actualTime = /*[[${days}]]*/ '';
+    let selectedTime = /*[[${selectedTime}]]*/ '';
+
+    let ctx = document.getElementById('timeChart').getContext('2d');
+    let chart5 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Preferred Time', 'Actual Time'],
+            datasets: [{
+                label: 'Duration in Days',
+                data: [selectedTime, actualTime],
+                backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(54, 162, 235, 1)'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(54, 162, 235, 1)'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {display: true},
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            }
+        }
+    });
 </script>
 </div>
 <footer class="text-center text-white" style="background-color: #292828">
