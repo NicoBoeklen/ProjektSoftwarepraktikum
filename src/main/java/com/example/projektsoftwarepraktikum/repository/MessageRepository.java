@@ -13,7 +13,8 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
     //ursprünglich mit Union Werte in eine Spalte und alle mit Liste
     //JPA unterstützt kein UNION
     //@Query("SELECT AVG(nm.TKI_Accommodating_Quantile_Rel) FROM Negotiation_Message nm UNION ALL SELECT AVG(nm.TKI_Avoiding_Quantile_Rel) FROM Negotiation_Message nm UNION ALL SELECT AVG(nm.TKI_Collaborating_Quantile_Rel) FROM Negotiation_Message nm UNION ALL SELECT AVG(nm.TKI_Competing_Quantile_Rel) FROM Negotiation_Message nm UNION ALL SELECT AVG(nm.TKI_Compromising_Quantile_Rel) FROM Negotiation_Message nm")
-
+    @Query("SELECT nm.senderId,avg(nm.TKI_Accommodating),avg(nm.TKI_Compromising), avg(nm.TKI_Compromising) FROM NegotiationMessage nm GROUP BY nm.senderId")
+    List<List<Double>> getAverageValuesForEachUser();
 
     //USER QUERIES
     @Query("SELECT AVG(nm.TKI_Accommodating_Quantile_Rel) FROM NegotiationMessage nm where nm.negotiation.negotiationId= :filterValue and nm.senderId= :senderId")

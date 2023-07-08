@@ -49,6 +49,14 @@ public class HomeController {
         if (isAdmin) {
             return "redirect:/admin/home";
         }
+        for (List<Double> negotiationMessages:messageRepository.getAverageValuesForEachUser()) {
+            for (Double averageValues:negotiationMessages
+                 ) {
+                System.out.println(averageValues);
+            }
+            System.out.println("new Column");
+        }
+
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
