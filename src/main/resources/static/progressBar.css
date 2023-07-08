@@ -1,0 +1,9 @@
+#progressBar {
+  width: 100%;
+  height: 20px;
+}
+
+#progressLabel {
+  margin-top: 5px;
+  font-weight: bold;
+}
