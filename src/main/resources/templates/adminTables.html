@@ -85,7 +85,7 @@
 
 
 
-<div class="container bg-light">
+<div class="container-fluid bg-light">
     <div class="table-scrollable">
         <table id="NegotiationMessageTable" class="table table-striped"
                data-filter-control="true"
@@ -93,6 +93,7 @@
             <thead>
         <tr>
             <th data-field="senderId" data-filter-control="select">Sender ID</th>
+            <th data-field="negotiationMessageId">NegotiationMessageID</th>
             <th data-field="negoOutcome" data-filter-control="Outcome">SenderName</th>
             <th data-field="contractImbalanceBest">BestUtility</th>
             <th data-field="contractImbalanceBest">ContractImbalanceBest</th>
@@ -107,12 +108,12 @@
         function DataForTable(data) {
         $('#NegotiationMessageTable').bootstrapTable({
             data: data,
-            columns: [{field: 'senderId'},{ field: 'negoOutcome'},{ field: 'jointUtilityBest'},{ field: 'contractImbalanceBest'}]
+            columns: [{field: 'senderId'},{ field: 'negotiationMessageId'},{ field: 'negoOutcome'},{ field: 'jointUtilityBest'},{ field: 'contractImbalanceBest'}]
         });
     }
     $(document).ready(function() {
         $.ajax({
-            url: '/admin/data',
+            url: '/admin/data/json',
             type: 'GET',
             dataType: 'json',
             success: function(data) {

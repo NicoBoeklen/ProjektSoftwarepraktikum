@@ -14,7 +14,7 @@ public class DataController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping("/admin/data")
+    @GetMapping("/admin/data/json")
     public List<NegotiationMessage> getData() {
         return messageService.findAllNegotiationsMessages(); // Retrieve data from your database service
     }
