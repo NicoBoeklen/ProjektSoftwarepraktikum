@@ -19,7 +19,12 @@
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <link rel="stylesheet" type="text/css" href="../static/logo.css"/>
     <link rel="stylesheet" type="text/css" href="border.css"/>
-
+    <style>
+        .table-scrollable {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    </style>
 
     <script>
         function getNegotiation() {
@@ -80,11 +85,12 @@
 
 
 
-<div class="container pt-3 bg-light">
-    <table id="NegotiationMessageTable"
-        data-filter-control="true"
-        data-show-search-clear-button="true">
-        <thead>
+<div class="container bg-light">
+    <div class="table-scrollable">
+        <table id="NegotiationMessageTable" class="table table-striped"
+               data-filter-control="true"
+               data-show-search-clear-button="true">
+            <thead>
         <tr>
             <th data-field="senderId" data-filter-control="select">Sender ID</th>
             <th data-field="negoOutcome" data-filter-control="Outcome">SenderName</th>
@@ -95,6 +101,7 @@
         <tbody>
         </tbody>
     </table>
+</div>
 </div>
 <script>
         function DataForTable(data) {
@@ -118,7 +125,6 @@
     });
 </script>
 
-</div>
 
 <th:block th:include="fragments/footer.html :: footer" ></th:block>
 </body>
