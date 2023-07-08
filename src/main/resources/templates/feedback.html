@@ -20,6 +20,15 @@
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <script>
     </script>
+
+    <style>
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 5cm;
+  }
+</style>
+
 </head>
 <body>
 <th:block th:include="fragments/navbar.html :: navbar" ></th:block>
@@ -91,8 +100,10 @@
 
     <canvas id="UtilityChart"></canvas>
     <br>
-    <button class="btn btn-secondary" id="toggleButtonAsp"><i class="fas fa-chart-bar"></i> Show Aspiration Level</button>
-    <button class="btn btn-secondary" id="toggleButtonRes"><i class="fas fa-chart-bar"></i> Show Reservation Level</button>
+    <div class="button-container">
+        <button class="btn btn-secondary" id="toggleButtonAsp"><i class="fas fa-chart-bar"></i> Show Aspiration Level</button>
+        <button class="btn btn-secondary" id="toggleButtonRes"><i class="fas fa-chart-bar"></i> Show Reservation Level</button>
+    </div>
     <br>
     <br>
     <h5 th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></h5>
@@ -113,15 +124,21 @@
         </div>
     </div>
     <br>
-    <form id="feedbackForm" th:action="@{/feedbackAfter}" onsubmit="startProgressBar(event)">
-        <button type="submit" class="btn btn-primary">Request feedback after negotiation</button>
-    </form>
+    <div class="d-flex justify-content-center">
+        <form id="feedbackForm" th:action="@{/feedbackAfter}" onsubmit="startProgressBar(event)">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-comment-alt"></i> Request feedback after negotiation
+            </button>
+        </form>
+    </div>
 
     <br>
 
-    <div>
+    <div style="position: relative;">
         <progress id="progressBar" value="0" max="100"></progress>
-        <span id="progressLabel">0%</span>
+        <br>
+        <br>
+        <span id="progressLabel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">0%</span>
     </div>
 
     <script th:inline="javascript">
