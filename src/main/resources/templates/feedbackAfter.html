@@ -28,17 +28,17 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-3  border rounded-lg bg-secondary p-2">
-            <h6 th:text="'Your TKI-Style is:'"></h6>
+            <h6 th:text="'Your TKI-Style is:'" class="text-white"></h6>
             <div>
-                <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}">
+                <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}" class="text-white">
                     <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
                 </div>
             </div>
         </div>
         <div class="col-3  border rounded-lg bg-secondary p-2">
             <br>
-            <p th:text="'You have chosen ' +${selectedTKI} +' as your favoured TKI-Style.'"></p>
-            <p th:text="${feedback}"></p>
+            <p th:text="'You have chosen ' +${selectedTKI} +' as your favoured TKI-Style.'" class="text-white"></p>
+            <p th:text="${feedback}" class="text-white"></p>
         </div>
     </div>
     <br>
