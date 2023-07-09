@@ -90,6 +90,7 @@
 <script th:inline="javascript">
     let averageUsers = document.getElementById("averageUsers");
     const arraySecondFeedback = /*[[${arraySecondFeedback}]]*/ [];
+    console.log(arraySecondFeedback)
     let chart3 = new Chart("averageUsers", {
         type: "bar",
         data: {
@@ -98,17 +99,6 @@
                 label: 'AverageValues',
                 data: arraySecondFeedback
             }]
-        },
-        options: {
-            legend: {display: true},
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        max: 1
-                    }
-                }],
-            }
         }
     });
 </script>

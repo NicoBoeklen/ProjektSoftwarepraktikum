@@ -27,7 +27,15 @@ public class AdminPageController {
         model.addAttribute("tkiTypes", tkiTypes);
         //System.out.println(Arrays.toString(tkiAllUserValues));
         model.addAttribute("tkiAllUserValues", tkiAllUserValues);
+        //SECOND ADMIN FEEDBACK
+        List<Double> listSecondFeedback = messageService.getAveragesAdminFeedback();
+        for (Double averageValuesDouble:listSecondFeedback
+        ) {
+            System.out.println(averageValuesDouble);
+        }
+        Double[] arraySecondFeedback= listSecondFeedback.toArray(new Double[0]);
+        model.addAttribute("arraySecondFeedback",arraySecondFeedback);
 
-    return "adminpage";
+        return "adminpage";
     }
 }
