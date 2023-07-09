@@ -31,7 +31,7 @@
 
 </head>
 <body>
-<th:block th:include="fragments/navbar.html :: navbar" ></th:block>
+<th:block th:insert="~{fragments/navbar :: navbar}"></th:block>
 <div class="container">
     <h3>Feedback during the negotiation</h3>
     <p th:text="'Here you can see the feedback to your selected Negotiation: Negotiation ' + ${selectedOption}"></p>
@@ -345,7 +345,7 @@
     </script>
 </div>
 
-<th:block th:include="fragments/footer.html :: footer" ></th:block>
+<th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 
 </div>
 </body>

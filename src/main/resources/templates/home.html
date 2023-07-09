@@ -37,7 +37,7 @@
     </script>
 </head>
 <body style="background-color: #343a40">
-<th:block th:include="fragments/navbar.html :: navbar" ></th:block>
+<th:block th:insert="~{fragments/navbar :: navbar}"></th:block>
 
 <div class="container-fluid bg-dark text-white p-3" align="center">
 
@@ -77,28 +77,10 @@
 
     <br>
     <br>
-    <!--
-    <form th:object="${negModel}" th:action="@{/}" method="post">
-        <select id="input1" class="custom-select" aria-label=".form-select-lg example" required
-                align="center"
-                style="width:215px" th:field="*{selectedNegotiationID}">
-            <option selected hidden value=""  align="center">Select your negotiation</option>
-            <option th:each="negotiationID : ${userNegotiations}" th:value="${negotiationID}"
-                    th:text="'Negotiation ' + ${negotiationID}" align="center"
-                    style="background: #dfe7ff;color:#1E90FF;" ></option>
-        </select>
-        <br>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary">Show negotiation feedback</button>
 
-    </form>
-    <br>
-    <br>
-    -->
 </div>
 
-<th:block th:include="fragments/footer.html :: footer" ></th:block>
+<th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 
 </body>
 </html>

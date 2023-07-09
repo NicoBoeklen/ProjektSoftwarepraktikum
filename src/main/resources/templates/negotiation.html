@@ -98,7 +98,7 @@
 </head>
 <body style="background-color: #343a40">
 
-<th:block th:include="fragments/navbar.html :: navbar" ></th:block>
+<th:block th:insert="~{fragments/navbar :: navbar}"></th:block>
 
 <div class="container-fluid bg-dark text-white p-5">
     <h1>Negotiation goals</h1><br>
@@ -183,7 +183,7 @@
 
 </div>
 
-<th:block th:include="fragments/footer.html :: footer" ></th:block>
+<th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 
 </div>
 </body>
