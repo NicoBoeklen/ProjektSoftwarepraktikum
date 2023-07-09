@@ -114,16 +114,8 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <canvas id="JointUtilityChart"></canvas>
-                <p th:text="${feedbackJointUtility}"></p>
-            </div>
-            <div class="col-md-12">
-                <canvas id="ContractImbalanceChart"></canvas>
-                <p th:text="${feedbackContractImbalance}"></p>
-            </div>
-
             <div class="col-md-6">
+                <canvas id="JointUtilityChart"></canvas>
                 <p th:text="${feedbackJointUtility}"></p>
                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse" data-target="#defJointUtility">
                     Joint
@@ -135,6 +127,7 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <canvas id="ContractImbalanceChart"></canvas>
                 <p th:text="${feedbackContractImbalance}"></p>
                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse"
                         data-target="#defContractImbalance">
@@ -145,6 +138,7 @@
                     The absolut difference between your individual utility and your negotiation partners utility. This is a measure for the fairness of the agreement.
                 </div>
             </div>
+
         </div>
     </div>
 
