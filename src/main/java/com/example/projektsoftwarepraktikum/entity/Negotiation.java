@@ -1,10 +1,6 @@
 package com.example.projektsoftwarepraktikum.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +13,7 @@ public class Negotiation {
     @Column(name = "negotiationID")
     private Integer negotiationId;
 
-    @OneToMany(mappedBy = "negotiation")
+    @OneToMany(mappedBy = "negotiation", fetch = FetchType.EAGER)
     private Set<NegotiationMessage> messages = new HashSet<>();
 
     public Negotiation() {
