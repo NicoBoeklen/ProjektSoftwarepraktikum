@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -61,23 +62,22 @@ public class HomeController {
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
-        List<Integer> negotiationIds = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> m.getSenderId() == userService.getCurrentUser().getUserId())
-                .map(n -> n.getNegotiation().getNegotiationId())
-                .distinct()
-                .collect(Collectors.toList());
+        
+        List<Integer> negotiationIds=messageRepository.getNegotiationIdQuery(userService.getCurrentUser().getUserId());
+        for (Integer ids:negotiationIds
+             ) {
+            System.out.println(ids);
+        }
         model.addAttribute("userNegotiations", negotiationIds);
 
-        List<String> partnerIDs = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> negotiationIds.contains(m.getNegotiation().getNegotiationId()))
-                .map(n -> n.getSenderId())
-                .filter(m -> m != userService.getCurrentUser().getUserId())
-                .map(m -> userService.getUserById(m).getUsername())
-                .distinct()
-                .collect(Collectors.toList());
-        model.addAttribute("userPartner", partnerIDs);
+        List<String> partnerIds = new ArrayList<>();
+        for (Integer negotiatonIdInteger:negotiationIds
+             ) {
+            List<String> partnerIdLoop= messageRepository.getPartnerQuery(negotiatonIdInteger,userService.getCurrentUser().getUserId());
+            partnerIds.addAll(partnerIdLoop);
+        }
+
+        model.addAttribute("userPartner", partnerIds);
 
         //begin als Startdatum und nicht init datum
         List<String> begin = new LinkedList<>();

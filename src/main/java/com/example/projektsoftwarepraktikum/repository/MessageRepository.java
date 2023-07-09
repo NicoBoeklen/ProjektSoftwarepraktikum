@@ -58,4 +58,9 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
 
     @Query("SELECT AVG(nm.messageCount) FROM NegotiationMessage nm WHERE nm.negoOutcome='ACCEPT'")
     Double messageCountAllUser();
+
+    @Query("SELECT DISTINCT nm.negotiation.negotiationId FROM NegotiationMessage nm where nm.senderId= :filterValue")
+    List<Integer> getNegotiationIdQuery(@Param("filterValue") Integer filterValue);
+    @Query("SELECT DISTINCT nm.senderId FROM NegotiationMessage nm where nm.negotiation.negotiationId= :negotiation and NOT nm.senderId = :senderId")
+    List<String> getPartnerQuery(@Param("negotiation") Integer negotiation, @Param("senderId") Integer senderId);
 }
