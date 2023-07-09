@@ -19,7 +19,6 @@
 ## TO-DO's (Anforderungen Übungsblatt 3.3):
 
 ### Allgemein:
-- Fehlerbehandlung und Validierung der Eingaben 
 
 ### Admin-Bereich:
 - Erstellung einer neuen Willkommensseite
@@ -31,26 +30,17 @@
 - Filterfunktion für die tabellarische Übersicht
 
 ### feedback.html:
-- --> auf gewünschte Zeit eingehen (Enddatum!)
-- -> Achtung Startdatum nicht Init Datum
-- auf most important issue eingehen
-- Text zu Graphen
-- Text zu TKI Styles
 
 
 ## TO-DO's (aus Feedback Übungsblatt 3.2)
 
 ### Allgemein:
-- Entscheidung von "Home" oder "Sopra Negotiation Website" -> Einigung auf eine Navigationsmöglichkeit 
-  + wäre dafür "Home" aus der Navbar zu entfernen, so dass man nur noch über das Klicken auf "Sopra..." auf die Willkommensseite gelangt (Flo)
-- header, footer auslagern
+
 
 ### login.html:
-- spezifische Fehlerbehandlung -> nicht ausschließlich der Verweis auf die Registrierungsfunktion
 
 ### register.html:
-- Implementierung der Registrierungsfunktion
-- falls nicht implementiert, dann rausnehmen
+
 
 ### Extra Features:
 
