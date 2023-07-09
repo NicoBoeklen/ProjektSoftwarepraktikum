@@ -48,7 +48,14 @@
     <br>
 
     <canvas id="TkiDiagram"></canvas>
-
+    <div class="col-3  border rounded-lg bg-secondary p-2">
+    <h6 th:text="'The average TKI-Style is:'" class="text-white"></h6>
+    <div>
+        <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}" class="text-white">
+            <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
+        </div>
+    </div>
+</div>
 </div>
 
 <script th:inline="javascript">
