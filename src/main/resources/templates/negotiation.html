@@ -47,26 +47,33 @@
             errorContainer.hidden = true;
         }
 
+        function updateProgress() {
+
+        }
+            let progressBar = document.getElementById("progressBar");
             let input1 = document.getElementById("input1");
             let input2 = document.getElementById("input2");
-
-            let progressBar = document.querySelector(".progress-bar");
+            let time = document.getElementById("time");
 
             input1.addEventListener("change", updateProgress);
             input2.addEventListener("change", updateProgress);
-        function updateProgress() {
+
             let  progress = 0;
-            if (input1.val() !== "") {
-                progress += 50;
+
+            if (input1.value !== "") {
+                progress += 33.33;
             }
-            if (input2.val() !== "") {
-                progress += 50;
+            if (input2.value !== "") {
+                progress += 33.33;
             }
-            let progressString = progress.toString();
+            if (time.value !== "") {
+                progress += 33.33;
+
+
 
             progressBar.style.width = progress + "%";
-            progressBar.setAttribute("aria-valuenow", progressString)
-            progressBar.innerHTML = progress + "%";
+            progressBar.setAttribute("aria-valuenow", progress)
+
         }
 
  function updateProgress() {
@@ -104,7 +111,7 @@
     <h1>Negotiation goals</h1><br>
     <h4 th:text="'Please fill in the following parameters'"></h4>
     <div class="progress">
-        <div id="progressBar" class="progress-bar progress-bar-animated" role="progressbar" style="width: 0%"></div>
+        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
     </div>
     <br>
     <div id="errorContainer" hidden class="alert alert-danger alert-dismissible fade show" style="width: 50%; padding: 1rem;">
