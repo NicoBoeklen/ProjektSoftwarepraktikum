@@ -70,6 +70,11 @@
                     </select>
                     <button type="submit" class="btn btn-primary">Select</button>
                 </form>
+                <script th:inline="javascript">
+                    console.log("Negotiation: " + [[${negotiation}]]);
+                    console.log("User Partner: " + [[${userPartner[row.index]}]]);
+                    console.log("Begin Date: " + [[${beginDate[row.index]}]]);
+                </script>
             </td>
         </tr>
         </tbody>
