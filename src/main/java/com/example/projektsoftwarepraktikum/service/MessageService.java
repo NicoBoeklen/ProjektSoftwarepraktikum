@@ -32,7 +32,16 @@ public class MessageService {
     public NegotiationMessage saveNegotiationMessage(NegotiationMessage message) {
         return messageRepository.save(message);
     }
-
+public List<Double> getAveragesAdminFeedback(){
+        List<Double> averageValues = new ArrayList<>();
+        Double jointUtility = messageRepository.jointUtilityAllUser();
+        Double contract = messageRepository.contractImbalanceAllUser();
+        Double messageCount = messageRepository.messageCountAllUser();
+        averageValues.add(jointUtility);
+        averageValues.add(contract);
+        averageValues.add(messageCount);
+        return averageValues;
+}
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
     }

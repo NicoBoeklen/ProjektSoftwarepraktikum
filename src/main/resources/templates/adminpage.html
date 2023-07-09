@@ -38,6 +38,7 @@
         }
     </script>
 </head>
+<body>
 <!--<body style="background-color: #343a40">-->
 <th:block th:insert="~{fragments/navbarAdmin.html :: navbarAdmin}"></th:block>
 
@@ -55,8 +56,10 @@
             <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
         </div>
     </div>
+
 </div>
 </div>
+<canvas id="averageUsers"></canvas>
 
 <script th:inline="javascript">
     //RADAR CHART
@@ -84,6 +87,31 @@
     });
 </script>
 
+<script th:inline="javascript">
+    let averageUsers = document.getElementById("averageUsers");
+    const arraySecondFeedback = /*[[${arraySecondFeedback}]]*/ [];
+    let chart3 = new Chart("averageUsers", {
+        type: "bar",
+        data: {
+            labels: ["JointUtility","ContractImbalance","MessageCount"],
+            datasets: [{
+                label: 'AverageValues',
+                data: arraySecondFeedback
+            }]
+        },
+        options: {
+            legend: {display: true},
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        max: 1
+                    }
+                }],
+            }
+        }
+    });
+</script>
 <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 
 </body>

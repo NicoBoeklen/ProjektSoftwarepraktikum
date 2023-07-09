@@ -1,5 +1,6 @@
 package com.example.projektsoftwarepraktikum.controller;
 
+import com.example.projektsoftwarepraktikum.repository.MessageRepository;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -23,6 +24,7 @@ public class FeedbackAfterController {
 
     @Autowired
     ModelService modelService;
+
 
     @GetMapping("/feedbackAfter")
     public String startFeedback(Model model) {
@@ -108,9 +110,15 @@ public class FeedbackAfterController {
         model.addAttribute("beginDate", begin.get().format(formatter));
         model.addAttribute("endDate", end.get().format(formatter));
 
+        //SECOND FEEDBACK
+        List<Double> listSecondFeedback = messageService.getAveragesAdminFeedback();
+        Double[] arraySecondFeedback= listSecondFeedback.toArray(new Double[0]);
+        model.addAttribute("arraySecondFeedback",arraySecondFeedback);
+
 
         return "feedbackAfter";
     }
+
 
     private int getIndexOfHighestValue(Double[] array) {
         double highestValue = array[0];
