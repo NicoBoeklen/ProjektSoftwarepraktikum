@@ -59,9 +59,19 @@
 
 </div>
 </div>
-<canvas id="averageJointUtility"></canvas>
-<canvas id="averageContractImbalance"></canvas>
-<canvas id="averageMessageCount"></canvas>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <canvas id="averageJointUtility"></canvas>
+        </div>
+        <div class="col-md-4">
+            <canvas id="averageContractImbalance"></canvas>
+        </div>
+        <div class="col-md-4">
+            <canvas id="averageMessageCount"></canvas>
+        </div>
+    </div>
+</div>
 <script th:inline="javascript">
     //RADAR CHART
     const tkiAllUserValues = /*[[${tkiAllUserValues}]]*/ [];
