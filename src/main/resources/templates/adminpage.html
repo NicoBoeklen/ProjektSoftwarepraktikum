@@ -64,11 +64,13 @@
 <!--<body style="background-color: #343a40">-->
 <th:block th:insert="~{fragments/navbarAdmin.html :: navbarAdmin}"></th:block>
 
-<div class="container-fluid" align="right">
+<div class="container-fluid" align="center">
     <br>
 
-    <div style="width: 4.5cm; height: 1.6cm; background-color: #1E90FF; color: #ffffff; text-align: center;">
-        <p style="font-size: 26px; line-height: 1.6cm;">Admin Mode</p>
+    <div style="text-align: right;">
+        <div style="width: 4.5cm; height: 1.0cm; background-color: #1E90FF; color: #ffffff; text-align: center;">
+            <p style="font-size: 20px; line-height: 1.0cm;">Admin Mode</p>
+        </div>
     </div>
 
     <br>
@@ -103,6 +105,7 @@
             <div class="chart-container">
                 <h4 class="chart-title">Average Joint Utility</h4>
                 <br>
+                <br>
                 <canvas id="averageJointUtility"></canvas>
             </div>
         </div>
@@ -110,12 +113,14 @@
             <div class="chart-container">
                 <h4 class="chart-title">Average Contract Imbalance</h4>
                 <br>
+                <br>
                 <canvas id="averageContractImbalance"></canvas>
             </div>
         </div>
         <div class="col-md-4">
             <div class="chart-container">
                 <h4 class="chart-title">Average Message Count</h4>
+                <br>
                 <br>
                 <canvas id="averageMessageCount"></canvas>
             </div>
