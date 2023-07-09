@@ -83,7 +83,7 @@ public class FeedbackController {
         String feedbackAsp;
         String feedbackRes;
         System.out.println(bestArray.length);
-        //FIX
+        //FIXME
         if (bestUtility.length > 1 && selectedAspiration < bestUtility[bestUtility.length - 1] * 100) {
             feedbackAsp="Your Aspiration Level is lower than your current best utility. " +
                     "You can make more compromises to lead the negotiation to an successful end.";
