@@ -53,6 +53,9 @@
   text-align: center;
 }
 
+.chart-title {
+  font-size: 1.7em; /* Passe die Größe der Überschrift an, z.B. 1.2em */
+}
 
     </style>
 
@@ -67,7 +70,16 @@
 
     <br>
 
-    <canvas id="TkiDiagram"></canvas>
+    <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="chart-title">Average TKI Value Of Users</h4>
+                <br>
+                <canvas id="TkiDiagram"></canvas>
+            </div>
+        </div>
+    </div>
     <div class="col-3  border rounded-lg bg-secondary p-2">
     <h6 th:text="'The average TKI-Style is:'" class="text-white"></h6>
     <div>
