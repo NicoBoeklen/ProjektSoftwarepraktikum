@@ -19,7 +19,13 @@ public class AdminPageController {
 
         List<Double> tkiList= messageService.averageTkiStyleAllUser();
         Double[] tkiAllUserValues = tkiList.toArray(new Double[0]);
-        System.out.println(Arrays.toString(tkiAllUserValues));
+        int[] intTKIArray = Arrays.stream(tkiAllUserValues)
+                .mapToInt(value -> (int) Math.round(value))
+                .toArray();
+        model.addAttribute("tkiValuesInt", intTKIArray);
+        String[] tkiTypes = new String[]{"Competing", "Compromising", "Collaborating", "Avoiding", "Accommodating"};
+        model.addAttribute("tkiTypes", tkiTypes);
+        //System.out.println(Arrays.toString(tkiAllUserValues));
         model.addAttribute("tkiAllUserValues", tkiAllUserValues);
 
     return "adminpage";

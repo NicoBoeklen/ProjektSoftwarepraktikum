@@ -70,7 +70,15 @@
     };
     let radarChart = new Chart(diagramCanvas, {
         type: 'radar',
-        data: TkiDiagramData
+        data: TkiDiagramData,
+        options: {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMin: 0
+                }
+            }
+        }
     });
 
     let actualTime = /*[[${days}]]*/ '';

@@ -54,14 +54,6 @@
 
 ### Extra Features:
 
-- Tooltip
-- Popover
-- Darkmode Lightmode (Luca & Tony)
-- Ladebalken Issues (Luca)
-- Navbar admin seite anpassen (Luca)
-- Export Buttons verschönern (Bootstrap Modal?) (Luca)
-- ?Sprachen (Tony)
-- 
 
 
 

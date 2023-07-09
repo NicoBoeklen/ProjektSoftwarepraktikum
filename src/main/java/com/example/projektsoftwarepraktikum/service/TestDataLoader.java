@@ -1,6 +1,7 @@
 package com.example.projektsoftwarepraktikum.service;
 
 import com.example.projektsoftwarepraktikum.entity.Benutzer;
+import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
 import com.example.projektsoftwarepraktikum.entity.Rolle;
 
 import org.slf4j.Logger;
@@ -30,6 +31,9 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
 
     @Autowired
     private NegotiationService negotiationService;
+
+    @Autowired
+    private ModelService modelService;
 
     /**
      * Diese Methode wird zum Aufsetzen von Testdaten für die Datenbank verwendet werden. Die Methode wird immer dann
@@ -68,5 +72,23 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRoles(adminRoles);
         userService.saveUser(admin);
+
+        NegotiationModel negModel = new NegotiationModel();
+        negModel.setUserId(35);
+        negModel.setSelectedNegotiationID(17);
+        negModel.setSelectedIssue("Training camp");
+        negModel.setSelectedAspirationLevel(90);
+        negModel.setSelectedReservationLevel(40);
+        negModel.setSelectedTKIStyle("Avoiding");
+        modelService.saveNegotiationModel(negModel);
+
+        NegotiationModel negModel2 = new NegotiationModel();
+        negModel2.setUserId(36);
+        negModel2.setSelectedNegotiationID(17);
+        negModel2.setSelectedIssue("Involvement of the fans");
+        negModel2.setSelectedAspirationLevel(85);
+        negModel2.setSelectedReservationLevel(45);
+        negModel2.setSelectedTKIStyle("Compromising");
+        modelService.saveNegotiationModel(negModel2);
     }
 }
