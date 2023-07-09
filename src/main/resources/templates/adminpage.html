@@ -37,6 +37,25 @@
             window.location.href = "login";
         }
     </script>
+
+    <style>
+
+   .chart-container {
+  position: relative;
+}
+
+.chart-title {
+  position: absolute;
+  top: -1cm; /* Setze die Überschrift 1 cm über dem Diagramm */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  text-align: center;
+}
+
+
+    </style>
+
 </head>
 <body>
 <!--<body style="background-color: #343a40">-->
@@ -56,22 +75,41 @@
             <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
         </div>
     </div>
-
 </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <canvas id="averageJointUtility"></canvas>
+            <div class="chart-container">
+                <h4 class="chart-title">Average Joint Utility</h4>
+                <br>
+                <canvas id="averageJointUtility"></canvas>
+            </div>
         </div>
         <div class="col-md-4">
-            <canvas id="averageContractImbalance"></canvas>
+            <div class="chart-container">
+                <h4 class="chart-title">Average Contract Imbalance</h4>
+                <br>
+                <canvas id="averageContractImbalance"></canvas>
+            </div>
         </div>
         <div class="col-md-4">
-            <canvas id="averageMessageCount"></canvas>
+            <div class="chart-container">
+                <h4 class="chart-title">Average Message Count</h4>
+                <br>
+                <canvas id="averageMessageCount"></canvas>
+            </div>
         </div>
     </div>
 </div>
+
+</div>
+
 <script th:inline="javascript">
     //RADAR CHART
     const tkiAllUserValues = /*[[${tkiAllUserValues}]]*/ [];
@@ -107,36 +145,93 @@
     console.log(arraySecondFeedback[1]);
     console.log(arraySecondFeedback[2]);
 
-    let chart4 = new Chart("averageJointUtility", {
-        type: "bar",
-        data: {
-            labels: ["JointUtility"],
-            datasets: [{
-                label: 'jointUtility',
-                data: [arraySecondFeedback[0]]
-            }]
+let chart4 = new Chart("averageJointUtility", {
+  type: "bar",
+  data: {
+    labels: ["JointUtility"],
+    datasets: [{
+      label: 'jointUtility',
+      data: [arraySecondFeedback[0]],
+      backgroundColor: 'rgba(144, 238, 144, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Grün
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: false
+      },
+      legend: {
+        display: false // Entferne die Legende
+      }
+    },
+    scales: {
+      x: {
+        display: false
+      },
+      y: {
+        title: {
+          display: false
         }
-    });
+      }
+    }
+  }
+});
     let chart5 = new Chart("averageContractImbalance", {
-        type: "bar",
-        data: {
-            labels: ["ContractImbalance"],
-            datasets: [{
-                label: 'AverageValues',
-                data: [arraySecondFeedback[1]]
-            }]
+  type: "bar",
+  data: {
+    labels: ["ContractImbalance"],
+    datasets: [{
+      label: 'AverageValues',
+      data: [arraySecondFeedback[1]],
+      backgroundColor: 'rgba(255, 99, 71, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Rot
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: false
+      }
+    },
+    scales: {
+      x: {
+        display: false
+      },
+      y: {
+        title: {
+          display: false
         }
-    });
-    let chart6 = new Chart("averageMessageCount", {
-        type: "bar",
-        data: {
-            labels: ["Amount of messages"],
-            datasets: [{
-                label: 'AverageValues',
-                data: [arraySecondFeedback[2]]
-            }]
+      }
+    }
+  }
+});
+   let chart6 = new Chart("averageMessageCount", {
+  type: "bar",
+  data: {
+    labels: ["Amount of messages"],
+    datasets: [{
+      label: 'AverageValues',
+      data: [arraySecondFeedback[2]],
+      backgroundColor: 'rgba(135, 206, 250, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Blau
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: false
+      }
+    },
+    scales: {
+      x: {
+        display: false
+      },
+      y: {
+        title: {
+          display: false
         }
-    });
+      }
+    }
+  }
+});
 </script>
 <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 
