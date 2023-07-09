@@ -107,24 +107,21 @@
     <br>
     <br>
     <h5 th:text="'Here you can see your joint utility and contract imbalance based on your offers:'"></h5>
-    <div style="display: flex;">
-        <div style="flex: 1;">
-            <canvas id="JointUtilityChart"></canvas>
-        </div>
-        <div style="flex: 1;">
-            <canvas id="ContractImbalanceChart"></canvas>
-        </div>
-    </div>
+
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-6">
-            <p th:text="${feedbackJointUtility}"></p>
-        </div>
-        <div class="col-md-6">
-            <p th:text="${feedbackContractImbalance}"></p>
-        </div>
+            <div class="col-md-12">
+                <canvas id="JointUtilityChart"></canvas>
+                <p th:text="${feedbackJointUtility}"></p>
+            </div>
+            <div class="col-md-12">
+                <canvas id="ContractImbalanceChart"></canvas>
+                <p th:text="${feedbackContractImbalance}"></p>
+            </div>
+
         </div>
     </div>
+
     <br>
     <div class="d-flex justify-content-center">
         <form id="feedbackForm" th:action="@{/feedbackAfter}" onsubmit="startProgressBar(event)">
