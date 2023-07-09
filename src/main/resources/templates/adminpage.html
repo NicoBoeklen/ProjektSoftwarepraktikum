@@ -59,8 +59,19 @@
 
 </div>
 </div>
-<canvas id="averageUsers"></canvas>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <canvas id="averageJointUtility"></canvas>
+        </div>
+        <div class="col-md-4">
+            <canvas id="averageContractImbalance"></canvas>
+        </div>
+        <div class="col-md-4">
+            <canvas id="averageMessageCount"></canvas>
+        </div>
+    </div>
+</div>
 <script th:inline="javascript">
     //RADAR CHART
     const tkiAllUserValues = /*[[${tkiAllUserValues}]]*/ [];
@@ -88,27 +99,42 @@
 </script>
 
 <script th:inline="javascript">
-    let averageUsers = document.getElementById("averageUsers");
+    let averageJointUtility = document.getElementById("averageJointUtility");
+    let averageContractImbalance = document.getElementById("averageContractImbalance");
+    let averageMessageCount = document.getElementById("averageMessageCount");
     const arraySecondFeedback = /*[[${arraySecondFeedback}]]*/ [];
-    let chart3 = new Chart("averageUsers", {
+    console.log(arraySecondFeedback[0]);
+    console.log(arraySecondFeedback[1]);
+    console.log(arraySecondFeedback[2]);
+
+    let chart4 = new Chart("averageJointUtility", {
         type: "bar",
         data: {
-            labels: ["JointUtility","ContractImbalance","MessageCount"],
+            labels: ["JointUtility"],
+            datasets: [{
+                label: 'jointUtility',
+                data: [arraySecondFeedback[0]]
+            }]
+        }
+    });
+    let chart5 = new Chart("averageContractImbalance", {
+        type: "bar",
+        data: {
+            labels: ["ContractImbalance"],
             datasets: [{
                 label: 'AverageValues',
-                data: arraySecondFeedback
+                data: [arraySecondFeedback[1]]
             }]
-        },
-        options: {
-            legend: {display: true},
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        max: 1
-                    }
-                }],
-            }
+        }
+    });
+    let chart6 = new Chart("averageMessageCount", {
+        type: "bar",
+        data: {
+            labels: ["Amount of messages"],
+            datasets: [{
+                label: 'AverageValues',
+                data: [arraySecondFeedback[2]]
+            }]
         }
     });
 </script>

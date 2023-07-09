@@ -109,13 +109,6 @@ public class FeedbackAfterController {
         model.addAttribute("days", days);
         model.addAttribute("beginDate", begin.get().format(formatter));
         model.addAttribute("endDate", end.get().format(formatter));
-
-        //SECOND FEEDBACK
-        List<Double> listSecondFeedback = messageService.getAveragesAdminFeedback();
-        Double[] arraySecondFeedback= listSecondFeedback.toArray(new Double[0]);
-        model.addAttribute("arraySecondFeedback",arraySecondFeedback);
-
-
         return "feedbackAfter";
     }
 
