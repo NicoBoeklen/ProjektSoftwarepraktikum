@@ -62,12 +62,8 @@ public class HomeController {
         NegotiationModel negModel = new NegotiationModel();
         model.addAttribute("negModel", negModel);
         model.addAttribute("currentUser", userService.getCurrentUser().getUsername());
-        
+
         List<Integer> negotiationIds=messageRepository.getNegotiationIdQuery(userService.getCurrentUser().getUserId());
-        for (Integer ids:negotiationIds
-             ) {
-            System.out.println(ids);
-        }
         model.addAttribute("userNegotiations", negotiationIds);
 
         List<String> partnerIds = new ArrayList<>();

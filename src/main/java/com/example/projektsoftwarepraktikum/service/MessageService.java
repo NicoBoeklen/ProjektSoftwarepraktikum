@@ -40,6 +40,7 @@ public List<Double> getAveragesAdminFeedback(){
         averageValues.add(jointUtility);
         averageValues.add(contract);
         averageValues.add(messageCount);
+
         return averageValues;
 }
     public List<NegotiationMessage> findAllNegotiationsMessages() {

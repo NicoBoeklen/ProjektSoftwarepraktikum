@@ -57,6 +57,7 @@ public class FeedbackController {
                 .filter(utility_issue1 -> utility_issue1 != null)
                 .toArray(Double[]::new);
 
+
         //Feedback during Negotiation
         Double[] bestArray = new Double[bestUtility.length/2];
 
@@ -81,14 +82,16 @@ public class FeedbackController {
         //Individual Feedback
         String feedbackAsp;
         String feedbackRes;
-        if (selectedAspiration < bestArray[bestArray.length-1]*100) {
+        System.out.println(bestArray.length);
+        //FIX
+        if (bestUtility.length > 1 && selectedAspiration < bestUtility[bestUtility.length - 1] * 100) {
             feedbackAsp="Your Aspiration Level is lower than your current best utility. " +
                     "You can make more compromises to lead the negotiation to an successful end.";
         } else {
             feedbackAsp="Your Aspiration Level is higher than your current best utility. " +
                     "You can insist more on your priorities and goals.";
         }
-        if (selectedReservation < bestArray[bestArray.length-1]*100) {
+        if (bestUtility.length > 1 && selectedReservation < bestArray[bestArray.length-1]*100) {
             feedbackRes="Your Reservation Level is lower than your current best utility. " +
                     "Try to achieve your aspiration level and lead the negotiation to an successful end.";
         } else {
