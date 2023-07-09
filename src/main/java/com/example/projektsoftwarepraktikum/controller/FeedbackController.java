@@ -127,11 +127,11 @@ public class FeedbackController {
         for(int i = 0; i<jointUtility.length/2; i++) {
             jointArray[i] = jointUtility[i];
             if (jointArray[i] >= 1.5) {
-                barColors[i] = "green";
+                barColors[i] = "rgb(0, 128, 0, 0.5)";
             } else if (jointArray[i] >= 1.4) {
-                barColors[i] = "yellow";
+                barColors[i] = "rgb(255, 255, 0, 0.5)";
             } else {
-                barColors[i] = "red";
+                barColors[i] = "rgb(255, 0, 0, 0.5)";
             }
         }
         if (jointArray[jointArray.length-1] >= 1.5) {
@@ -148,11 +148,11 @@ public class FeedbackController {
         for(int i = 0; i<contractImbalance.length/2; i++) {
             contractImbalanceArray[i] = contractImbalance[i];
             if (contractImbalanceArray[i] <= 0.1) {
-                barColors2[i] = "green";
+                barColors2[i] = "rgb(0, 128, 0, 0.65)";
             } else if (contractImbalanceArray[i] <= 0.3) {
-                barColors2[i] = "yellow";
+                barColors2[i] = "rgb(255, 255, 0, 0.65)";
             } else {
-                barColors2[i] = "red";
+                barColors2[i] = "rgb(255, 0, 0, 0.65)";
             }
         }
 
