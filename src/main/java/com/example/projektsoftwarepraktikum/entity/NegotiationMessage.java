@@ -14,8 +14,9 @@ public class NegotiationMessage {
     @GeneratedValue
     @Column(name = "negotiationMessageID")
     private Integer negotiationMessageId;
+
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "negotiationID")
     private Negotiation negotiation;
 
