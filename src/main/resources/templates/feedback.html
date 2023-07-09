@@ -22,12 +22,12 @@
     </script>
 
     <style>
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 5cm;
-  }
-</style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 5cm;
+        }
+    </style>
 
 </head>
 <body>
@@ -60,7 +60,8 @@
    </div>
 -->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-download"></i>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i
+            class="fas fa-download"></i>
         Export diagrams
     </button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -92,17 +93,20 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="applyButton"> <i class="fas fa-download"></i> Export</button>
+                    <button type="button" class="btn btn-primary" id="applyButton"><i class="fas fa-download"></i>
+                        Export
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <canvas id="UtilityChart"></canvas>
-    <br>
     <div class="button-container">
-        <button class="btn btn-secondary" id="toggleButtonAsp"><i class="fas fa-chart-bar"></i> Show Aspiration Level</button>
-        <button class="btn btn-secondary" id="toggleButtonRes"><i class="fas fa-chart-bar"></i> Show Reservation Level</button>
+        <button class="btn btn-secondary" id="toggleButtonAsp"><i class="fas fa-chart-bar"></i> Show Aspiration Level
+        </button>
+        <button class="btn btn-secondary" id="toggleButtonRes"><i class="fas fa-chart-bar"></i> Show Reservation Level
+        </button>
     </div>
     <br>
     <br>
@@ -119,9 +123,32 @@
                 <p th:text="${feedbackContractImbalance}"></p>
             </div>
 
+            <div class="col-md-6">
+                <p th:text="${feedbackJointUtility}"></p>
+                <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse" data-target="#defJointUtility">
+                    Joint
+                    Utility?
+                </button>
+                <br>
+                <div id="defJointUtility" class="collapse card p-3">
+                    The sum of your individual utility and your negotiation partners utility.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p th:text="${feedbackContractImbalance}"></p>
+                <button type="button" class="btn btn-secondary btn-sm" data-toggle="collapse"
+                        data-target="#defContractImbalance">
+                    Contract Imbalance?
+                </button>
+                <br>
+                <div id="defContractImbalance" class="collapse card p-3">
+                    The absolut difference between your individual utility and your negotiation partners utility. This is a measure for the fairness of the agreement.
+                </div>
+            </div>
         </div>
     </div>
 
+    <br>
     <br>
     <div class="d-flex justify-content-center">
         <form id="feedbackForm" th:action="@{/feedbackAfter}" onsubmit="startProgressBar(event)">
@@ -137,7 +164,8 @@
         <progress id="progressBar" value="0" max="100"></progress>
         <br>
         <br>
-        <span id="progressLabel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">0%</span>
+        <span id="progressLabel"
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">0%</span>
     </div>
 
     <script th:inline="javascript">
@@ -321,26 +349,26 @@
             chart.update();
         }
 
-   function startProgressBar(event) {
-  event.preventDefault();
+        function startProgressBar(event) {
+            event.preventDefault();
 
-  var progressBar = document.getElementById("progressBar");
-  var progressLabel = document.getElementById("progressLabel");
-  var value = 0;
+            var progressBar = document.getElementById("progressBar");
+            var progressLabel = document.getElementById("progressLabel");
+            var value = 0;
 
-  var interval = setInterval(increaseValue, 75); // Erhöhe die Intervallzeit auf 200ms
+            var interval = setInterval(increaseValue, 75); // Erhöhe die Intervallzeit auf 200ms
 
-  function increaseValue() {
-    value += 5;
-    progressBar.value = value;
-    progressLabel.textContent = value + "%";
+            function increaseValue() {
+                value += 5;
+                progressBar.value = value;
+                progressLabel.textContent = value + "%";
 
-    if (value >= 100) {
-      clearInterval(interval);
-      document.getElementById("feedbackForm").submit();
-    }
-  }
-}
+                if (value >= 100) {
+                    clearInterval(interval);
+                    document.getElementById("feedbackForm").submit();
+                }
+            }
+        }
     </script>
 </div>
 
