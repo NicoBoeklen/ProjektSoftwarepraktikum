@@ -23,10 +23,13 @@
 
         function validateInput() {
             let time = parseInt(document.getElementById("time").value);
-            let resLevel = document.getElementById("valueReservationLevel").value;
-            let aspLevel = document.getElementById("valueAspirationLevel").value;
+            let resLevel = document.getElementById("reservationLevel").value;
+            let aspLevel = document.getElementById("aspirationLevel").value;
             let errorContainer = document.getElementById("errorContainer");
             let errorContainerText = document.getElementById("errorContainerText");
+
+            console.log(resLevel);
+            console.log(aspLevel);
 
             errorContainerText.innerHTML = "";
             errorContainer.hidden = true;
