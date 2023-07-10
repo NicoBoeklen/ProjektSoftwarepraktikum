@@ -1,6 +1,8 @@
 package com.example.projektsoftwarepraktikum.controller;
 
+import com.example.projektsoftwarepraktikum.entity.CombinedEntity;
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
+import com.example.projektsoftwarepraktikum.service.CombinedEntityService;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -20,8 +22,12 @@ public class StartNegotiationController {
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private MessageService messageService;
+
+    @Autowired
+    private CombinedEntityService combinedEntityService;
 
     private Integer negId;
 
@@ -42,6 +48,9 @@ public class StartNegotiationController {
         negModel.setUserId(userService.getCurrentUser().getUserId());
         modelService.saveNegotiationModel(negModel);
 
+        CombinedEntity ce = combinedEntityService.findByid(userService.getCurrentUser().getUserId());
+        ce.setNegotiationModel(negModel);
+        combinedEntityService.saveCombinedEntity(ce);
 
         return "redirect:/feedback";
     }

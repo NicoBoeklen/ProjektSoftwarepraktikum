@@ -25,4 +25,8 @@ public class CombinedEntityService {
     public void deleteCombinedEntity(final Integer id) {
         combinedEntityRepository.deleteAllById(Collections.singleton(id));
     }
+
+    public CombinedEntity findByid(Integer id) {
+        return combinedEntityRepository.findByid(id);
+    }
 }
