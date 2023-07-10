@@ -90,15 +90,14 @@
 </nav>
 
 <div class="container-fluid bg-light">
-    <div class="table">
         <table id="NegotiationMessageTable" class="table table-striped"
                data-filter-control="true"
                data-show-search-clear-button="true">
             <thead>
         <tr>
             <th data-field="senderId" data-filter-control="select">UserId</th>
-            <th data-field="negotiationMessageId">NegotiationId</th>
-            <th data-field="negoOutcome" data-filter-control="Outcome">SelectedAspirationLevel</th>
+            <th data-field="negotiationMessageId" style="vertical-align: top;">NegotiationId</th>
+            <th data-field="negoOutcome">SelectedAspirationLevel</th>
             <th data-field="contractImbalanceBest">SelectedReservationLevel</th>
             <th data-field="contractImbalanceBest">ContractImbalance</th>
             <th data-field="contractImbalanceBest">NegotiationOutcome</th>
@@ -110,7 +109,6 @@
         <tbody>
         </tbody>
     </table>
-</div>
 </div>
 <script>
         function DataForTable(data) {
