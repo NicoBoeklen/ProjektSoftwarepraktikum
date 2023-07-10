@@ -73,6 +73,7 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         admin.setRoles(adminRoles);
         userService.saveUser(admin);
 
+        //Zieleingaben
         NegotiationModel negModel = new NegotiationModel();
         negModel.setUserId(35);
         negModel.setSelectedNegotiationID(17);
@@ -90,5 +91,95 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         negModel2.setSelectedReservationLevel(45);
         negModel2.setSelectedTKIStyle("Compromising");
         modelService.saveNegotiationModel(negModel2);
+
+        NegotiationModel negModel3 = new NegotiationModel();
+        negModel3.setUserId(83);
+        negModel3.setSelectedNegotiationID(41);
+        negModel3.setSelectedIssue("Sponsoring");
+        negModel3.setSelectedAspirationLevel(83);
+        negModel3.setSelectedReservationLevel(32);
+        negModel3.setSelectedTKIStyle("Competing");
+        modelService.saveNegotiationModel(negModel3);
+
+        NegotiationModel negModel4 = new NegotiationModel();
+        negModel4.setUserId(84);
+        negModel4.setSelectedNegotiationID(41);
+        negModel4.setSelectedIssue("Lawn");
+        negModel4.setSelectedAspirationLevel(95);
+        negModel4.setSelectedReservationLevel(50);
+        negModel4.setSelectedTKIStyle("Accommodating");
+        modelService.saveNegotiationModel(negModel4);
+
+        NegotiationModel negModel5 = new NegotiationModel();
+        negModel5.setUserId(147);
+        negModel5.setSelectedNegotiationID(73);
+        negModel5.setSelectedIssue("Investment");
+        negModel5.setSelectedAspirationLevel(62);
+        negModel5.setSelectedReservationLevel(31);
+        negModel5.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel5);
+
+        NegotiationModel negModel6 = new NegotiationModel();
+        negModel6.setUserId(148);
+        negModel6.setSelectedNegotiationID(73);
+        negModel6.setSelectedIssue("Lawn");
+        negModel6.setSelectedAspirationLevel(60);
+        negModel6.setSelectedReservationLevel(38);
+        negModel6.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel6);
+
+        NegotiationModel negModel7 = new NegotiationModel();
+        negModel7.setUserId(168);
+        negModel7.setSelectedNegotiationID(82);
+        negModel7.setSelectedIssue("Sponsoring");
+        negModel7.setSelectedAspirationLevel(65);
+        negModel7.setSelectedReservationLevel(40);
+        negModel7.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel7);
+
+        NegotiationModel negModel8 = new NegotiationModel();
+        negModel8.setUserId(167);
+        negModel8.setSelectedNegotiationID(82);
+        negModel8.setSelectedIssue("Lawn");
+        negModel8.setSelectedAspirationLevel(65);
+        negModel8.setSelectedReservationLevel(40);
+        negModel8.setSelectedTKIStyle("Competing");
+        modelService.saveNegotiationModel(negModel8);
+
+        NegotiationModel negModel9 = new NegotiationModel();
+        negModel9.setUserId(193);
+        negModel9.setSelectedNegotiationID(96);
+        negModel9.setSelectedIssue("Lawn");
+        negModel9.setSelectedAspirationLevel(68);
+        negModel9.setSelectedReservationLevel(45);
+        negModel9.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel9);
+
+        NegotiationModel negModel10 = new NegotiationModel();
+        negModel10.setUserId(194);
+        negModel10.setSelectedNegotiationID(96);
+        negModel10.setSelectedIssue("Lawn");
+        negModel10.setSelectedAspirationLevel(68);
+        negModel10.setSelectedReservationLevel(45);
+        negModel10.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel10);
+
+        NegotiationModel negModel11 = new NegotiationModel();
+        negModel11.setUserId(235);
+        negModel11.setSelectedNegotiationID(117);
+        negModel11.setSelectedIssue("Training camp");
+        negModel11.setSelectedAspirationLevel(86);
+        negModel11.setSelectedReservationLevel(52);
+        negModel11.setSelectedTKIStyle("Accommodating");
+        modelService.saveNegotiationModel(negModel11);
+
+        NegotiationModel negModel12 = new NegotiationModel();
+        negModel12.setUserId(236);
+        negModel12.setSelectedNegotiationID(117);
+        negModel12.setSelectedIssue("Involvement of the fans");
+        negModel12.setSelectedAspirationLevel(77);
+        negModel12.setSelectedReservationLevel(55);
+        negModel12.setSelectedTKIStyle("Collaborating");
+        modelService.saveNegotiationModel(negModel12);
     }
 }
