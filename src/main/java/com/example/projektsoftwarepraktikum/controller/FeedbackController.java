@@ -1,6 +1,7 @@
 package com.example.projektsoftwarepraktikum.controller;
 
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
+import com.example.projektsoftwarepraktikum.repository.MessageRepository;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import com.example.projektsoftwarepraktikum.service.ModelService;
 import com.example.projektsoftwarepraktikum.service.UserService;
@@ -24,6 +25,8 @@ public class FeedbackController {
 
     @Autowired
     ModelService modelService;
+    @Autowired
+    MessageRepository messageRepository;
 
     @GetMapping("/feedback")
     public String startFeedback(Model model) {
@@ -39,16 +42,17 @@ public class FeedbackController {
         model.addAttribute("selectedAspirationLevel", selectedAspiration);
         model.addAttribute("selectedReservationLevel", selectedReservation);
 
-        Double[] bestUtility = messageService.findAllNegotiationsMessages()
+       /* Double[] bestUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
                 .filter(m -> m.getSenderId() == partnerID)
                 .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
                 .map(n -> n.getReceiversBestCase())
                 .filter(utility_issue1 -> utility_issue1 != null)
-                .toArray(Double[]::new);
-
-        Double[] worstUtility = messageService.findAllNegotiationsMessages()
+                .toArray(Double[]::new);*/
+        List<Double> bestUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
+        List<Double> worstUtilityList= messageRepository.receiversWortCase(selectedOption,partnerID);
+        /*Double[] worstUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
                 .filter(m -> m.getSenderId() == partnerID)
@@ -57,7 +61,11 @@ public class FeedbackController {
                 .filter(utility_issue1 -> utility_issue1 != null)
                 .toArray(Double[]::new);
 
-
+*/
+        System.out.println("SizeUtility"+bestUtilityList.size());
+        System.out.println(bestUtilityList.size());
+        Double[] bestUtility= bestUtilityList.toArray(new Double[0]);
+        Double[] worstUtility= worstUtilityList.toArray(new Double[0]);
         //Feedback during Negotiation
         Double[] bestArray = new Double[bestUtility.length/2];
 
