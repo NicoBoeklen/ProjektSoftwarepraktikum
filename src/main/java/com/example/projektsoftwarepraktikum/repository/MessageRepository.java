@@ -63,4 +63,13 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
     List<Integer> getNegotiationIdQuery(@Param("filterValue") Integer filterValue);
     @Query("SELECT DISTINCT nm.senderId FROM NegotiationMessage nm where nm.negotiation.negotiationId= :negotiation and NOT nm.senderId = :senderId")
     List<String> getPartnerQuery(@Param("negotiation") Integer negotiation, @Param("senderId") Integer senderId);
+
+    @Query("SELECT nm.receiversBestCase FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
+    List<Double> receiversBestCase(@Param("negotiation") Integer negotiation,@Param("partnerId") Integer partnerId);
+    @Query("SELECT nm.receiversWorstCase FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
+    List<Double> receiversWorstCase(@Param("negotiation") Integer negotiation,@Param("partnerId") Integer partnerId);
+    @Query("SELECT nm.contractImbalanceBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
+    List<Double> getContractImbalance(@Param("negotiation") Integer negotiation,@Param("partnerId") Integer partnerId);
+    @Query("SELECT nm.jointUtilityBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:userId AND nm.negotiation.negotiationId=:negotiation")
+    List<Double> getJointUtilityBest(@Param("negotiation") Integer negotiation,@Param("userId") Integer userId);
 }
