@@ -1,6 +1,7 @@
 package com.example.projektsoftwarepraktikum.service;
 
 import com.example.projektsoftwarepraktikum.entity.Benutzer;
+import com.example.projektsoftwarepraktikum.entity.CombinedEntity;
 import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
 import com.example.projektsoftwarepraktikum.entity.Rolle;
 
@@ -34,6 +35,12 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
 
     @Autowired
     private ModelService modelService;
+
+    @Autowired
+    private MessageService messageService;
+
+    @Autowired
+    private CombinedEntityService combinedEntityService;
 
     /**
      * Diese Methode wird zum Aufsetzen von Testdaten für die Datenbank verwendet werden. Die Methode wird immer dann
@@ -181,5 +188,35 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         negModel12.setSelectedReservationLevel(55);
         negModel12.setSelectedTKIStyle("Collaborating");
         modelService.saveNegotiationModel(negModel12);
+
+
+        //Admin-Entity
+        //für jeden User
+        CombinedEntity ce1 = new CombinedEntity(modelService.findNegotiationModelByUserId(35), messageService.getLastMessage(17), 35);
+        CombinedEntity ce2 = new CombinedEntity(modelService.findNegotiationModelByUserId(36), messageService.getLastMessage(17), 36);
+        CombinedEntity ce3 = new CombinedEntity(modelService.findNegotiationModelByUserId(83), messageService.getLastMessage(41), 83);
+        CombinedEntity ce4 = new CombinedEntity(modelService.findNegotiationModelByUserId(84), messageService.getLastMessage(41), 84);
+        CombinedEntity ce5 = new CombinedEntity(modelService.findNegotiationModelByUserId(147), messageService.getLastMessage(73), 147);
+        CombinedEntity ce6 = new CombinedEntity(modelService.findNegotiationModelByUserId(148), messageService.getLastMessage(73), 148);
+        CombinedEntity ce7 = new CombinedEntity(modelService.findNegotiationModelByUserId(193), messageService.getLastMessage(96), 193);
+        CombinedEntity ce8 = new CombinedEntity(modelService.findNegotiationModelByUserId(194), messageService.getLastMessage(96), 194);
+        CombinedEntity ce9 = new CombinedEntity(modelService.findNegotiationModelByUserId(167), messageService.getLastMessage(83), 167);
+        CombinedEntity ce10 = new CombinedEntity(modelService.findNegotiationModelByUserId(168), messageService.getLastMessage(83), 168);
+        CombinedEntity ce11 = new CombinedEntity(modelService.findNegotiationModelByUserId(235), messageService.getLastMessage(117), 235);
+        CombinedEntity ce12 = new CombinedEntity(modelService.findNegotiationModelByUserId(236), messageService.getLastMessage(117), 236);
+
+        combinedEntityService.saveCombinedEntity(ce1);
+        combinedEntityService.saveCombinedEntity(ce2);
+        combinedEntityService.saveCombinedEntity(ce3);
+        combinedEntityService.saveCombinedEntity(ce4);
+        combinedEntityService.saveCombinedEntity(ce5);
+        combinedEntityService.saveCombinedEntity(ce6);
+        combinedEntityService.saveCombinedEntity(ce7);
+        combinedEntityService.saveCombinedEntity(ce8);
+        combinedEntityService.saveCombinedEntity(ce9);
+        combinedEntityService.saveCombinedEntity(ce10);
+        combinedEntityService.saveCombinedEntity(ce11);
+        combinedEntityService.saveCombinedEntity(ce12);
+
     }
 }

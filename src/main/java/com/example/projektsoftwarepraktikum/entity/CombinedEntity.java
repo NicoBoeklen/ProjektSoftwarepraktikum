@@ -8,19 +8,21 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class CombinedEntity {
 
-    @GeneratedValue
     @Id
     private Integer id;
+
     @OneToOne
     private NegotiationModel negotiationModel;
+
     @OneToOne
     private NegotiationMessage negotiationMessage;
 
 
 
-    public CombinedEntity(NegotiationModel negotiationModel, NegotiationMessage negotiationMessage) {
+    public CombinedEntity(NegotiationModel negotiationModel, NegotiationMessage negotiationMessage, Integer id) {
         this.negotiationModel = negotiationModel;
         this.negotiationMessage = negotiationMessage;
+        this.id = id;
     }
 
     public CombinedEntity() {
@@ -31,8 +33,23 @@ public class CombinedEntity {
         this.id = id;
     }
 
-
     public Integer getId() {
         return id;
+    }
+
+    public NegotiationModel getNegotiationModel() {
+        return negotiationModel;
+    }
+
+    public void setNegotiationModel(NegotiationModel negotiationModel) {
+        this.negotiationModel = negotiationModel;
+    }
+
+    public NegotiationMessage getNegotiationMessage() {
+        return negotiationMessage;
+    }
+
+    public void setNegotiationMessage(NegotiationMessage negotiationMessage) {
+        this.negotiationMessage = negotiationMessage;
     }
 }

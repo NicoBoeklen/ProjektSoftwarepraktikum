@@ -97,10 +97,12 @@
             <thead>
         <tr>
             <th data-field="senderId" data-filter-control="select">Sender ID</th>
-            <th data-field="negotiationMessageId">NegotiationMessageID</th>
-            <th data-field="negoOutcome" data-filter-control="Outcome">SenderName</th>
+            <th data-field="negotiationMessageId">selectedAspirationLevel</th>
+            <th data-field="negoOutcome" data-filter-control="Outcome">selectedReservationLevel</th>
             <th data-field="contractImbalanceBest">BestUtility</th>
-            <th data-field="contractImbalanceBest">ContractImbalanceBest</th>
+            <th data-field="contractImbalanceBest">ContractImbalance</th>
+            <th data-field="contractImbalanceBest">NegotiationOutcome</th>
+            <th data-field="contractImbalanceBest">SenderBestCase</th>
         </tr>
         </thead>
         <tbody>
@@ -112,7 +114,7 @@
         function DataForTable(data) {
         $('#NegotiationMessageTable').bootstrapTable({
             data: data,
-            columns: [{field: 'senderId'},{ field: 'negotiationMessageId'},{ field: 'negoOutcome'},{ field: 'jointUtilityBest'},{ field: 'contractImbalanceBest'}]
+            columns: [{field: 'id'},{ field: 'negotiationModel.selectedNegotiationID'},{ field: 'negotiationModel.selectedAspirationLevel'},{ field: 'negotiationModel.selectedReservationLevel'},{ field: 'negotiationMessage.contractImbalanceBest'},{ field: 'negotiationMessage.negoOutcome'},{ field: 'negotiationMessage.senderBestCase'}]
         });
     }
     $(document).ready(function() {

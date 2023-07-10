@@ -32,7 +32,12 @@ public class MessageService {
     public NegotiationMessage saveNegotiationMessage(NegotiationMessage message) {
         return messageRepository.save(message);
     }
-public List<Double> getAveragesAdminFeedback(){
+
+    public NegotiationMessage findNegotiationMessageById(Integer id) {
+        return messageRepository.findByNegotiationMessageId(id);
+    }
+
+    public List<Double> getAveragesAdminFeedback() {
         List<Double> averageValues = new ArrayList<>();
         Double jointUtility = messageRepository.jointUtilityAllUser();
         Double contract = messageRepository.contractImbalanceAllUser();
@@ -42,10 +47,13 @@ public List<Double> getAveragesAdminFeedback(){
         averageValues.add(messageCount);
 
         return averageValues;
-}
-public NegotiationMessage getLastMessage(Integer negotiationId){
-        return messageRepository.getLastMessage(negotiationId);
-}
+    }
+
+    public NegotiationMessage getLastMessage(Integer negotiationId) {
+        List<Integer> messageId = messageRepository.getLastMessage(negotiationId);
+        return findNegotiationMessageById(messageId.get(0));
+    }
+
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
     }
