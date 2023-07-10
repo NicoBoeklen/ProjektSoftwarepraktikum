@@ -31,8 +31,23 @@ public class CombinedEntity {
         this.id = id;
     }
 
-
     public Integer getId() {
         return id;
+    }
+
+    public NegotiationModel getNegotiationModel() {
+        return negotiationModel;
+    }
+
+    public void setNegotiationModel(NegotiationModel negotiationModel) {
+        this.negotiationModel = negotiationModel;
+    }
+
+    public NegotiationMessage getNegotiationMessage() {
+        return negotiationMessage;
+    }
+
+    public void setNegotiationMessage(NegotiationMessage negotiationMessage) {
+        this.negotiationMessage = negotiationMessage;
     }
 }

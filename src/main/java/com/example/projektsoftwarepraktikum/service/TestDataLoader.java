@@ -217,8 +217,6 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         combinedEntityService.saveCombinedEntity(ce10);
         combinedEntityService.saveCombinedEntity(ce11);
         combinedEntityService.saveCombinedEntity(ce12);
-
-
-
+        
     }
 }
