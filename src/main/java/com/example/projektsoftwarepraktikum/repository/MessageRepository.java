@@ -71,11 +71,11 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
     @Query("SELECT nm.receiversWorstCase FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
     List<Double> receiversWorstCase(@Param("negotiation") Integer negotiation, @Param("partnerId") Integer partnerId);
 
-    @Query("SELECT nm.contractImbalanceBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
+    @Query("SELECT nm.contractImbalanceBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND NOT nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
     List<Double> getContractImbalance(@Param("negotiation") Integer negotiation, @Param("partnerId") Integer partnerId);
 
-    @Query("SELECT nm.jointUtilityBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND nm.senderId=:userId AND nm.negotiation.negotiationId=:negotiation")
-    List<Double> getJointUtilityBest(@Param("negotiation") Integer negotiation, @Param("userId") Integer userId);
+    @Query("SELECT nm.jointUtilityBest FROM NegotiationMessage nm WHERE NOT nm.messageType='QUESTION' AND NOT nm.messageType='CLARIFICATION' AND NOT nm.messageType='INIT' AND NOT nm.senderId=:partnerId AND nm.negotiation.negotiationId=:negotiation")
+    List<Double> getJointUtilityBest(@Param("negotiation") Integer negotiation, @Param("partnerId") Integer partnerId);
 
     @Query("SELECT nm.negotiationMessageId FROM NegotiationMessage nm WHERE (nm.messageType='ACCEPT' OR nm.messageType='REJECT') AND nm.negotiation.negotiationId=:negotiation")
     List<Integer> getLastMessage(@Param("negotiation") Integer negotiation);
