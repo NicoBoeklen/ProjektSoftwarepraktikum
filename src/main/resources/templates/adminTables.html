@@ -50,14 +50,14 @@
 </head>
 <body style="background-color: #343a40">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e2e1e3;">
     <div class="container-fluid">
         <a class="navbar-brand">
             <div class="logo-image">
                 <img src="https://cdn-icons-png.flaticon.com/512/6487/6487865.png" class="img-fluid" style="width: 46px; height: 46px; border-radius: 50%; overflow: hidden; margin-top: -6px;">
             </div>
         </a>
-        <a class="navbar-brand text-primary" href="/">SOPRA Negotiation Website</a>
+        <strong class="navbar-brand text-primary">SOPRA Negotiation Website</strong>
 
         <button class="navbar-toggler"
                 type="button"
@@ -90,7 +90,7 @@
 </nav>
 
 <div class="container-fluid bg-light">
-    <div class="table-scrollable">
+    <div class="table">
         <table id="NegotiationMessageTable" class="table table-striped"
                data-filter-control="true"
                data-show-search-clear-button="true">
@@ -102,7 +102,7 @@
             <th data-field="contractImbalanceBest">SelectedReservationLevel</th>
             <th data-field="contractImbalanceBest">ContractImbalance</th>
             <th data-field="contractImbalanceBest">NegotiationOutcome</th>
-            <th data-field="contractImbalanceBest">SenderBestCase</th>
+            <th data-field="contractImbalanceBest">JointUtility</th>
             <th data-field="contractImbalanceBest">ConclusionDate</th>
             <th data-field="contractImbalanceBest">MessageCount</th>
         </tr>
@@ -117,7 +117,7 @@
         $('#NegotiationMessageTable').bootstrapTable({
             data: data,
             columns: [{field: 'id'},{ field: 'negotiationModel.selectedNegotiationID'},{ field: 'negotiationModel.selectedAspirationLevel'},{ field: 'negotiationModel.selectedReservationLevel'},{ field: 'negotiationMessage.contractImbalanceBest'},
-                { field: 'negotiationMessage.negoOutcome'},{ field: 'negotiationMessage.senderBestCase'},{ field: 'negotiationMessage.sentDate'},{ field: 'negotiationMessage.messageCount'}]
+                { field: 'negotiationMessage.negoOutcome'},{ field: 'negotiationMessage.jointUtilityBest'},{ field: 'negotiationMessage.sentDate'},{ field: 'negotiationMessage.messageCount'}]
         });
     }
     $(document).ready(function() {

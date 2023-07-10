@@ -44,6 +44,7 @@
             a.download = 'AverageTKIStyle.png';
             a.click();
         }
+
         function adminExportChart2() {
             let url = chart4.toBase64Image();
             let a = document.createElement('a');
@@ -51,6 +52,7 @@
             a.download = 'AverageJointUtility.png';
             a.click();
         }
+
         function adminExportChart3() {
             let url = chart5.toBase64Image();
             let a = document.createElement('a');
@@ -58,6 +60,7 @@
             a.download = 'AverageContractImbalance.png';
             a.click();
         }
+
         function adminExportChart4() {
             let url = chart6.toBase64Image();
             let a = document.createElement('a');
@@ -65,7 +68,6 @@
             a.download = 'AverageMessageCount.png';
             a.click();
         }
-
 
 
         function applySelectionAdmin() {
@@ -97,26 +99,6 @@
 
     </script>
 
-    <style>
-
-   .chart-container {
-  position: relative;
-}
-
-.chart-title {
-  position: absolute;
-  top: -1cm; /* Setze die Überschrift 1 cm über dem Diagramm */
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  text-align: center;
-}
-
-.chart-title {
-  font-size: 1.7em; /* Passe die Größe der Überschrift an, z.B. 1.2em */
-}
-
-    </style>
 
 </head>
 <body>
@@ -125,50 +107,36 @@
 
 <div class="container-fluid" align="center">
     <br>
-
-    <div style="text-align: right;">
-        <div style="width: 4.5cm; height: 1.0cm; background-color: #1E90FF; color: #ffffff; text-align: center;">
-            <p style="font-size: 20px; line-height: 1.0cm;">Admin Mode</p>
-        </div>
-    </div>
-
-    <br>
-
     <div class="container-fluid">
-        <br>
         <div class="row">
-            <div class="col-md-12">
-                <h4 class="chart-title">Average TKI Value Of Users</h4>
+            <div class="col-md-12" align="center">
+                <h4 class="chart-title">Average TKI Value Of Users:</h4>
                 <br>
                 <canvas id="TkiDiagram"></canvas>
             </div>
         </div>
     </div>
     <div class="col-3  border rounded-lg bg-secondary p-2">
-    <h6 th:text="'The average TKI-Style is:'" class="text-white"></h6>
-    <div>
-        <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}" class="text-white">
-            <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
+        <h6 th:text="'The average TKI-Style is:'" class="text-white"></h6>
+        <div>
+            <div th:each="tkiType, iter1 : ${tkiTypes}" th:with="tki=${tkiValuesInt[iter1.index]}" class="text-white">
+                <p th:text="${tki}+'% '+${tkiType}" th:remove="tag"></p>
+            </div>
         </div>
     </div>
-</div>
-    <br>
-    <br>
     <br>
     <br>
     <br>
 </div>
 
 <div class="container-fluid" align="center">
-    <h1>Charts for negotiations with successful outcome</h1>
-    <br>
+    <h1>Charts for negotiations with successful outcome:</h1>
     <br>
     <br>
     <div class="row">
         <div class="col-md-4">
             <div class="chart-container">
                 <h4 class="chart-title">Average Joint Utility</h4>
-                <br>
                 <br>
                 <canvas id="averageJointUtility"></canvas>
             </div>
@@ -177,14 +145,12 @@
             <div class="chart-container">
                 <h4 class="chart-title">Average Contract Imbalance</h4>
                 <br>
-                <br>
                 <canvas id="averageContractImbalance"></canvas>
             </div>
         </div>
         <div class="col-md-4">
             <div class="chart-container">
                 <h4 class="chart-title">Average Message Count</h4>
-                <br>
                 <br>
                 <canvas id="averageMessageCount"></canvas>
             </div>
@@ -229,93 +195,93 @@
     console.log(arraySecondFeedback[1]);
     console.log(arraySecondFeedback[2]);
 
-let chart4 = new Chart("averageJointUtility", {
-  type: "bar",
-  data: {
-    labels: ["Joint Utility"],
-    datasets: [{
-      label: 'Joint Utility',
-      data: [arraySecondFeedback[0]],
-      backgroundColor: 'rgba(144, 238, 144, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Grün
-    }]
-  },
-  options: {
-    plugins: {
-      title: {
-        display: false
-      },
-      legend: {
-        display: false // Entferne die Legende
-      }
-    },
-    scales: {
-      x: {
-        display: false
-      },
-      y: {
-        title: {
-          display: false
+    let chart4 = new Chart("averageJointUtility", {
+        type: "bar",
+        data: {
+            labels: ["Joint Utility"],
+            datasets: [{
+                label: 'Joint Utility',
+                data: [arraySecondFeedback[0]],
+                backgroundColor: 'rgba(144, 238, 144, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Grün
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: false
+                },
+                legend: {
+                    display: false // Entferne die Legende
+                }
+            },
+            scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    title: {
+                        display: false
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-});
+    });
     let chart5 = new Chart("averageContractImbalance", {
-  type: "bar",
-  data: {
-    labels: ["Contract Imbalance"],
-    datasets: [{
-      label: 'Contract Imbalance',
-      data: [arraySecondFeedback[1]],
-      backgroundColor: 'rgba(255, 99, 71, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Rot
-    }]
-  },
-  options: {
-    plugins: {
-      title: {
-        display: false
-      }
-    },
-    scales: {
-      x: {
-        display: false
-      },
-      y: {
-        title: {
-          display: false
+        type: "bar",
+        data: {
+            labels: ["Contract Imbalance"],
+            datasets: [{
+                label: 'Contract Imbalance',
+                data: [arraySecondFeedback[1]],
+                backgroundColor: 'rgba(255, 99, 71, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Rot
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    title: {
+                        display: false
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-});
-   let chart6 = new Chart("averageMessageCount", {
-  type: "bar",
-  data: {
-    labels: ["Amount of messages"],
-    datasets: [{
-      label: 'Messages ',
-      data: [arraySecondFeedback[2]],
-      backgroundColor: 'rgba(135, 206, 250, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Blau
-    }]
-  },
-  options: {
-    plugins: {
-      title: {
-        display: false
-      }
-    },
-    scales: {
-      x: {
-        display: false
-      },
-      y: {
-        title: {
-          display: false
+    });
+    let chart6 = new Chart("averageMessageCount", {
+        type: "bar",
+        data: {
+            labels: ["Amount of messages"],
+            datasets: [{
+                label: 'Messages ',
+                data: [arraySecondFeedback[2]],
+                backgroundColor: 'rgba(135, 206, 250, 0.5)' // Setze die Hintergrundfarbe auf ein leichtes Blau
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    display: false
+                },
+                y: {
+                    title: {
+                        display: false
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-});
+    });
 </script>
 <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
 

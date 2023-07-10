@@ -23,5 +23,9 @@
 - keine Registrierung, da jeder User bereits einen Account hat
 
 
+TODO:
+- mehr suchfunktionen in der Tabelle
+- eventuell navbar fixieren bei scrollen (in class fixed-top)
+
 
 
