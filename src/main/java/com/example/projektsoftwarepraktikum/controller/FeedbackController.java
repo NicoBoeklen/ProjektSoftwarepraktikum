@@ -42,26 +42,8 @@ public class FeedbackController {
         model.addAttribute("selectedAspirationLevel", selectedAspiration);
         model.addAttribute("selectedReservationLevel", selectedReservation);
 
-       /* Double[] bestUtility = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
-                .filter(m -> m.getSenderId() == partnerID)
-                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
-                .map(n -> n.getReceiversBestCase())
-                .filter(utility_issue1 -> utility_issue1 != null)
-                .toArray(Double[]::new);*/
         List<Double> bestUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
-        List<Double> worstUtilityList= messageRepository.receiversWortCase(selectedOption,partnerID);
-        /*Double[] worstUtility = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
-                .filter(m -> m.getSenderId() == partnerID)
-                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
-                .map(n -> n.getReceiversWorstCase())
-                .filter(utility_issue1 -> utility_issue1 != null)
-                .toArray(Double[]::new);
-
-*/
+        List<Double> worstUtilityList= messageRepository.receiversWorstCase(selectedOption,partnerID);
         System.out.println("SizeUtility"+bestUtilityList.size());
         System.out.println(bestUtilityList.size());
         Double[] bestUtility= bestUtilityList.toArray(new Double[0]);
@@ -92,14 +74,14 @@ public class FeedbackController {
         String feedbackRes;
         System.out.println(bestArray.length);
         //FIXME
-        if (bestUtility.length > 1 && selectedAspiration < bestUtility[bestUtility.length - 1] * 100) {
+        if (bestUtility.length > 0 && selectedAspiration < bestUtility[bestUtility.length - 1] * 100) {
             feedbackAsp="Your Aspiration Level is lower than your current best utility. " +
                     "You can make more compromises to lead the negotiation to an successful end.";
         } else {
             feedbackAsp="Your Aspiration Level is higher than your current best utility. " +
                     "You can insist more on your priorities and goals.";
         }
-        if (bestUtility.length > 1 && selectedReservation < bestArray[bestArray.length-1]*100) {
+        if (bestUtility.length > 0 && selectedReservation < bestArray[bestArray.length-1]*100) {
             feedbackRes="Your Reservation Level is lower than your current best utility. " +
                     "Try to achieve your aspiration level and lead the negotiation to an successful end.";
         } else {
@@ -111,6 +93,7 @@ public class FeedbackController {
 
 
         //Feedback 2
+        /*
         Double[] jointUtility = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
@@ -127,16 +110,27 @@ public class FeedbackController {
                 .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
                 .map(n -> n.getContractImbalanceBest())
                 .filter(ci -> ci != null)
-                .toArray(Double[]::new);
-
+                .toArray(Double[]::new);*/
+        List<Double> jointUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
+        List<Double> contractImbalanceList= messageRepository.receiversWorstCase(selectedOption,partnerID);
+        System.out.println("JointUtilityList"+jointUtilityList.size());
+        System.out.println(contractImbalanceList.size());
+        Double[] jointUtility= jointUtilityList.toArray(new Double[0]);
+        Double[] contractImbalance= contractImbalanceList.toArray(new Double[0]);
         //Feedback during Negotiation
+
+        for (Double strTemp : jointUtility){
+            System.out.println("JOINTUTILITYARRAY: "+strTemp);
+        }
         Double[] jointArray = new Double[jointUtility.length/2];
         String[] barColors = new String[jointUtility.length/2];
         String feedbackJointUtility;
         String feedbackContractImbalance;
 
         for(int i = 0; i<jointUtility.length/2; i++) {
+
             jointArray[i] = jointUtility[i];
+            System.out.println(jointArray[i]);
             if (jointArray[i] >= 1.5) {
                 barColors[i] = "rgb(0, 128, 0, 0.5)";
             } else if (jointArray[i] >= 1.4) {
@@ -145,6 +139,7 @@ public class FeedbackController {
                 barColors[i] = "rgb(255, 0, 0, 0.5)";
             }
         }
+        System.out.println("Arraylength: "+jointArray.length);
         if (jointArray[jointArray.length-1] >= 1.5) {
             feedbackJointUtility = "The joint utility from your last offer is very good. Both of you will benefit from this negotiation.";
         } else if(jointArray[jointArray.length-1] >= 1.4) {
