@@ -44,8 +44,8 @@ public class FeedbackController {
 
         List<Double> bestUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
         List<Double> worstUtilityList= messageRepository.receiversWorstCase(selectedOption,partnerID);
-        System.out.println("SizeUtility"+bestUtilityList.size());
-        System.out.println(bestUtilityList.size());
+        //System.out.println("SizeUtility"+bestUtilityList.size());
+        //System.out.println(bestUtilityList.size());
         Double[] bestUtility= bestUtilityList.toArray(new Double[0]);
         Double[] worstUtility= worstUtilityList.toArray(new Double[0]);
         //Feedback during Negotiation
@@ -72,7 +72,7 @@ public class FeedbackController {
         //Individual Feedback
         String feedbackAsp;
         String feedbackRes;
-        System.out.println(bestArray.length);
+        //System.out.println(bestArray.length);
         //FIXME
         if (bestUtility.length > 0 && selectedAspiration < bestUtility[bestUtility.length - 1] * 100) {
             feedbackAsp="Your Aspiration Level is lower than your current best utility. " +
@@ -113,14 +113,14 @@ public class FeedbackController {
                 .toArray(Double[]::new);*/
         List<Double> jointUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
         List<Double> contractImbalanceList= messageRepository.receiversWorstCase(selectedOption,partnerID);
-        System.out.println("JointUtilityList"+jointUtilityList.size());
-        System.out.println(contractImbalanceList.size());
+        //System.out.println("JointUtilityList"+jointUtilityList.size());
+        //System.out.println(contractImbalanceList.size());
         Double[] jointUtility= jointUtilityList.toArray(new Double[0]);
         Double[] contractImbalance= contractImbalanceList.toArray(new Double[0]);
         //Feedback during Negotiation
 
         for (Double strTemp : jointUtility){
-            System.out.println("JOINTUTILITYARRAY: "+strTemp);
+            //System.out.println("JOINTUTILITYARRAY: "+strTemp);
         }
         Double[] jointArray = new Double[jointUtility.length/2];
         String[] barColors = new String[jointUtility.length/2];
@@ -130,7 +130,7 @@ public class FeedbackController {
         for(int i = 0; i<jointUtility.length/2; i++) {
 
             jointArray[i] = jointUtility[i];
-            System.out.println(jointArray[i]);
+            //System.out.println(jointArray[i]);
             if (jointArray[i] >= 1.5) {
                 barColors[i] = "rgb(0, 128, 0, 0.5)";
             } else if (jointArray[i] >= 1.4) {
@@ -139,7 +139,7 @@ public class FeedbackController {
                 barColors[i] = "rgb(255, 0, 0, 0.5)";
             }
         }
-        System.out.println("Arraylength: "+jointArray.length);
+        //System.out.println("Arraylength: "+jointArray.length);
         if (jointArray[jointArray.length-1] >= 1.5) {
             feedbackJointUtility = "The joint utility from your last offer is very good. Both of you will benefit from this negotiation.";
         } else if(jointArray[jointArray.length-1] >= 1.4) {

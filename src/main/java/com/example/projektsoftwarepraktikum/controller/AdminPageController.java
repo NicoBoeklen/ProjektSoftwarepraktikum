@@ -31,7 +31,7 @@ public class AdminPageController {
         List<Double> listSecondFeedback = messageService.getAveragesAdminFeedback();
         for (Double averageValuesDouble:listSecondFeedback
         ) {
-            System.out.println(averageValuesDouble);
+            //System.out.println(averageValuesDouble);
         }
         Double[] arraySecondFeedback= listSecondFeedback.toArray(new Double[0]);
         model.addAttribute("arraySecondFeedback",arraySecondFeedback);

@@ -53,9 +53,9 @@ public class HomeController {
         /*for (List<Double> negotiationMessages:messageRepository.getAverageValuesForEachUser()) {
             for (Double averageValues:negotiationMessages
                  ) {
-                System.out.println(averageValues);
+                //System.out.println(averageValues);
             }
-            System.out.println("new Column");
+            //System.out.println("new Column");
         }*/
 
 

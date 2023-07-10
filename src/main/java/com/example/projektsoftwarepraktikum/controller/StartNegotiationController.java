@@ -41,13 +41,13 @@ public class StartNegotiationController {
 
 
         negModel.setSelectedNegotiationID(negId);
-        System.out.println("NegotiationID: "+negModel.getSelectedNegotiationID());
+        //System.out.println("NegotiationID: "+negModel.getSelectedNegotiationID());
         negModel.setUserId(userService.getCurrentUser().getUserId());
-        System.out.println("User: "+negModel.getUserId());
+        //System.out.println("User: "+negModel.getUserId());
         //!!!!!!!!!!!!!!!!!!!!PROBLEM HIER!!!!!!!!!!!!!!!!!
         modelService.saveNegotiationModel(negModel);
         Integer selectedOption = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedNegotiationID();
-        System.out.println(selectedOption);
+        //System.out.println(selectedOption);
         return "redirect:/feedback";
     }
 }
