@@ -16,33 +16,11 @@
 - Benutzername: admin
 - Passwort: admin
 
-## TO-DO's (Anforderungen Übungsblatt 3.3):
-
-### Allgemein:
-
-### Admin-Bereich:
-- Erstellung einer neuen Willkommensseite
-- Implementierung zweier Feedback-Elemente, die das Feedback aller Verhandlungen aggregiert
-- -> Durchschnitt aller TKI Stile der Verhandler(Durchschnitt über alle Nachrichten oder alle Verhandlungen)
-      + am besten direkt auf der Willkommensseite des Admin
-- tabellarische Übersicht der Ergebnisse aller Verhandlungen, der gesetzten Ziele sowie das Feedback (Ziele vs. Ergebnis)
-    + Anforderung des tabellarischen Feedbacks über Button; Weiterleitung an neue Seite
-- Filterfunktion für die tabellarische Übersicht
-
-### feedback.html:
-
-
-## TO-DO's (aus Feedback Übungsblatt 3.2)
-
-### Allgemein:
-
-
-### login.html:
-
-### register.html:
-
-
-### Extra Features:
+### Hinweise:
+- damit die Admin-Tabelle nicht leer ist, hat jeder User im Vorhinein eingegebene Ziele, diese können
+  aber abgeändert werden
+- jedoch kann jeder User nur Ziele zu einer Verhandlung abspeichern
+- keine Registrierung, da jeder User bereits einen Account hat
 
 
 
