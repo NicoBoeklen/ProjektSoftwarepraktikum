@@ -1,7 +1,6 @@
 package com.example.projektsoftwarepraktikum.controller;
 
 import com.example.projektsoftwarepraktikum.entity.NegotiationMessage;
-import com.example.projektsoftwarepraktikum.entity.NegotiationModel;
 import com.example.projektsoftwarepraktikum.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,6 @@ public class DataController {
 
     @GetMapping("/admin/data/json")
     public List<NegotiationMessage> getData() {
-        return messageService.findAllNegotiationsMessages(); // Retrieve data from your database service
+        return messageService.findAllNegotiationsMessages();
     }
 }

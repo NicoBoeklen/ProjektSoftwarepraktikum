@@ -93,24 +93,7 @@ public class FeedbackController {
 
 
         //Feedback 2
-        /*
-        Double[] jointUtility = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
-                .filter(m -> m.getSenderId() == userID)
-                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
-                .map(n -> n.getJointUtilityBest())
-                .filter(utility_issue1 -> utility_issue1 != null)
-                .toArray(Double[]::new);
 
-        Double[] contractImbalance = messageService.findAllNegotiationsMessages()
-                .stream()
-                .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
-                .filter(m -> m.getSenderId() == userID)
-                .filter(m -> !Objects.equals(m.getMessageType(), "QUESTION") && !Objects.equals(m.getMessageType(),"CLARIFICATION"))
-                .map(n -> n.getContractImbalanceBest())
-                .filter(ci -> ci != null)
-                .toArray(Double[]::new);*/
         List<Double> jointUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
         List<Double> contractImbalanceList= messageRepository.receiversWorstCase(selectedOption,partnerID);
         //System.out.println("JointUtilityList"+jointUtilityList.size());
