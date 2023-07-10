@@ -43,6 +43,9 @@ public List<Double> getAveragesAdminFeedback(){
 
         return averageValues;
 }
+public NegotiationMessage getLastMessage(Integer negotiationId){
+        return messageRepository.getLastMessage(negotiationId);
+}
     public List<NegotiationMessage> findAllNegotiationsMessages() {
         return messageRepository.findAll();
     }

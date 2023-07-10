@@ -1,17 +1,38 @@
 package com.example.projektsoftwarepraktikum.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+@Entity
 public class CombinedEntity {
-    @Autowired
+
+    @GeneratedValue
+    @Id
+    private Integer id;
+    @OneToOne
     private NegotiationModel negotiationModel;
-    @Autowired
+    @OneToOne
     private NegotiationMessage negotiationMessage;
+
+
 
     public CombinedEntity(NegotiationModel negotiationModel, NegotiationMessage negotiationMessage) {
         this.negotiationModel = negotiationModel;
         this.negotiationMessage = negotiationMessage;
     }
 
+    public CombinedEntity() {
 
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
 }
