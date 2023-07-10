@@ -94,8 +94,8 @@ public class FeedbackController {
 
         //Feedback 2
 
-        List<Double> jointUtilityList= messageRepository.receiversBestCase(selectedOption,partnerID);
-        List<Double> contractImbalanceList= messageRepository.receiversWorstCase(selectedOption,partnerID);
+        List<Double> contractImbalanceList= messageRepository.getContractImbalance(selectedOption,partnerID);
+        List<Double> jointUtilityList= messageRepository.getJointUtilityBest(selectedOption,partnerID);
         //System.out.println("JointUtilityList"+jointUtilityList.size());
         //System.out.println(contractImbalanceList.size());
         Double[] jointUtility= jointUtilityList.toArray(new Double[0]);
