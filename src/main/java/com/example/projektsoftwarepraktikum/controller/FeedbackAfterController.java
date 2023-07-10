@@ -92,7 +92,7 @@ public class FeedbackAfterController {
         List<Integer> messageCount = messageService.findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedOption)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getMessageCount())
                 .toList();
 

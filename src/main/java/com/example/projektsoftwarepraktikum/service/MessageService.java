@@ -96,31 +96,31 @@ public class MessageService {
         List<String> accept1 = findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getValue1())
                 .toList();
         List<String> accept2 = findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getValue2())
                 .toList();
         List<String> accept3 = findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getValue3())
                 .toList();
         List<String> accept4 = findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getValue4())
                 .toList();
         List<String> accept5 = findAllNegotiationsMessages()
                 .stream()
                 .filter(m -> m.getNegotiation().getNegotiationId() == selectedNegotiation)
-                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT"))
+                .filter(m -> Objects.equals(m.getMessageType(), "ACCEPT")|| Objects.equals(m.getMessageType(), "REJECT"))
                 .map(n -> n.getValue5())
                 .toList();
 
