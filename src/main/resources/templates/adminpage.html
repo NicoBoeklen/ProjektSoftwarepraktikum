@@ -36,6 +36,66 @@
         function logout() {
             window.location.href = "login";
         }
+
+        function adminExportChart() {
+            let url = radarChart.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'AverageTKIStyle.png';
+            a.click();
+        }
+        function adminExportChart2() {
+            let url = chart4.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'AverageJointUtility.png';
+            a.click();
+        }
+        function adminExportChart3() {
+            let url = chart5.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'AverageContractImbalance.png';
+            a.click();
+        }
+        function adminExportChart4() {
+            let url = chart6.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'AverageMessageCount.png';
+            a.click();
+        }
+
+        document.getElementById('applyButtonAdmin').addEventListener('click', applySelection);
+
+
+        function applySelection() {
+            let checkboxList = document.querySelectorAll('#checkboxListAdmin input[type="checkbox"]');
+
+            for (var i = 0; i < checkboxList.length; i++) {
+                var checkbox = checkboxList[i];
+
+                if (checkbox.checked) {
+
+                    if (checkbox.value === 'Option 1') {
+                        adminExportChart();
+                    }
+                    if (checkbox.value === 'Option 2') {
+                        adminExportChart2();
+                    }
+                    if (checkbox.value === 'Option 3') {
+                        adminExportChart3();
+                    }
+                    if (checkbox.value === 'Option 4') {
+                        adminExportChart4();
+                    }
+                }
+            }
+
+
+            $('#myModal').modal('hide');
+        }
+
     </script>
 
     <style>
