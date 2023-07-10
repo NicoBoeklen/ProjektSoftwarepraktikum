@@ -47,9 +47,9 @@
     <br>
     <br>
 
-    <table class="table table-striped text-white">
+    <table class="table table-striped table-hover table-dark">
         <thead>
-        <tr>
+        <tr class="bg-primary">
             <th scope="col">Negotiation</th>
             <th scope="col">Negotiation partner</th>
             <th scope="col">Start date</th>
@@ -58,7 +58,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="negotiation, row : ${userNegotiations}">
+        <tr style=align:"center" th:each="negotiation, row : ${userNegotiations}">
             <td th:text="${negotiation}"></td>
             <td th:text="${userPartner[row.index]}"></td>
             <td th:text="${beginDate[row.index]}"></td>
