@@ -200,8 +200,8 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         CombinedEntity ce6 = new CombinedEntity(modelService.findNegotiationModelByUserId(148), messageService.getLastMessage(73), 148);
         CombinedEntity ce7 = new CombinedEntity(modelService.findNegotiationModelByUserId(193), messageService.getLastMessage(96), 193);
         CombinedEntity ce8 = new CombinedEntity(modelService.findNegotiationModelByUserId(194), messageService.getLastMessage(96), 194);
-        CombinedEntity ce9 = new CombinedEntity(modelService.findNegotiationModelByUserId(167), messageService.getLastMessage(82), 167);
-        CombinedEntity ce10 = new CombinedEntity(modelService.findNegotiationModelByUserId(168), messageService.getLastMessage(82), 168);
+        CombinedEntity ce9 = new CombinedEntity(modelService.findNegotiationModelByUserId(167), messageService.getLastMessage(83), 167);
+        CombinedEntity ce10 = new CombinedEntity(modelService.findNegotiationModelByUserId(168), messageService.getLastMessage(83), 168);
         CombinedEntity ce11 = new CombinedEntity(modelService.findNegotiationModelByUserId(235), messageService.getLastMessage(117), 235);
         CombinedEntity ce12 = new CombinedEntity(modelService.findNegotiationModelByUserId(236), messageService.getLastMessage(117), 236);
 
