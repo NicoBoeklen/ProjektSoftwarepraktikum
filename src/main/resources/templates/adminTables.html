@@ -96,13 +96,15 @@
                data-show-search-clear-button="true">
             <thead>
         <tr>
-            <th data-field="senderId" data-filter-control="select">Sender ID</th>
-            <th data-field="negotiationMessageId">selectedAspirationLevel</th>
-            <th data-field="negoOutcome" data-filter-control="Outcome">selectedReservationLevel</th>
-            <th data-field="contractImbalanceBest">BestUtility</th>
+            <th data-field="senderId" data-filter-control="select">UserId</th>
+            <th data-field="negotiationMessageId">NegotiationId</th>
+            <th data-field="negoOutcome" data-filter-control="Outcome">SelectedAspirationLevel</th>
+            <th data-field="contractImbalanceBest">SelectedReservationLevel</th>
             <th data-field="contractImbalanceBest">ContractImbalance</th>
             <th data-field="contractImbalanceBest">NegotiationOutcome</th>
             <th data-field="contractImbalanceBest">SenderBestCase</th>
+            <th data-field="contractImbalanceBest">ConclusionDate</th>
+            <th data-field="contractImbalanceBest">MessageCount</th>
         </tr>
         </thead>
         <tbody>
@@ -114,7 +116,8 @@
         function DataForTable(data) {
         $('#NegotiationMessageTable').bootstrapTable({
             data: data,
-            columns: [{field: 'id'},{ field: 'negotiationModel.selectedNegotiationID'},{ field: 'negotiationModel.selectedAspirationLevel'},{ field: 'negotiationModel.selectedReservationLevel'},{ field: 'negotiationMessage.contractImbalanceBest'},{ field: 'negotiationMessage.negoOutcome'},{ field: 'negotiationMessage.senderBestCase'}]
+            columns: [{field: 'id'},{ field: 'negotiationModel.selectedNegotiationID'},{ field: 'negotiationModel.selectedAspirationLevel'},{ field: 'negotiationModel.selectedReservationLevel'},{ field: 'negotiationMessage.contractImbalanceBest'},
+                { field: 'negotiationMessage.negoOutcome'},{ field: 'negotiationMessage.senderBestCase'},{ field: 'negotiationMessage.sentDate'},{ field: 'negotiationMessage.messageCount'}]
         });
     }
     $(document).ready(function() {
