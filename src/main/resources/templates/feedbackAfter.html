@@ -53,8 +53,10 @@
     <canvas id="timeChart"></canvas>
     <h6 th:text="${feedbackTime}"></h6>
     <br>
-    <h6 th:text="'Your most important issue <<'+${selectedIssue}+'>> had an outcome value of <<'+${accept}+'>>.'"></h6>
-
+<h6> Your most important Issue
+<span th:text="${selectedIssue}" style="color: red;"></span>
+had an outcome value of
+<span th:text="${accept}" style="color: red;"></span></h6>
 </div>
 <script th:inline="javascript">
     //RADAR CHART
