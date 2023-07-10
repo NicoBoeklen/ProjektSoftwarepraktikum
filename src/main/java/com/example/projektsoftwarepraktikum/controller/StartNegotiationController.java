@@ -38,16 +38,11 @@ public class StartNegotiationController {
 
     @PostMapping("/negotiation")
     public String Feedback(@ModelAttribute("negModel") NegotiationModel negModel) {
-
-
         negModel.setSelectedNegotiationID(negId);
-        //System.out.println("NegotiationID: "+negModel.getSelectedNegotiationID());
         negModel.setUserId(userService.getCurrentUser().getUserId());
-        //System.out.println("User: "+negModel.getUserId());
-        //!!!!!!!!!!!!!!!!!!!!PROBLEM HIER!!!!!!!!!!!!!!!!!
         modelService.saveNegotiationModel(negModel);
-        Integer selectedOption = modelService.findNegotiationModelByUserId(userService.getCurrentUser().getUserId()).getSelectedNegotiationID();
-        //System.out.println(selectedOption);
+
+
         return "redirect:/feedback";
     }
 }
