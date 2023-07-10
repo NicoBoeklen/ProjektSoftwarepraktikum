@@ -50,7 +50,8 @@ public class MessageService {
     }
 
     public NegotiationMessage getLastMessage(Integer negotiationId) {
-        return findNegotiationMessageById(messageRepository.getLastMessage(negotiationId));
+        List<Integer> messageId = messageRepository.getLastMessage(negotiationId);
+        return findNegotiationMessageById(messageId.get(0));
     }
 
     public List<NegotiationMessage> findAllNegotiationsMessages() {

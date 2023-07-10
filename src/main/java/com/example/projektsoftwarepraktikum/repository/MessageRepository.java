@@ -78,5 +78,5 @@ public interface MessageRepository extends JpaRepository<NegotiationMessage, Int
     List<Double> getJointUtilityBest(@Param("negotiation") Integer negotiation, @Param("userId") Integer userId);
 
     @Query("SELECT nm.negotiationMessageId FROM NegotiationMessage nm WHERE nm.messageType='ACCEPT' OR nm.messageType='REJECT' AND nm.negotiation.negotiationId=:negotiation")
-    Integer getLastMessage(@Param("negotiation") Integer negotiation);
+    List<Integer> getLastMessage(@Param("negotiation") Integer negotiation);
 }
