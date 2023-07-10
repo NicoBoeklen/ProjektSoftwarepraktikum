@@ -192,18 +192,18 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
 
         //Admin-Entity
         //für jeden User
-        CombinedEntity ce1 = new CombinedEntity(modelService.findNegotiationModelByUserId(35), messageService.getLastMessage(17));
-        CombinedEntity ce2 = new CombinedEntity(modelService.findNegotiationModelByUserId(36), messageService.getLastMessage(17));
-        CombinedEntity ce3 = new CombinedEntity(modelService.findNegotiationModelByUserId(83), messageService.getLastMessage(41));
-        CombinedEntity ce4 = new CombinedEntity(modelService.findNegotiationModelByUserId(84), messageService.getLastMessage(41));
-        CombinedEntity ce5 = new CombinedEntity(modelService.findNegotiationModelByUserId(147), messageService.getLastMessage(73));
-        CombinedEntity ce6 = new CombinedEntity(modelService.findNegotiationModelByUserId(148), messageService.getLastMessage(73));
-        CombinedEntity ce7 = new CombinedEntity(modelService.findNegotiationModelByUserId(193), messageService.getLastMessage(96));
-        CombinedEntity ce8 = new CombinedEntity(modelService.findNegotiationModelByUserId(194), messageService.getLastMessage(96));
-        CombinedEntity ce9 = new CombinedEntity(modelService.findNegotiationModelByUserId(167), messageService.getLastMessage(82));
-        CombinedEntity ce10 = new CombinedEntity(modelService.findNegotiationModelByUserId(168), messageService.getLastMessage(82));
-        CombinedEntity ce11 = new CombinedEntity(modelService.findNegotiationModelByUserId(235), messageService.getLastMessage(117));
-        CombinedEntity ce12 = new CombinedEntity(modelService.findNegotiationModelByUserId(236), messageService.getLastMessage(117));
+        CombinedEntity ce1 = new CombinedEntity(modelService.findNegotiationModelByUserId(35), messageService.getLastMessage(17), 35);
+        CombinedEntity ce2 = new CombinedEntity(modelService.findNegotiationModelByUserId(36), messageService.getLastMessage(17), 36);
+        CombinedEntity ce3 = new CombinedEntity(modelService.findNegotiationModelByUserId(83), messageService.getLastMessage(41), 83);
+        CombinedEntity ce4 = new CombinedEntity(modelService.findNegotiationModelByUserId(84), messageService.getLastMessage(41), 84);
+        CombinedEntity ce5 = new CombinedEntity(modelService.findNegotiationModelByUserId(147), messageService.getLastMessage(73), 147);
+        CombinedEntity ce6 = new CombinedEntity(modelService.findNegotiationModelByUserId(148), messageService.getLastMessage(73), 148);
+        CombinedEntity ce7 = new CombinedEntity(modelService.findNegotiationModelByUserId(193), messageService.getLastMessage(96), 193);
+        CombinedEntity ce8 = new CombinedEntity(modelService.findNegotiationModelByUserId(194), messageService.getLastMessage(96), 194);
+        CombinedEntity ce9 = new CombinedEntity(modelService.findNegotiationModelByUserId(167), messageService.getLastMessage(82), 167);
+        CombinedEntity ce10 = new CombinedEntity(modelService.findNegotiationModelByUserId(168), messageService.getLastMessage(82), 168);
+        CombinedEntity ce11 = new CombinedEntity(modelService.findNegotiationModelByUserId(235), messageService.getLastMessage(117), 235);
+        CombinedEntity ce12 = new CombinedEntity(modelService.findNegotiationModelByUserId(236), messageService.getLastMessage(117), 236);
 
         combinedEntityService.saveCombinedEntity(ce1);
         combinedEntityService.saveCombinedEntity(ce2);
@@ -217,6 +217,6 @@ public class TestDataLoader implements ApplicationListener<ContextRefreshedEvent
         combinedEntityService.saveCombinedEntity(ce10);
         combinedEntityService.saveCombinedEntity(ce11);
         combinedEntityService.saveCombinedEntity(ce12);
-        
+
     }
 }

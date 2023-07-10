@@ -8,19 +8,21 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class CombinedEntity {
 
-    @GeneratedValue
     @Id
     private Integer id;
+
     @OneToOne
     private NegotiationModel negotiationModel;
+
     @OneToOne
     private NegotiationMessage negotiationMessage;
 
 
 
-    public CombinedEntity(NegotiationModel negotiationModel, NegotiationMessage negotiationMessage) {
+    public CombinedEntity(NegotiationModel negotiationModel, NegotiationMessage negotiationMessage, Integer id) {
         this.negotiationModel = negotiationModel;
         this.negotiationMessage = negotiationMessage;
+        this.id = id;
     }
 
     public CombinedEntity() {
