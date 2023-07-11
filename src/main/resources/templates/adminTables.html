@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style>
-
         /*changing the color of the clearSearch-Button */
         .btn-secondary[name="clearSearch"] {
             background-color: red;
@@ -46,7 +45,37 @@
         function logout() {
             window.location.href = "login";
         }
+
+        function downloadTableData() {
+            let table = document.getElementById("NegotiationMessageTable");
+
+            let csvContent = "";
+
+            for (let i = 0; i < table.rows.length; i++) {
+                const rowData = [];
+                const row = table.rows[i];
+
+                // Iterate over the row cells
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cell = row.cells[j];
+                    rowData.push(cell.innerText);
+                }
+
+                // Join the row data with commas and add a newline
+                csvContent += rowData.join(",") + "\n";
+            }
+
+            // Create a Blob object from the CSV content, the blob object stores the data
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+
+            // Create a temporary anchor element
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "user_data.csv";
+            link.click();
+        }
     </script>
+
 </head>
 <body style="background-color: #343a40">
 
@@ -90,9 +119,13 @@
 </nav>
 
 <div class="container-fluid bg-light" >
+    <button type="button" class="btn btn-primary" onclick="downloadTableData()" style="margin-top: 0px; margin-bottom: -50px">
+        Download as CSV
+    </button>
         <table id="NegotiationMessageTable" class="table table-striped"
                data-filter-control="true"
-               data-show-search-clear-button="true">
+               data-show-search-clear-button="true"
+               style="margin-top: 0px" >
             <thead>
         <tr>
             <th data-field="senderId" data-filter-control="select" class="align-top">UserId</th>
