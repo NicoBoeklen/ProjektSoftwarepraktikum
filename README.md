@@ -24,7 +24,6 @@
 
 
 TODO:
-- mehr suchfunktionen in der Tabelle
 - eventuell navbar fixieren bei scrollen (in class fixed-top)
 
 
