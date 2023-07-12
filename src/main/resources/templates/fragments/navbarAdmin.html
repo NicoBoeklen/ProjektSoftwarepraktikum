@@ -31,48 +31,6 @@
         </ul>
 
 
-        <div class="modal fade" id="ModalAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Admin Charts</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <ul id="checkboxListAdmin">
-                  <div>
-                    <label>
-                      <input type="checkbox" value="Option 1"> Average TKI Value Of Users Chart
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      <input type="checkbox" value="Option 2"> Average Joint Utility Chart
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      <input type="checkbox" value="Option 3"> Average Contract Imbalance Chart
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      <input type="checkbox" value="Option 4"> Average Message Count Chart
-                    </label>
-                  </div>
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button onclick="applySelectionAdmin()" type="button" class="btn btn-primary" id="applyButtonAdmin"><i class="fas fa-download"></i>
-                  Export
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <ul class="nav navbar-nav ml-auto mb-2 mb-lg-0">
           <form th:action="@{/logout}" method="post">
             <button type="submit" class="btn btn-primary">
