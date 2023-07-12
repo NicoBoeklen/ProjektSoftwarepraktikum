@@ -15,14 +15,89 @@
     <link rel="stylesheet" type="text/css" href="logo.css"/>
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6487/6487865.png">
     <script>
+
+        function exportChart() {
+            let url = radarChart.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'TKIChart.png';
+            a.click();
+        }
+
+        function exportChart2() {
+            let url = chart5.toBase64Image();
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'Duration.png';
+            a.click();
+        }
+
+        function applySelectionAfter() {
+            var checkboxList = document.querySelectorAll('#checkboxListAfter input[type="checkbox"]');
+
+            for (var i = 0; i < checkboxList.length; i++) {
+                var checkbox = checkboxList[i];
+
+                if (checkbox.checked) {
+
+                    if (checkbox.value === 'Option 1') {
+                        exportChart();
+                    }
+                    if (checkbox.value === 'Option 2') {
+                        exportChart2();
+                    }
+                }
+            }
+
+
+            $('#myModal').modal('hide');
+        }
+
     </script>
 </head>
 <body>
 <th:block th:insert="~{fragments/navbar :: navbar}"></th:block>
-<div class="container">
+
+<div class="modal fade" id="ModalAfter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Charts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul id="checkboxListAfter">
+                    <div>
+                        <label>
+                            <input type="checkbox" value="Option 1"> TKI Chart
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" value="Option 2"> Duration Chart
+                        </label>
+                    </div>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button onclick="applySelectionAfter()" type="button" class="btn btn-primary" id="applyButtonAfter"><i class="fas fa-download"></i>
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" >
     <h3>Feedback after the negotiation</h3>
     <h5 th:text="'Here you can see your personal TKI-Style:'"></h5>
     <p th:text="'All values are in percent!'"></p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAfter" style="position: relative; top: -10px;"><i
+            class="fas fa-download"></i>
+        Export Diagrams
+    </button>
     <canvas id="TkiDiagram"></canvas>
     <div class="row">
         <div class="col-3"></div>
