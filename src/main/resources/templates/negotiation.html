@@ -22,7 +22,6 @@
         }
 
         function validateInput() {
-            let time = parseInt(document.getElementById("time").value);
             let resLevel = document.getElementById("reservationLevel").value;
             let aspLevel = document.getElementById("aspirationLevel").value;
             let errorContainer = document.getElementById("errorContainer");
@@ -33,12 +32,7 @@
 
             errorContainerText.innerHTML = "";
             errorContainer.hidden = true;
-            // Check if time is negative
-            if (time <= 0) {
-                errorContainerText.innerHTML = "Chosen time can not be negativ or null!";
-                errorContainer.hidden = false;
-                return false;
-            }
+
             if (resLevel > aspLevel) {
                 errorContainerText.innerHTML = "Aspiration Level has to be higher than Reservation Level!";
                 errorContainer.hidden = false;
