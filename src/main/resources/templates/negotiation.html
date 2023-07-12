@@ -103,7 +103,7 @@
             <form th:object="${negModel}" th:action="@{/negotiation}" method="post" onsubmit="return validateInput()">
                 <label for="input1">TKI-Style</label>
                 <br>
-                <select onchange="updateProgress()" id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required th:field="*{selectedTKIStyle}">
+                <select onchange="updateProgress()" id="input1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required th:field="*{selectedTKIStyle}" style="width: 25vw;">
                     <option selected hidden value="">Choose your favoured TKI-Style</option>
                     <option value="Competing">Competing</option>
                     <option value="Compromising">Compromising</option>
@@ -116,7 +116,7 @@
 
                 <label for="input2">Most important Issue</label>
                 <br>
-                <select onchange="updateProgress()" id="input2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required th:field="*{selectedIssue}">
+                <select onchange="updateProgress()" id="input2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required th:field="*{selectedIssue}" style="width: 25vw;">
                     <option selected hidden value="">Choose your most important issue</option>
                     <option value="1">Investment</option>
                     <option value="2">Lawn</option>
@@ -130,7 +130,8 @@
 
                 <div class="form-group">
                     <label for="time">How fast do you need a conclusion?</label>
-                    <input type="number" onchange="updateProgress()" id="time" name="timeRange" class="issue-range" min="1" max="5" placeholder="Number of days"  required th:field="*{selectedNumberOfDays}">
+                    <br>
+                    <input type="number" onchange="updateProgress()" id="time" name="timeRange" class="issue-range" min="1" max="5" placeholder="Number of days"  required th:field="*{selectedNumberOfDays}" style="width: 12vw;">
                 </div>
 
                 <br>
