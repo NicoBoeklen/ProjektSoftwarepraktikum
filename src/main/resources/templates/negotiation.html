@@ -130,7 +130,7 @@
 
                 <div class="form-group">
                     <label for="time">How fast do you need a conclusion?</label>
-                    <input type="number" onchange="updateProgress()" id="time" name="timeRange" class="issue-range" placeholder="Number of days" required th:field="*{selectedNumberOfDays}">
+                    <input type="number" onchange="updateProgress()" id="time" name="timeRange" class="issue-range" min="1" max="5" placeholder="Number of days"  required th:field="*{selectedNumberOfDays}">
                 </div>
 
                 <br>
